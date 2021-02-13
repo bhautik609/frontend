@@ -1,0 +1,22 @@
+<p>editdelivery works!</p>
+<div class="container">
+    <form [formGroup]="deliveryform" (ngSubmit)="onSaveClick()">
+      <mat-form-field>
+         <input matInput  formControlName="del_id"  placeholder="Enter delivery ID">
+        </mat-form-field>
+         <mat-form-field>
+          <input matInput  formControlName="order_id_fk"  placeholder="Enter deliveryrder_id_fk">
+         </mat-form-field>
+          <mat-form-field>
+          <input matInput  formControlName="emp_id_fk"  placeholder="Enter delivery emp_id_fk">
+         </mat-form-field>
+         <mat-form-field>
+          <input matInput  formControlName="del_date"  placeholder="Enter delivery del_date">
+         </mat-form-field>
+         <mat-form-field>
+          <input matInput  formControlName="del_status"  placeholder="Enter delivery status">
+         </mat-form-field>
+         <br><br>
+         <button type="submit" class="btn btn-primary">Save</button>
+      </form>
+    </div>
