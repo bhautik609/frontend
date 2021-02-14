@@ -1,56 +1,3 @@
-<p>delivery works!</p>
-<button (click)="addclik()" type="button" class="btn btn-primary" aria-label="Left Align">Add
-</button>
-<div class="container" *ngIf="flag">
-  <form [formGroup]="deliveryform" (ngSubmit)="onSaveClick()">
-  <mat-form-field>
-     <input matInput  formControlName="del_id"  placeholder="Enter delivery ID">
-    </mat-form-field>
-     <mat-form-field>
-      <input matInput  formControlName="order_id_fk"  placeholder="Enter deliveryrder_id_fk">
-     </mat-form-field>
-      <mat-form-field>
-      <input matInput  formControlName="emp_id_fk"  placeholder="Enter delivery emp_id_fk">
-     </mat-form-field>
-     <mat-form-field>
-      <input matInput  formControlName="del_date"  placeholder="Enter delivery del_date">
-     </mat-form-field>
-     <mat-form-field>
-      <input matInput  formControlName="del_status"  placeholder="Enter delivery status">
-     </mat-form-field>
-     <br><br>
-     <button type="submit" class="btn btn-primary">Save</button>
-     <button (click)="cancle()" type="button" class="btn btn-primary" aria-label="Left Align">cancle
-    </button>
-  </form>
-</div>
-
-<!--<div class="row">
-    <table class="table">
-      <thead>
-         <th>del_id</th>
-        <th>order_id_fk</th>
-        <th>emp_id_fk</th>
-        <th>del_date</th>
-        <th>del_status</th>
-    </thead>
-        <tr *ngFor="let item of obj;let i=index">
-          <td>{{item.del_id}}</td>
-          <td>{{item.order_id_fk}}</td>
-          <td>{{item.emp_id_fk}}</td>
-          <td>{{item.del_date}}</td>
-          <td>{{item.del_status}}</td>
-          <td>
-            <button type="button" class="btn btn-primary" (click)="ondelete(item)"aria-label="Left Align">Delete
-            </button> 
-            <button  type="button" class="btn btn-primary"  (click)="edit(item)"aria-label="Left Align">edit
-            </button> 
-          </td>
-        </tr>
-    </table>
-  </div>
-
--->
 <div class="container">
   <mat-form-field>
     <mat-label>Filter</mat-label>
@@ -87,25 +34,34 @@
         <th mat-header-cell *matHeaderCellDef mat-sort-header> del_status </th>
         <td mat-cell *matCellDef="let row"> {{row.del_status}} </td>
       </ng-container>
-      <ng-container  matColumnDef="action">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
+      
+       <ng-container  matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef>DELETE RECORD</th>
         <td mat-cell *matCellDef="let row;let i=index">
-        
-          <button mat-icon-button color="accent" (click)="ondelete(row,i)">
+         <button mat-icon-button color="accent" (click)="ondelete(row,i)">
             <mat-icon>delete</mat-icon>
           </button>
-           
-           
-        </td> 
-       </ng-container> 
+          </td> 
+       </ng-container>
+       
+       
        <ng-container  matColumnDef="edit">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>EDIT </th>
+        <th mat-header-cell *matHeaderCellDef>EDIT RECORD </th>
         <td mat-cell *matCellDef="let row;let i=index">
-          <button mat-icon-button color="accent"   (click)="edit(row,i)">
+          <button mat-icon-button color="accent"(click)="edit(row,i)">
             <mat-icon>edit</mat-icon>
           </button> 
            </td> 
        </ng-container>   
+
+       <ng-container  matColumnDef="add">
+        <th mat-header-cell *matHeaderCellDef>ADD NEW RECORD</th>
+        <td mat-cell *matCellDef="let row;let i=index">
+          <button mat-mini-fab color="accent"(click)="addclik()">
+            <mat-icon>add</mat-icon>
+          </button> 
+           </td> 
+       </ng-container> 
 
       
   

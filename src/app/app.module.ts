@@ -19,6 +19,9 @@ import{MatPaginatorModule}from '@angular/material/paginator';
 import { EditdeliveryComponent } from './delivery/editdelivery/editdelivery.component';
 import { EmpComponent } from './emp/emp.component';
 import { EditempComponent } from './emp/editemp/editemp.component';
+import { AddcatComponent } from './cat/addcat/addcat.component';
+import { AdddeliveryComponent } from './delivery/adddelivery/adddelivery.component';
+import { AddempComponent } from './emp/addemp/addemp.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +32,10 @@ import { EditempComponent } from './emp/editemp/editemp.component';
     EditcatComponent,
     EditdeliveryComponent,
     EmpComponent,
-    EditempComponent
+    EditempComponent,
+    AddcatComponent,
+    AdddeliveryComponent,
+    AddempComponent
   ],
   imports: [
     BrowserModule,

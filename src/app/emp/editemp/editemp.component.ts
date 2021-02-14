@@ -50,6 +50,7 @@ emp_id;
         alert('something went wrong');
         console.log(data);
       }
+      this.empform.reset({});
 
     });
 

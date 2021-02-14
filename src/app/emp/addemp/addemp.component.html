@@ -1,0 +1,22 @@
+<div class="container">
+    <form [formGroup]="empform" (ngSubmit)="onSaveClick()">
+      <mat-form-field>
+         <input matInput  formControlName="emp_id"  placeholder="Enter emp ID">
+        </mat-form-field>
+         <mat-form-field>
+          <input matInput  formControlName="emp_name"  placeholder="Enter emp name">
+         </mat-form-field>
+          <mat-form-field>
+          <input matInput  formControlName="emp_email"  placeholder="Enter emp email">
+         </mat-form-field>
+         <mat-form-field>
+          <input matInput  formControlName="emp_salary"  placeholder="Enter emp salary">
+         </mat-form-field>
+         <mat-form-field>
+          <input matInput  formControlName="emp_join_date"  placeholder="Enter emp join date">
+         </mat-form-field>
+         <br><br>
+         <button type="submit" class="btn btn-primary">Save</button>
+      </form>
+    </div>
+

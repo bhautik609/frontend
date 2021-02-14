@@ -36,6 +36,16 @@ export class EditcatComponent implements OnInit {
   onSaveClick(){
     this._editcat.editcat(this.catform.value).subscribe((data:any)=>{
       console.log(data);
+      if(data.affectedRows==1)
+      {
+        alert('data updated succesfully');
+    
+      }
+      else{
+        alert('something went wrong');
+        console.log(data);
+      }
+
     });
   }
 

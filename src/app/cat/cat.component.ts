@@ -13,7 +13,7 @@ import{MatSort}from "@angular/material/sort";
   styleUrls: ['./cat.component.css']
 })
 export class CatComponent implements OnInit,AfterViewInit {
-  displayedColumns: string[] = ['cat_id','cat_name','action','edit'];
+  displayedColumns: string[] = ['cat_id','cat_name','action','edit','add'];
   dataSource: MatTableDataSource<cat>;
 
 
@@ -32,11 +32,7 @@ export class CatComponent implements OnInit,AfterViewInit {
 
 
   ngOnInit(): void {
-   this.catform= new FormGroup({
-    cat_id:new FormControl(null),
-    cat_name:new FormControl(null)
-   });
-    this._catdata.getAllCat().subscribe((data:cat[])=>{
+      this._catdata.getAllCat().subscribe((data:cat[])=>{
       this.obj=data;
       this.dataSource.data=data;
    console.log(data);
@@ -50,26 +46,7 @@ export class CatComponent implements OnInit,AfterViewInit {
       this.dataSource.paginator.firstPage();
     }
   }
-
-  
-  onSaveClick(){
-    this._catdata.addcat(this.catform.value).subscribe((data:any)=>{
-      console.log(data);
-      if(data.affectedRows==1)
-      {
-        alert('data inserted succesfully');
-        this.obj.push(this.catform.value);
-        this.dataSource.data=this.obj;
-      }
-      else{
-        alert('something went wrong');
-        console.log(data);
-      }
-    });
-   // console.log(this.catform.value);
-   
-  }
-  ondelete(item:cat){
+   ondelete(item:cat){
 
   if(confirm("Are you sure you want to delete?"))
    {
@@ -94,6 +71,9 @@ export class CatComponent implements OnInit,AfterViewInit {
 editcat(item:cat){
 this._router.navigate(['/editcat',item.cat_id]);
 
+}
+addcat(){
+  this._router.navigate(["/addcat"]);
 }
 
 

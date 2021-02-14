@@ -51,6 +51,7 @@ export class EditdeliveryComponent implements OnInit {
         alert('something went wrong');
         console.log(data);
       }
+      this.deliveryform.reset({});
     });
 
   }

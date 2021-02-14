@@ -12,7 +12,7 @@ import { Router } from "@angular/router";
   styleUrls: ['./emp.component.css']
 })
 export class EmpComponent implements OnInit ,AfterViewInit{
-  displayedColumns: string[] = ['emp_id','emp_name','emp_email','emp_salary','emp_join_date','action','edit'];
+  displayedColumns: string[] = ['emp_id','emp_name','emp_email','emp_salary','emp_join_date','action','edit','add'];
   dataSource: MatTableDataSource<emp>;
 empform:FormGroup;
 obj:emp[]=[];
@@ -34,34 +34,18 @@ flage:boolean=false;
       this.dataSource.data=data
 
     });
-    this.empform= new FormGroup({
-      emp_id:new FormControl(null),
-      emp_name:new FormControl(null),
-      emp_email:new FormControl(null),
-      emp_salary:new FormControl(null),
-      emp_join_date:new FormControl(null)
-    });
+    }
+    applyFilter(event:Event){
+      const filterValue = (event.target as HTMLInputElement).value;
+      this.dataSource.filter = filterValue.trim().toLowerCase();
   
-  }
-  onSaveClick(){
-    this._empdata.addemp(this.empform.value).subscribe((data:any)=>{
-      console.log(data);
-      if(data.affectedRows==1)
-      {
-        alert('data inserted succesfully');
-        this.obj.push(this.empform.value);
-        this.dataSource.data=this.obj;
+      if (this.dataSource.paginator) {
+        this.dataSource.paginator.firstPage();
       }
-      else{
-        alert('something went wrong');
-        console.log(data);
-      }
-
-    });
-    //console.log(this.empform.value)
-  }
+    }
+  
   addclik(){
-        this.flage=true;
+        this._router.navigate(['/addemp']);
   }
   can(){
     this.flage=false;
@@ -85,6 +69,6 @@ flage:boolean=false;
      this._router.navigate(['/editemp',item.emp_id]);
     
   }
-
+  
 
 }

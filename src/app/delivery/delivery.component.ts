@@ -12,7 +12,7 @@ import { Router } from "@angular/router";
   styleUrls: ['./delivery.component.css']
 })
 export class DeliveryComponent implements OnInit ,AfterViewInit{
-  displayedColumns: string[] = ['del_id','order_id_fk','emp_id_fk','del_date','del_status','action','edit'];
+  displayedColumns: string[] = ['del_id','order_id_fk','emp_id_fk','del_date','del_status','action','edit','add'];
   dataSource: MatTableDataSource<delivery>;
   deliveryform:FormGroup;
    obj:delivery[]=[];
@@ -35,14 +35,6 @@ export class DeliveryComponent implements OnInit ,AfterViewInit{
       this.obj=data;
       this.dataSource.data=data;
   });
-  this.deliveryform= new FormGroup({
-    del_id:new FormControl(null),
-    order_id_fk:new FormControl(null),
-    emp_id_fk:new FormControl(null),
-    del_date:new FormControl(null),
-    del_status:new FormControl(null)
-  });
-
   }
   applyFilter(event:Event){
     const filterValue = (event.target as HTMLInputElement).value;
@@ -90,7 +82,7 @@ export class DeliveryComponent implements OnInit ,AfterViewInit{
       this._router.navigate(['/editdelivery',item.del_id]);
     }
     addclik(){
-      this.flag = true;
+      this._router.navigate(['/adddelivery']);
     }
     cancle(){
       this.flag=false;
