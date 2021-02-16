@@ -1,0 +1,19 @@
+<div class="container">
+    <form [formGroup]="orderdetailform" (ngSubmit)="onSaveClick()">
+      <mat-form-field>
+         <input matInput  formControlName="order_detail_id"  placeholder="Enter order detail id">
+        </mat-form-field>
+         <mat-form-field>
+          <input matInput  formControlName="order_id_fk"  placeholder="Enter order_id_fk">
+         </mat-form-field>
+          <mat-form-field>
+          <input matInput  formControlName="product_id_fk"  placeholder="Enter product_id_fk">
+         </mat-form-field>
+         <mat-form-field>
+          <input matInput  formControlName="order_qty"  placeholder="Enter order_qty">
+         </mat-form-field>
+          <br><br>
+         <button type="submit" class="btn btn-primary">Save</button>
+      </form>
+    </div>
+

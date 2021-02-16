@@ -22,6 +22,20 @@ import { EditempComponent } from './emp/editemp/editemp.component';
 import { AddcatComponent } from './cat/addcat/addcat.component';
 import { AdddeliveryComponent } from './delivery/adddelivery/adddelivery.component';
 import { AddempComponent } from './emp/addemp/addemp.component';
+import { OrderdetailComponent } from './orderdetail/orderdetail.component';
+
+import { AddorderdetailComponent } from './orderdetail/addorderdetail/addorderdetail.component';
+import { EditorderdetailComponent } from './orderdetail/editorderdetail/editorderdetail.component';
+import { OrderComponent } from './order/order.component';
+import { EditorderComponent } from './order/editorder/editorder.component';
+import { AddorderComponent } from './order/addorder/addorder.component';
+import { ProductComponent } from './product/product.component';
+import { AddproductComponent } from './product/addproduct/addproduct.component';
+import { EditproductComponent } from './product/editproduct/editproduct.component';
+import { UserComponent } from './user/user.component';
+import { EdituserComponent } from './user/edituser/edituser.component';
+import { AdduserComponent } from './user/adduser/adduser.component';
+import {MatRadioModule} from '@angular/material/radio';
 
 @NgModule({
   declarations: [
@@ -35,7 +49,20 @@ import { AddempComponent } from './emp/addemp/addemp.component';
     EditempComponent,
     AddcatComponent,
     AdddeliveryComponent,
-    AddempComponent
+    AddempComponent,
+    OrderdetailComponent,
+    AddorderdetailComponent,
+    EditorderdetailComponent,
+    OrderComponent,
+    EditorderComponent,
+    AddorderComponent,
+    ProductComponent,
+    AddproductComponent,
+    EditproductComponent,
+    UserComponent,
+    EdituserComponent,
+    AdduserComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -51,7 +78,7 @@ import { AddempComponent } from './emp/addemp/addemp.component';
     MatInputModule,
     MatSortModule,
     MatPaginatorModule,
-  
+    MatRadioModule
     
   ],
   providers: [],

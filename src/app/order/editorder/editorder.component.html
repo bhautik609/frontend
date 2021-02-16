@@ -1,0 +1,28 @@
+<p>editorder works!</p>
+<div class="container">
+    <form [formGroup]="orderform" (ngSubmit)="onSaveClick()">
+    <mat-form-field>
+       <input matInput  formControlName="order_id"  placeholder="Enter order ID">
+      </mat-form-field>
+       <mat-form-field>
+        <input matInput  formControlName="order_date"  placeholder="Enter order date">
+       </mat-form-field>
+        <mat-form-field>
+        <input matInput  formControlName="order_amount"  placeholder="Enter order amount">
+       </mat-form-field>
+       <mat-form-field>
+        <input matInput  formControlName="product_id_fk"  placeholder="Enter product_id_fk">
+       </mat-form-field>
+       <mat-form-field>
+        <input matInput  formControlName="user_id_fk"  placeholder="Enter user_id_fk">
+       </mat-form-field>
+       <mat-form-field>
+        <input matInput  formControlName="payment_type"  placeholder="Enter payment_type">
+       </mat-form-field>
+       <mat-form-field>
+        <input matInput  formControlName="payment_status"  placeholder="Enter payment_status">
+       </mat-form-field>
+       <br><br>
+       <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+  </div>
