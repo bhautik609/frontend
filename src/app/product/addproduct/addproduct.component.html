@@ -40,8 +40,16 @@
         <input matInput  formControlName="product_img3"  placeholder="Enter product_img3">
        </mat-form-field>
 
-       <mat-form-field>
+       <!--<mat-form-field>
         <input matInput  formControlName="cat_id_fk"  placeholder="Enter product_id_fk">
+       </mat-form-field>-->
+       <mat-form-field>
+         <mat-label>Select cat name</mat-label>
+          <mat-select formControlName="cat_id_fk">
+               <mat-option *ngFor="let item of obj" [value]="item.cat_id">
+                {{item.cat_name}}
+             </mat-option>
+          </mat-select>
        </mat-form-field>
        <br><br>
        <button type="submit" class="btn btn-primary">Save</button>

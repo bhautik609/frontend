@@ -65,10 +65,10 @@ displayedColumns: string[] = ['user_id','user_password','user_name','user_email'
 
   }
   edit(item:user){
-    this._router.navigate(['edituser',item.user_id]);
+    this._router.navigate(['/home/edituser',item.user_id]);
   }
   addclik(){
-    this._router.navigate(['adduser']);
+    this._router.navigate(['/home/adduser']);
   }
 
 }

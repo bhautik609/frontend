@@ -10,6 +10,7 @@ import{order}from '../order';
 export class AddorderComponent implements OnInit {
 orderform:FormGroup;
 obj:order[]=[];
+payment:string[]=["done","pending"];
   constructor(private _orderdata:OrderService) { }
 
   ngOnInit(): void {
@@ -25,7 +26,19 @@ obj:order[]=[];
   }
   onSaveClick(){
     this._orderdata.addorder(this.orderform.value).subscribe((data:any)=>{
-      console.log(data);});
+      console.log(data);
+      if(data.affectedRows==1)
+      {
+        alert('data inserted succesfully');
+        
+      }
+      else{
+        alert('something went wrong');
+        console.log(data);
+      }
+      this.orderform.reset({});
+
+    });
 
   }
 

@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { CatService } from 'src/app/cat.service';
+import { cat } from 'src/app/cat/cat';
 import { ProductService } from 'src/app/product.service';
 import{product}from'../product';
+
 @Component({
   selector: 'app-addproduct',
   templateUrl: './addproduct.component.html',
@@ -9,8 +12,8 @@ import{product}from'../product';
 })
 export class AddproductComponent implements OnInit {
 productform:FormGroup;
-obj:product[]=[];
-  constructor(private _productdata:ProductService) { }
+obj:cat[]=[];
+  constructor(private _productdata:ProductService,private _catdata:CatService) { }
 
   ngOnInit(): void {
     this.productform= new FormGroup({
@@ -27,6 +30,9 @@ obj:product[]=[];
       product_img3:new FormControl(null),
       cat_id_fk:new FormControl(null)
 
+    });
+    this._catdata.getAllCat().subscribe((data:cat[])=>{
+      this.obj=data;
     });
   }
   onSaveClick(){

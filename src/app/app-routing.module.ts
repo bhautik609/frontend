@@ -1,5 +1,6 @@
 import { Component, NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AdmindashbordComponent } from './admindashbord/admindashbord.component';
 import { AddcatComponent } from './cat/addcat/addcat.component';
 import { CatComponent } from './cat/cat.component';
 import { EditcatComponent } from './cat/editcat/editcat.component';
@@ -9,6 +10,7 @@ import { EditdeliveryComponent } from './delivery/editdelivery/editdelivery.comp
 import { AddempComponent } from './emp/addemp/addemp.component';
 import { EditempComponent } from './emp/editemp/editemp.component';
 import { EmpComponent } from './emp/emp.component';
+import { LoginComponent } from './login/login.component';
 import { AddorderComponent } from './order/addorder/addorder.component';
 import { EditorderComponent } from './order/editorder/editorder.component';
 import { OrderComponent } from './order/order.component';
@@ -18,12 +20,16 @@ import { OrderdetailComponent } from './orderdetail/orderdetail.component';
 import { AddproductComponent } from './product/addproduct/addproduct.component';
 import { EditproductComponent } from './product/editproduct/editproduct.component';
 import { ProductComponent } from './product/product.component';
+import { ShellComponent } from './shell/shell.component';
 import { AdduserComponent } from './user/adduser/adduser.component';
 import { EdituserComponent } from './user/edituser/edituser.component';
 import { UserComponent } from './user/user.component';
 
 const routes: Routes = [
-  {path:'',component:CatComponent},
+  {path:'',component:LoginComponent},
+  {path:'home',component:ShellComponent,children:[
+  {path:'',component:AdmindashbordComponent},
+  {path:'cat',component:CatComponent},
   {path:'delivery',component:DeliveryComponent},
   {path:'editcat/:cat_id',component:EditcatComponent},
   {path:'editdelivery/:del_id',component:EditdeliveryComponent},
@@ -43,7 +49,10 @@ const routes: Routes = [
   {path:'editproduct/:product_id',component:EditproductComponent},
   {path:'user',component:UserComponent},
   {path:'edituser/:user_id',component:EdituserComponent},
-  {path:'adduser',component:AdduserComponent}
+  {path:'adduser',component:AdduserComponent},
+  
+  ]},
+  
 
 
 ];

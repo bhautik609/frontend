@@ -36,6 +36,14 @@ import { UserComponent } from './user/user.component';
 import { EdituserComponent } from './user/edituser/edituser.component';
 import { AdduserComponent } from './user/adduser/adduser.component';
 import {MatRadioModule} from '@angular/material/radio';
+import{MatSelectModule}from '@angular/material/select';
+import { AdmindashbordComponent } from './admindashbord/admindashbord.component';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatCardModule } from '@angular/material/card';
+import { MatMenuModule } from '@angular/material/menu';
+import { LayoutModule } from '@angular/cdk/layout';
+import { LoginComponent } from './login/login.component';
+import { ShellComponent } from './shell/shell.component';
 
 @NgModule({
   declarations: [
@@ -62,6 +70,9 @@ import {MatRadioModule} from '@angular/material/radio';
     UserComponent,
     EdituserComponent,
     AdduserComponent,
+    AdmindashbordComponent,
+    LoginComponent,
+    ShellComponent,
     
   ],
   imports: [
@@ -78,7 +89,12 @@ import {MatRadioModule} from '@angular/material/radio';
     MatInputModule,
     MatSortModule,
     MatPaginatorModule,
-    MatRadioModule
+    MatRadioModule,
+    MatSelectModule,
+    MatGridListModule,
+    MatCardModule,
+    MatMenuModule,
+    LayoutModule
     
   ],
   providers: [],

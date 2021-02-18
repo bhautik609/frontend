@@ -19,8 +19,14 @@
        <mat-form-field>
         <input matInput  formControlName="payment_type"  placeholder="Enter payment_type">
        </mat-form-field>
-       <mat-form-field>
+       <!--<mat-form-field>
         <input matInput  formControlName="payment_status"  placeholder="Enter payment_status">
+       </mat-form-field>-->
+       <mat-form-field >
+         <mat-label>select payment status</mat-label>
+         <mat-select formControlName="payment_status">
+           <mat-option *ngFor="let i of payment" [value]="i" >{{i}}</mat-option>
+         </mat-select>
        </mat-form-field>
        <br><br>
        <button type="submit" class="btn btn-primary">Save</button>

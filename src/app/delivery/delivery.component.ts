@@ -79,10 +79,10 @@ export class DeliveryComponent implements OnInit ,AfterViewInit{
     }
     edit(item:delivery){
       console.log(item.del_id);
-      this._router.navigate(['/editdelivery',item.del_id]);
+      this._router.navigate(['/home/editdelivery',item.del_id]);
     }
     addclik(){
-      this._router.navigate(['/adddelivery']);
+      this._router.navigate(['/home/adddelivery']);
     }
     cancle(){
       this.flag=false;

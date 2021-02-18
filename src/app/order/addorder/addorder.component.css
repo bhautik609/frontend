@@ -10,3 +10,6 @@ table {
   td, th {
     width: 20%;
   }
+  .name{
+    width: 100%;
+  }

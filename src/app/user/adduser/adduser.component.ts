@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { UserService } from 'src/app/user.service';
 import{user}from"../user";
 
@@ -14,10 +14,10 @@ userform:FormGroup;
 
   ngOnInit(): void {
     this.userform= new FormGroup({
-      user_id:new FormControl(null),
-      user_password:new FormControl(null),
-      user_name:new FormControl(null),
-      user_email:new FormControl(null),
+      user_id:new FormControl(null,[Validators.required]),
+      user_password:new FormControl(null,[Validators.required]),
+      user_name:new FormControl(null,Validators.required),
+      user_email:new FormControl(null,[Validators.required,Validators.email]),
       user_age:new FormControl(null),
       user_gender:new FormControl(null),
       user_mob:new FormControl(null),
@@ -26,6 +26,7 @@ userform:FormGroup;
     });
   }
   onSaveClick(){
+    console.log(this.userform.value);
     this._userdata.adduser(this.userform.value).subscribe((data:any)=>{
       console.log(data);
       if(data.affectedRows==1)

@@ -1,0 +1,20 @@
+<html>
+<mat-card class="a">
+    <mat-card-content>
+        <div class="header">
+            <h2>login form</h2>
+        </div>
+        <form (ngSubmit)="onLogin()" [formGroup]="loginform">
+            <div class="user-id-input">
+            <mat-form-field class="full.width" appearance="outline">
+                <input matInput  formControlName="user_id"  placeholder="Enter user id" required>
+               </mat-form-field><br>
+               <mat-form-field class="full.width" appearance="outline">
+                <input matInput  formControlName="user_password"  placeholder="Enter user user_password" required>
+               </mat-form-field>
+            </div>
+            <button type="submit" (click)="onclick()" class="btn btn-primary">login</button> 
+        </form>
+    </mat-card-content>
+</mat-card>
+</html>

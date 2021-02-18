@@ -13,7 +13,7 @@ import{MatSort}from "@angular/material/sort";
   styleUrls: ['./cat.component.css']
 })
 export class CatComponent implements OnInit,AfterViewInit {
-  displayedColumns: string[] = ['cat_id','cat_name','action','edit','add'];
+  displayedColumns: string[] = ['cat_id','cat_name','action','edit'];
   dataSource: MatTableDataSource<cat>;
 
 
@@ -69,11 +69,11 @@ export class CatComponent implements OnInit,AfterViewInit {
 }
 }
 editcat(item:cat){
-this._router.navigate(['/editcat',item.cat_id]);
+this._router.navigate(['/home/editcat',item.cat_id]);
 
 }
 addcat(){
-  this._router.navigate(["/addcat"]);
+  this._router.navigate(["/home/addcat"]);
 }
 
 

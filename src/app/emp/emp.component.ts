@@ -45,7 +45,7 @@ flage:boolean=false;
     }
   
   addclik(){
-        this._router.navigate(['/addemp']);
+        this._router.navigate(['/home/addemp']);
   }
   can(){
     this.flage=false;
@@ -66,7 +66,7 @@ flage:boolean=false;
     });
   }
   edit(item:emp){
-     this._router.navigate(['/editemp',item.emp_id]);
+     this._router.navigate(['/home/editemp',item.emp_id]);
     
   }
   

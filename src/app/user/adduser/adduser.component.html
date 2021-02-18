@@ -3,28 +3,42 @@
 <div class="container">
     <form [formGroup]="userform" (ngSubmit)="onSaveClick()">
     <mat-form-field>
+      <mat-label>user id</mat-label>
        <input matInput  formControlName="user_id"  placeholder="Enter user_id">
+       <mat-error *ngIf="userform.get('user_id').hasError('required')&&!userform.get('user_id').pristine">user_id is require</mat-error>
       </mat-form-field>
        <mat-form-field>
-        <input matInput  formControlName="user_password"  placeholder="Enter user_password">
+        <input matInput  formControlName="user_password" type="password" placeholder="Enter user_password">
+        <mat-error *ngIf="userform.get('user_password').hasError('required')&&!userform.get('user_password').pristine">user password is require</mat-error>
        </mat-form-field>
         <mat-form-field>
         <input matInput  formControlName="user_name"  placeholder="Enter user_name">
+        <mat-error *ngIf="userform.get('user_name').hasError('required')&&!userform.get('user_name').pristine">user name is require</mat-error>
        </mat-form-field>
        <mat-form-field>
-        <input matInput  formControlName="user_email"  placeholder="Enter user_email">
+          
+        <input matInput  formControlName="user_email"  placeholder="xyz60@.com">
+        <mat-error *ngIf="userform.get('user_email').hasError('required')&&!userform.get('user_email').pristine">user email is require</mat-error>
+        <mat-error *ngIf="userform.get('user_email').hasError('email')&&!userform.get('user_email').pristine">user email is not valid formate</mat-error>
        </mat-form-field>
        <mat-form-field>
         <input matInput  formControlName="user_age"  placeholder="Enter user_age">
-       </mat-form-field>
-       <mat-form-field>
+       </mat-form-field><br>
+       <!--<mat-form-field>
         <input matInput  formControlName="user_gender"  placeholder="Enter user_gender">
-       </mat-form-field>
-
+       </mat-form-field>-->
+       <mat-radio-group aria-label="Select an option" formControlName="user_gender">
+         <label>select gender: </label><br>
+         <mat-radio-button  value="MALE">MALE</mat-radio-button><br>
+         <mat-radio-button  value="FEMALE">FEMALE</mat-radio-button>
+       </mat-radio-group><br>
        
 
-       <mat-form-field>
-        <input matInput  formControlName="user_mob"  placeholder="Enter user_mobailno">
+       <mat-form-field class="example-full-width">
+         <mat-label>Telephone</mat-label>
+         <span matPrefix>+91 &nbsp;</span>
+        <input matInput  formControlName="user_mob"  placeholder="95555-89798">
+        <mat-icon matSuffix>mode_edit</mat-icon>
        </mat-form-field>
        <mat-form-field>
         <input matInput  formControlName="user_address"  placeholder="Enter user_address">

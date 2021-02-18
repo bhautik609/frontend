@@ -60,10 +60,10 @@ obj:orderdetail[]=[];
 
   }
   edit(item:orderdetail){
-    this._router.navigate(['/editorderdetail',item.order_detail_id]);
+    this._router.navigate(['/home/editorderdetail',item.order_detail_id]);
   }
   addclik(){
-    this._router.navigate(['/addorderdetail']);
+    this._router.navigate(['/home/addorderdetail']);
 
   }
 }

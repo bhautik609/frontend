@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent implements OnInit ,AfterViewInit {
-  displayedColumns: string[] = ['product_id','product_name','product_color','product_mfd','product_price','product_warr','product_garr','product_desc','product_img1','product_img2','product_img3','cat_id_fk','add','action','edit'];
+  displayedColumns: string[] = ['product_id','product_name','product_color','product_mfd','product_price','product_warr','product_garr','product_desc','product_img1','product_img2','product_img3','cat_name','action','edit'];
   dataSource: MatTableDataSource<product>;
 productform:FormGroup;
 obj:product[]=[];
@@ -46,7 +46,7 @@ obj:product[]=[];
   }
  
   addclik(){
-    this._router.navigate(['/addproduct']);
+    this._router.navigate(['/home/addproduct']);
 
   }
   ondelete(item:product){
@@ -66,7 +66,7 @@ obj:product[]=[];
     });
   }
   edit(item:product){
-    this._router.navigate(['/editproduct',item.product_id]);
+    this._router.navigate(['/home/editproduct',item.product_id]);
   }
 
 

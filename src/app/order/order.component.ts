@@ -62,10 +62,10 @@ obj:order[]=[];
     });
   }
   edit(item:order){
-    this._router.navigate(['editorder',item.order_id]);
+    this._router.navigate(['/home/editorder',item.order_id]);
   }
   addclik(){
-    this._router.navigate(["/addorder"]);
+    this._router.navigate(["/home/addorder"]);
   }
  
 }
