@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { OrderdetailService } from 'src/app/orderdetail.service';
+import { ProductService } from 'src/app/product.service';
+import { product } from 'src/app/product/product';
 import{orderdetail}from '../orderdetail';
 @Component({
   selector: 'app-editorderdetail',
@@ -11,7 +13,8 @@ import{orderdetail}from '../orderdetail';
 export class EditorderdetailComponent implements OnInit {
 orderdetailform:FormGroup;
 order_detail_id;
-  constructor(private _actRoute:ActivatedRoute,private _orderdetail:OrderdetailService) { }
+obj:product[]=[];
+  constructor(private _actRoute:ActivatedRoute,private _orderdetail:OrderdetailService,private _product:ProductService,private _router:Router) { }
 
   ngOnInit(): void {
     this.orderdetailform= new FormGroup({
@@ -32,6 +35,10 @@ order_detail_id;
        });
 
     });
+    this._product.getAllproduct().subscribe((data:product[])=>{
+      this.obj=data;
+    });
+
   }
   onSaveClick(){
     this._orderdetail.editorderdetail(this.orderdetailform.value).subscribe((data:any)=>{
@@ -48,6 +55,9 @@ order_detail_id;
       this.orderdetailform.reset({});
     });
     
+  }
+  cancle(){
+    this._router.navigate(['home/orderdetail']);
   }
 
 }

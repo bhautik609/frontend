@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { OrderdetailService } from 'src/app/orderdetail.service';
+import { ProductService } from 'src/app/product.service';
+import { product } from 'src/app/product/product';
 
 @Component({
   selector: 'app-addorderdetail',
@@ -9,7 +12,8 @@ import { OrderdetailService } from 'src/app/orderdetail.service';
 })
 export class AddorderdetailComponent implements OnInit {
   orderdetailform:FormGroup;
-  constructor(private _orderdetaildata:OrderdetailService) { }
+  obj:product[]=[];
+  constructor(private _orderdetaildata:OrderdetailService,private _product:ProductService,private _router:Router) { }
 
   ngOnInit(): void {
     this.orderdetailform= new FormGroup({
@@ -17,6 +21,9 @@ export class AddorderdetailComponent implements OnInit {
       order_id_fk:new FormControl(null),
       product_id_fk:new FormControl(null),
       order_qty:new FormControl(null)
+    });
+    this._product.getAllproduct().subscribe((data:product[])=>{
+      this.obj=data;
     });
 
   }
@@ -33,5 +40,8 @@ export class AddorderdetailComponent implements OnInit {
     }
   });
   }
-
+  cancle(){
+    this._router.navigate(['/home/orderdetail']);
+  }
+ 
 }

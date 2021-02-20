@@ -3,12 +3,11 @@ table {
   }
   
   .mat-form-field {
-    font-size: 14px;
-    width: 75%;
+    font-size: 15px;
+    width: 100%;
   }
   
   td, th {
     width: 25%;
   }
-  
   

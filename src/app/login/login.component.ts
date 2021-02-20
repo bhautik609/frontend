@@ -9,6 +9,8 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 loginform:FormGroup;
+value = '';
+hide = true;
   constructor(private _router:Router) { }
 
   ngOnInit(): void {

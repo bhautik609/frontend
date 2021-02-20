@@ -1,9 +1,10 @@
   
-  <button mat-mini-fab color="accent" (click)="addcat()">
+  <button mat-mini-fab color="accent" (click)="addcat()"class="c">
     <mat-icon>add</mat-icon>
   </button> 
   <div class="container">
-  <mat-form-field>
+  <mat-form-field appearance="fill" >
+    <mat-icon matPrefix>search&nbsp;</mat-icon>
     <mat-label>search any Category </mat-label>
     <input matInput (keyup)="applyFilter($event)" placeholder="serch Category" #input>
   </mat-form-field>
@@ -60,7 +61,8 @@
       </tr>
     </table>
   
-   <mat-paginator [pageSizeOptions]="[1,5, 10, 25, 100]"></mat-paginator>
+   <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
   </div>
   </div>
+
   

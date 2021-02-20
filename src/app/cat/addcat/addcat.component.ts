@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { CatService } from 'src/app/cat.service';
 import{cat}from '../cat';
 @Component({
@@ -11,12 +12,12 @@ export class AddcatComponent implements OnInit {
 catform:FormGroup;
 obj:cat[]=[];
 
-  constructor(private _catdata:CatService) { }
+  constructor(private _catdata:CatService,private _router:Router) { }
 
   ngOnInit(): void {
     this.catform= new FormGroup({
-      cat_id:new FormControl(null),
-      cat_name:new FormControl(null)
+      cat_id:new FormControl(null,Validators.required),
+      cat_name:new FormControl(null,Validators.required)
      });
   }
   onSaveClick(){
@@ -26,6 +27,7 @@ obj:cat[]=[];
       {
         alert('data inserted succesfully');
         this.obj.push(this.catform.value);
+        this._router.navigate(['/home/cat']);
       }
       else{
         alert('something went wrong');
@@ -33,8 +35,9 @@ obj:cat[]=[];
       }
       this.catform.reset({});
     });
-    
-  }
-  
+ }
+cancle(){
+ this._router.navigate(['/home/cat']);
+}  
 
 }

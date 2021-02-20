@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { CatService } from 'src/app/cat.service';
 import { cat } from 'src/app/cat/cat';
 import { ProductService } from 'src/app/product.service';
@@ -13,7 +14,7 @@ import{product}from'../product';
 export class AddproductComponent implements OnInit {
 productform:FormGroup;
 obj:cat[]=[];
-  constructor(private _productdata:ProductService,private _catdata:CatService) { }
+  constructor(private _productdata:ProductService,private _catdata:CatService,private _router:Router) { }
 
   ngOnInit(): void {
     this.productform= new FormGroup({
@@ -50,6 +51,9 @@ obj:cat[]=[];
       }
     });
   
+  }
+  cancle(){
+   this._router.navigate(['/home/product']);
   }  
 
 }

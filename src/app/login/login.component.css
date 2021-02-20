@@ -1,31 +1,26 @@
-mat-card{
-    max-width: 600px;
-    margin: 2em auto;
-    text-align: center;
-    max-height: 600px;
-}
-.header
-{
-    text-align: center;
-}
-.full.width{
-    width: 80%;
-}
-.forgot-password{
-    padding-top:0px;
-}
-.user-id-input{
-    padding-top: 10px;
-}
-.at-link{
-    float:right;
-    padding-right: 60px;
-    text-decoration: none;
-}
+
 html{
-    background-color: rgb(89, 138, 180);
-}
-.a
-{
+    background-color:rgb(121, 88, 38)
+ }
+  .mat-form-field {
+    font-size: 14px;
+    width: 48%;
+  }
+ 
+  h2{
     text-align: center;
+    color: darkorchid;
+    text-decoration: underline;
+  }
+  .c {
+    border: solid;
+    border-color: gray;
+    width: 600px;
+    margin-top: 100px;
+    margin-left: 450px;
+    margin-right: 250px;
 }
+button{
+    margin-left: 250;
+}
+  

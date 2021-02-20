@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { EmpService } from 'src/app/emp.service';
 import{emp}from '../emp';
 
@@ -12,7 +12,7 @@ import{emp}from '../emp';
 export class EditempComponent implements OnInit {
 empform:FormGroup;
 emp_id;
-  constructor(private _editemp:EmpService,private _actRoute:ActivatedRoute) { }
+  constructor(private _editemp:EmpService,private _actRoute:ActivatedRoute,private _router:Router) { }
 
   ngOnInit(): void {
 
@@ -54,6 +54,9 @@ emp_id;
 
     });
 
+  }
+  cancle(){
+    this._router.navigate(['/home/emp']);
   }
 
 }

@@ -1,20 +1,25 @@
-<html>
-<mat-card class="a">
-    <mat-card-content>
-        <div class="header">
-            <h2>login form</h2>
-        </div>
+<mat-card class="c">
+     <h2>Login</h2>
         <form (ngSubmit)="onLogin()" [formGroup]="loginform">
-            <div class="user-id-input">
-            <mat-form-field class="full.width" appearance="outline">
-                <input matInput  formControlName="user_id"  placeholder="Enter user id" required>
+            <mat-form-field  appearance="fill">
+                <mat-label>user id</mat-label>
+                <input matInput  formControlName="user_id"  placeholder="Enter user id" [(ngModel)]="value" >
+                <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+                    <mat-icon>close</mat-icon>
+                  </button>
                </mat-form-field><br>
-               <mat-form-field class="full.width" appearance="outline">
-                <input matInput  formControlName="user_password"  placeholder="Enter user user_password" required>
-               </mat-form-field>
-            </div>
-            <button type="submit" (click)="onclick()" class="btn btn-primary">login</button> 
+               <mat-form-field appearance="fill">
+                <mat-label>Enter your password</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'"  formControlName="user_password" >
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+              </mat-form-field><br>
+               <!--<mat-form-field class="full.width">
+                   <mat-label>user password</mat-label>
+               <input matInput  formControlName="user_password"  placeholder="Enter user user_password">
+               </mat-form-field>-->
+               <button type="submit" (click)="onclick()" class="btn btn-primary">login</button> 
         </form>
-    </mat-card-content>
+        
 </mat-card>
-</html>

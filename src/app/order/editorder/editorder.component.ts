@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { OrderService } from 'src/app/order.service';
+import { UserService } from 'src/app/user.service';
+import { user } from 'src/app/user/user';
 import{order}from'../order';
 @Component({
   selector: 'app-editorder',
@@ -9,9 +11,12 @@ import{order}from'../order';
   styleUrls: ['./editorder.component.css']
 })
 export class EditorderComponent implements OnInit {
-orderform:FormGroup
-  constructor(private _actRoute:ActivatedRoute,private _orderdata:OrderService) { }
+orderform:FormGroup;
+payment:string[]=["done","pending"];
+payment_type:string[]=["cash","credit card","debit card","other payment method"];
+  constructor(private _actRoute:ActivatedRoute,private _orderdata:OrderService,private _user:UserService,private _router:Router) { }
   order_id;
+  obj1:user[]=[];
   ngOnInit(): void {
     this.orderform= new FormGroup({
       order_id:new FormControl(null),
@@ -22,13 +27,18 @@ orderform:FormGroup
       payment_type:new FormControl(null),
       payment_status:new FormControl(null)
     });
+    this._user.getAlluser().subscribe((data:user[])=>{
+      this.obj1=data;
+    });
+
     this.order_id=this._actRoute.snapshot.params['order_id'];
     console.log(this.order_id);
     this._orderdata.getorderbyId(this.order_id).subscribe((data:order[])=>{
       console.log(data);
       this.orderform.patchValue({
         order_id:data[0].order_id,
-        order_date:data[0].order_amount,
+        order_date:data[0].order_date,
+        order_amount:data[0].order_amount,
         product_id_fk:data[0].product_id_fk,
         user_id_fk:data[0].user_id_fk,
         payment_type:data[0].payment_type,
@@ -54,6 +64,9 @@ orderform:FormGroup
 
     });
 
+  }
+  cancle(){
+   this._router.navigate(['/home/order']);
   }
 
 }

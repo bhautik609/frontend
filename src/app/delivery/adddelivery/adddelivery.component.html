@@ -1,22 +1,44 @@
-<p>adddelivery works!</p>
+<mat-card class="c">
+<h2>ADD A NEW DELIVERY</h2>
 <div class="container">
     <form [formGroup]="deliveryform" (ngSubmit)="onSaveClick()">
-    <mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>ENTER DELIVERY ID</mat-label>
        <input matInput  formControlName="del_id"  placeholder="Enter delivery ID">
+       
       </mat-form-field>
-       <mat-form-field>
-        <input matInput  formControlName="order_id_fk"  placeholder="Enter deliveryrder_id_fk">
+       <mat-form-field appearance="fill">
+         <mat-label>ENTER ORDER ID</mat-label>
+        <input matInput  formControlName="order_id_fk"  placeholder="Enter order_id_fk">
+        
        </mat-form-field>
-        <mat-form-field>
-        <input matInput  formControlName="emp_id_fk"  placeholder="Enter delivery emp_id_fk">
-       </mat-form-field>
-       <mat-form-field>
+       <mat-form-field appearance="fill">
+         <mat-label>ENTER DELIVERY DATE</mat-label>
         <input matInput  formControlName="del_date"  placeholder="Enter delivery del_date">
+        
        </mat-form-field>
-       <mat-form-field>
+       <!--<mat-form-field>
         <input matInput  formControlName="del_status"  placeholder="Enter delivery status">
-       </mat-form-field>
-       <br><br>
-       <button type="submit" class="btn btn-primary">Save</button>
+       </mat-form-field>-->
+       <mat-form-field appearance="fill">
+        <mat-label>select payment status</mat-label>
+        <mat-select formControlName="del_status" class="color">
+          <mat-option *ngFor="let i of dels" [value]="i" >{{i}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Select employee name</mat-label>
+           <mat-select formControlName="emp_id_fk">
+                <mat-option *ngFor="let item of obj1" [value]="item.emp_id">
+                 {{item.emp_name}}
+              </mat-option>
+           </mat-select>
+        </mat-form-field>
+      <br><br>
+       <!--<button type="submit" class="btn btn-primary">save</button>
+       <button  class="btn btn-primary"(click)="cancle()">cancle</button>-->
+       <button mat-raised-button color="primary" type="submit" [disabled]="deliveryform.invalid">submit</button>
+       <button mat-raised-button color="warn" (click)="cancle()">cancle</button>
     </form>
-  </div>
+ </div>
+ </mat-card>

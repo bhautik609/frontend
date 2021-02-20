@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CatService } from 'src/app/cat.service';
 import { cat  } from "../cat";
 
@@ -12,12 +12,12 @@ import { cat  } from "../cat";
 export class EditcatComponent implements OnInit {
   catform:FormGroup;
   cat_id;
-  constructor( private _editcat:CatService,private _actRoute:ActivatedRoute) { }
+  constructor( private _editcat:CatService,private _actRoute:ActivatedRoute,private _router:Router) { }
 
   ngOnInit(): void {
     this.catform=new FormGroup({
-      cat_id:new FormControl(null),
-      cat_name:new FormControl(null),
+      cat_id:new FormControl(null,Validators.required),
+      cat_name:new FormControl(null,Validators.required),
     });
     this.cat_id=this._actRoute.snapshot.params['cat_id'];
     console.log(this.cat_id);
@@ -39,6 +39,7 @@ export class EditcatComponent implements OnInit {
       if(data.affectedRows==1)
       {
         alert('data updated succesfully');
+        this._router.navigate(['/home/cat']);
     
       }
       else{
@@ -48,5 +49,7 @@ export class EditcatComponent implements OnInit {
 
     });
   }
-
+cancle(){
+ this._router.navigate(['/home/cat']);
+}
 }

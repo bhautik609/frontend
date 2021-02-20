@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import{DeliveryService} from'../delivery.service';
-import{delivery}from './delivery';
+import{delivery}from "./delivery";
 import{MatPaginator}from "@angular/material/paginator";
 import{MatTableDataSource}from "@angular/material/table";
 import{MatSort}from "@angular/material/sort";
@@ -12,7 +12,7 @@ import { Router } from "@angular/router";
   styleUrls: ['./delivery.component.css']
 })
 export class DeliveryComponent implements OnInit ,AfterViewInit{
-  displayedColumns: string[] = ['del_id','order_id_fk','emp_id_fk','del_date','del_status','action','edit','add'];
+  displayedColumns: string[] = ['del_id','order_id_fk','emp_name','del_date','del_status','action','edit'];
   dataSource: MatTableDataSource<delivery>;
   deliveryform:FormGroup;
    obj:delivery[]=[];
@@ -33,6 +33,7 @@ export class DeliveryComponent implements OnInit ,AfterViewInit{
   ngOnInit(): void {
     this._deliverydata.getAlldelivery().subscribe((data:delivery[])=>{
       this.obj=data;
+      console.log(data);
       this.dataSource.data=data;
   });
   }

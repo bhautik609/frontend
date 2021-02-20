@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ActionSequence } from 'protractor';
 import { DeliveryService } from 'src/app/delivery.service';
+import { EmpService } from 'src/app/emp.service';
+import { emp } from 'src/app/emp/emp';
 import{delivery}from'../delivery';
 
 @Component({
@@ -13,15 +15,17 @@ import{delivery}from'../delivery';
 export class EditdeliveryComponent implements OnInit {
   deliveryform:FormGroup;
   del_id;
-  constructor(private _actRoute:ActivatedRoute,private _diliverydata:DeliveryService) { }
+  obj:emp[]=[];
+  dels:string[]=['done','pending'];
+  constructor(private _actRoute:ActivatedRoute,private _diliverydata:DeliveryService,private _empdata:EmpService,private _router:Router) { }
 
   ngOnInit(): void {
     this.deliveryform= new FormGroup({
       del_id:new FormControl(null),
       order_id_fk:new FormControl(null),
+     del_date:new FormControl(null),
+      del_status:new FormControl(null),
       emp_id_fk:new FormControl(null),
-      del_date:new FormControl(null),
-      del_status:new FormControl(null)
     });
     this.del_id=this._actRoute.snapshot.params['del_id'];
     console.log(this.del_id);
@@ -33,6 +37,9 @@ export class EditdeliveryComponent implements OnInit {
        emp_id_fk:data[0].emp_id_fk,
        del_date:data[0].del_date,
        del_status:data[0].del_status,
+      });
+      this._empdata.getAllemp().subscribe((data:emp[])=>{
+        this.obj=data;
       });
 
     });
@@ -54,6 +61,9 @@ export class EditdeliveryComponent implements OnInit {
       this.deliveryform.reset({});
     });
 
+  }
+  cancle(){
+    this._router.navigate(['/home/delivery']);
   }
 
 }

@@ -17,6 +17,7 @@ import { OrderComponent } from './order/order.component';
 import { AddorderdetailComponent } from './orderdetail/addorderdetail/addorderdetail.component';
 import { EditorderdetailComponent } from './orderdetail/editorderdetail/editorderdetail.component';
 import { OrderdetailComponent } from './orderdetail/orderdetail.component';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { AddproductComponent } from './product/addproduct/addproduct.component';
 import { EditproductComponent } from './product/editproduct/editproduct.component';
 import { ProductComponent } from './product/product.component';
@@ -52,7 +53,8 @@ const routes: Routes = [
   {path:'adduser',component:AdduserComponent},
   
   ]},
-  
+  {path:'**',component:PagenotfoundComponent}
+   
 
 
 ];

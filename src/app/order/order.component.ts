@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./order.component.css']
 })
 export class OrderComponent implements OnInit ,AfterViewInit{
-  displayedColumns: string[] = ['order_id','order_date','order_amount','product_id_fk','user_id_fk','payment_type','payment_status','action','edit','add'];
+  displayedColumns: string[] = ['order_id','order_date','order_amount','product_id_fk','user_name','payment_type','payment_status','action','edit'];
   dataSource: MatTableDataSource<order>;
 orderform:FormGroup;
 obj:order[]=[];

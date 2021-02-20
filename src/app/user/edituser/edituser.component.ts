@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from 'src/app/user.service';
 import{user}from'../user';
 @Component({
@@ -11,7 +11,7 @@ import{user}from'../user';
 export class EdituserComponent implements OnInit {
 userform:FormGroup;
 user_id;
-  constructor(private _actRoute:ActivatedRoute,private _userdata:UserService) { }
+  constructor(private _actRoute:ActivatedRoute,private _userdata:UserService,private _router:Router) { }
 
   ngOnInit(): void {
     this.user_id=this._actRoute.snapshot.params['user_id'];
@@ -61,6 +61,9 @@ user_id;
 
     });
 
+  }
+  cancle(){
+    this._router.navigate(['home/user']);
   }
 
 }

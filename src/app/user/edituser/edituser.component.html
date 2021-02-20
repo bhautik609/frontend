@@ -1,31 +1,35 @@
-<p>edituser works!</p>
-
+<mat-card class="c">
+   <h2>EDIT USER</h2>
 <div class="container">
     <form [formGroup]="userform" (ngSubmit)="onSaveClick()">
-    <mat-form-field>
+    <mat-form-field  appearance="fill">
        <input matInput  formControlName="user_id"  placeholder="Enter user_id">
       </mat-form-field>
-       <mat-form-field>
+       <mat-form-field  appearance="fill">
         <input matInput  formControlName="user_password"  placeholder="Enter user_password">
        </mat-form-field>
-        <mat-form-field>
+        <mat-form-field  appearance="fill">
         <input matInput  formControlName="user_name"  placeholder="Enter user_name">
        </mat-form-field>
-       <mat-form-field>
+       <mat-form-field  appearance="fill">
         <input matInput  formControlName="user_email"  placeholder="Enter user_email">
        </mat-form-field>
-       <mat-form-field>
+       <mat-form-field  appearance="fill">
         <input matInput  formControlName="user_age"  placeholder="Enter user_age">
        </mat-form-field>
-       <mat-form-field>
+       <mat-form-field  appearance="fill">
         <input matInput  formControlName="user_gender"  placeholder="Enter user_gender">
        </mat-form-field>
-       <mat-form-field>
+       <mat-form-field  appearance="fill">
         <input matInput  formControlName="user_mob"  placeholder="Enter user_mobailno">
        </mat-form-field>
-       <mat-form-field>
+       <mat-form-field  appearance="fill">
         <input matInput  formControlName="user_address"  placeholder="Enter user_address">
        </mat-form-field><br>
-       <button type="submit" class="btn btn-primary">Save</button>
+       <!--<button type="submit" class="btn btn-primary">Save</button>
+       <button class="btn btn-primary" (click)="cancle()">cancle</button>-->
+       <button mat-raised-button color="primary" type="submit" [disabled]="userform.invalid">submit</button>
+         <button mat-raised-button color="warn" (click)="cancle()">cancle</button>
     </form>
   </div>
+</mat-card>

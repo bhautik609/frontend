@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { UserService } from 'src/app/user.service';
 import{user}from"../user";
 
@@ -10,7 +11,7 @@ import{user}from"../user";
 })
 export class AdduserComponent implements OnInit {
 userform:FormGroup;
-  constructor(private _userdata:UserService) { }
+  constructor(private _userdata:UserService,private _router:Router) { }
 
   ngOnInit(): void {
     this.userform= new FormGroup({
@@ -42,6 +43,9 @@ userform:FormGroup;
 
     });
 
+  }
+  cancle(){
+this._router.navigate(['home/user']);
   }
 
 }

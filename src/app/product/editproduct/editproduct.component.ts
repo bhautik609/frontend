@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from 'src/app/product.service';
 import{product}from'../product';
 @Component({
@@ -11,7 +11,7 @@ import{product}from'../product';
 export class EditproductComponent implements OnInit {
 productform:FormGroup;
 product_id;
-  constructor(private _actRoute:ActivatedRoute,private _productdata:ProductService) { }
+  constructor(private _actRoute:ActivatedRoute,private _productdata:ProductService,private _router:Router) { }
 
   ngOnInit(): void {
     this.productform= new FormGroup({
@@ -66,5 +66,7 @@ product_id;
     });
 
   }
-
+cancle(){
+this._router.navigate(['/home/product']);
+}
 }

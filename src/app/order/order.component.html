@@ -1,7 +1,11 @@
+<button mat-mini-fab color="accent"(click)="addclik()">
+  <mat-icon>add</mat-icon>
+</button>
 <div class="container">
- <mat-form-field>
-      <mat-label>Filter</mat-label>
-      <input matInput (keyup)="applyFilter($event)" placeholder="serch Category" #input>
+ <mat-form-field appearance="fill">
+      <mat-label>Search</mat-label>
+      <mat-icon matPrefix>search&nbsp;</mat-icon>
+      <input matInput (keyup)="applyFilter($event)" placeholder="search order" #input>
     </mat-form-field>
     
     <div class="mat-elevation-z8">
@@ -22,7 +26,7 @@
         <!--order id _fk-->
         <ng-container matColumnDef="order_amount">
           <th mat-header-cell *matHeaderCellDef mat-sort-header> order_amount </th>
-          <td mat-cell *matCellDef="let row"> {{row.order_amount}} </td>
+          <td mat-cell *matCellDef="let row"> {{row.order_amount | currency:'INR'}} </td>
         </ng-container>
   
         <!--order id _fk-->
@@ -32,9 +36,9 @@
         </ng-container>
   
         <!--order id _fk-->
-        <ng-container matColumnDef="user_id_fk">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> uaser_id_fk </th>
-          <td mat-cell *matCellDef="let row"> {{row.user_id_fk}} </td>
+        <ng-container matColumnDef="user_name">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>user_name </th>
+          <td mat-cell *matCellDef="let row"> {{row.user_name}} </td>
         </ng-container>
 
         <ng-container matColumnDef="payment_type">
@@ -66,14 +70,14 @@
              </td> 
          </ng-container>   
   
-         <ng-container  matColumnDef="add">
+         <!--<ng-container  matColumnDef="add">
           <th mat-header-cell *matHeaderCellDef>ADD NEW RECORD</th>
           <td mat-cell *matCellDef="let row;let i=index">
             <button mat-mini-fab color="accent"(click)="addclik()">
               <mat-icon>add</mat-icon>
             </button> 
              </td> 
-         </ng-container> 
+         </ng-container>--> 
   
         
     
@@ -86,7 +90,7 @@
         </tr>
       </table>
     
-     <mat-paginator [pageSizeOptions]="[1,5,10,25,100]"></mat-paginator>
+     <mat-paginator [pageSizeOptions]="[5,10,25,100]"></mat-paginator>
     </div>
    </div> 
     

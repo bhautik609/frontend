@@ -12,7 +12,7 @@ import { Router } from "@angular/router";
   styleUrls: ['./emp.component.css']
 })
 export class EmpComponent implements OnInit ,AfterViewInit{
-  displayedColumns: string[] = ['emp_id','emp_name','emp_email','emp_salary','emp_join_date','action','edit','add'];
+  displayedColumns: string[] = ['emp_id','emp_name','emp_email','emp_salary','emp_join_date','action','edit'];
   dataSource: MatTableDataSource<emp>;
 empform:FormGroup;
 obj:emp[]=[];

@@ -1,28 +1,53 @@
-<p>editorder works!</p>
+<mat-card class="c">
+  <h2>EDIT ORDER</h2>
 <div class="container">
     <form [formGroup]="orderform" (ngSubmit)="onSaveClick()">
-    <mat-form-field>
+    <mat-form-field appearance="fill">
        <input matInput  formControlName="order_id"  placeholder="Enter order ID">
       </mat-form-field>
-       <mat-form-field>
+       <mat-form-field appearance="fill">
         <input matInput  formControlName="order_date"  placeholder="Enter order date">
        </mat-form-field>
-        <mat-form-field>
+        <mat-form-field appearance="fill">
         <input matInput  formControlName="order_amount"  placeholder="Enter order amount">
        </mat-form-field>
-       <mat-form-field>
+       <mat-form-field appearance="fill">
         <input matInput  formControlName="product_id_fk"  placeholder="Enter product_id_fk">
        </mat-form-field>
-       <mat-form-field>
+       <!--<mat-form-field>
         <input matInput  formControlName="user_id_fk"  placeholder="Enter user_id_fk">
+       </mat-form-field>-->
+       <mat-form-field appearance="fill">
+         <mat-label>Select user name</mat-label>
+          <mat-select formControlName="user_id_fk">
+               <mat-option *ngFor="let item of obj1" [value]="item.user_id">
+                {{item.user_name}}
+             </mat-option>
+          </mat-select>
        </mat-form-field>
-       <mat-form-field>
+       <!--<mat-form-field>
         <input matInput  formControlName="payment_type"  placeholder="Enter payment_type">
+       </mat-form-field>-->
+       <mat-form-field appearance="fill">
+         <mat-label>select payment type</mat-label>
+         <mat-select formControlName="payment_type">
+           <mat-option *ngFor="let i of payment_type" [value]="i" >{{i}}</mat-option>
+         </mat-select>
        </mat-form-field>
-       <mat-form-field>
+       <mat-form-field  appearance="fill">
+         <mat-label>select payment status</mat-label>
+         <mat-select formControlName="payment_status">
+           <mat-option *ngFor="let i of payment" [value]="i" >{{i}}</mat-option>
+         </mat-select>
+       </mat-form-field>
+       <!--<mat-form-field>
         <input matInput  formControlName="payment_status"  placeholder="Enter payment_status">
-       </mat-form-field>
+       </mat-form-field>-->
        <br><br>
-       <button type="submit" class="btn btn-primary">Save</button>
+       <!--<button type="submit" class="btn btn-primary">Save</button>
+       <button  class="btn btn-primary" (click)="cancle()">cancle</button>-->
+       <button mat-raised-button color="primary" type="submit" [disabled]="orderform.invalid">submit</button>
+         <button mat-raised-button color="warn" (click)="cancle()">cancle</button>
     </form>
   </div>
+  </mat-card>

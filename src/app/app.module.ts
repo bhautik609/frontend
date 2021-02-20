@@ -44,7 +44,8 @@ import { MatMenuModule } from '@angular/material/menu';
 import { LayoutModule } from '@angular/cdk/layout';
 import { LoginComponent } from './login/login.component';
 import { ShellComponent } from './shell/shell.component';
-
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -73,6 +74,7 @@ import { ShellComponent } from './shell/shell.component';
     AdmindashbordComponent,
     LoginComponent,
     ShellComponent,
+    PagenotfoundComponent,
     
   ],
   imports: [
@@ -94,7 +96,8 @@ import { ShellComponent } from './shell/shell.component';
     MatGridListModule,
     MatCardModule,
     MatMenuModule,
-    LayoutModule
+    LayoutModule,
+    MatDatepickerModule
     
   ],
   providers: [],
