@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ActionSequence } from 'protractor';
 import { DeliveryService } from 'src/app/delivery.service';
@@ -21,11 +21,11 @@ export class EditdeliveryComponent implements OnInit {
 
   ngOnInit(): void {
     this.deliveryform= new FormGroup({
-      del_id:new FormControl(null),
-      order_id_fk:new FormControl(null),
-     del_date:new FormControl(null),
-      del_status:new FormControl(null),
-      emp_id_fk:new FormControl(null),
+      del_id:new FormControl(null,Validators.required),
+      order_id_fk:new FormControl(null,Validators.required),
+     del_date:new FormControl(null,Validators.required),
+      del_status:new FormControl(null,Validators.required),
+      emp_id_fk:new FormControl(null,Validators.required)
     });
     this.del_id=this._actRoute.snapshot.params['del_id'];
     console.log(this.del_id);

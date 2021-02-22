@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { EmpService } from 'src/app/emp.service';
 import{emp}from '../emp';
@@ -31,11 +31,11 @@ emp_id;
 
 
     this.empform= new FormGroup({
-      emp_id:new FormControl(null),
-      emp_name:new FormControl(null),
-      emp_email:new FormControl(null),
-      emp_salary:new FormControl(null),
-      emp_join_date:new FormControl(null)
+      emp_id:new FormControl(null,Validators.required),
+      emp_name:new FormControl(null,Validators.required),
+      emp_email:new FormControl(null,[Validators.required,Validators.email]),
+      emp_salary:new FormControl(null,Validators.required),
+      emp_join_date:new FormControl(null,Validators.required)
     });
   }
   onSaveClick(){

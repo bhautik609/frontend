@@ -1,26 +1,32 @@
+table {
+  width: 100%;
+}
 
-html{
-    background-color:rgb(121, 88, 38)
- }
-  .mat-form-field {
-    font-size: 14px;
-    width: 48%;
-  }
- 
-  h2{
-    text-align: center;
-    color: darkorchid;
-    text-decoration: underline;
-  }
-  .c {
-    border: solid;
-    border-color: gray;
-    width: 600px;
-    margin-top: 100px;
-    margin-left: 450px;
-    margin-right: 250px;
+.mat-form-field {
+  font-size: 14px;
+  width: 80%;
+  padding-left: 15%;
 }
-button{
-    margin-left: 250;
+
+td, th {
+  width: 25%;
 }
+.b
+{
+  width: 300px;
+  margin-left: 15%;
+}
+.c {
+  border: solid;
+  border-color: gray;
+  width: 500px;
+  margin-top: 100px;
+  margin-left: 480px;
+  margin-right: 250px;
   
+}
+h2{
+  text-align: center;
+  color: darkorchid;
+  text-decoration: underline;
+}

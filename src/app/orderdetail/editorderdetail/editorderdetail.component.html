@@ -3,10 +3,14 @@
 <div class="container">
     <form [formGroup]="orderdetailform" (ngSubmit)="onSaveClick()">
       <mat-form-field appearance="fill">
+         <mat-label>ORDER DETAIL ID</mat-label>
          <input matInput  formControlName="order_detail_id"  placeholder="Enter order detail id">
+         <mat-error *ngIf="orderdetailform.get('order_detail_id').hasError('required')&&!orderdetailform.get('order_detail_id').pristine"> order detail fk require</mat-error>
         </mat-form-field>
          <mat-form-field appearance="fill">
+            <mat-label>ORDER ID FK</mat-label>
           <input matInput  formControlName="order_id_fk"  placeholder="Enter order_id_fk">
+          <mat-error *ngIf="orderdetailform.get('order_id_fk').hasError('required')&&!orderdetailform.get('order_id_fk').pristine"> order id fk require</mat-error>
          </mat-form-field>
           <!--<mat-form-field>
           <input matInput  formControlName="product_id_fk"  placeholder="Enter product_id_fk">
@@ -20,13 +24,15 @@
          </mat-select>
       </mat-form-field>
          <mat-form-field appearance="fill">
+            <mat-label>ORDER QTY</mat-label>
           <input matInput  formControlName="order_qty"  placeholder="Enter order_qty">
+          <mat-error *ngIf="orderdetailform.get('order_qty').hasError('required')&&!orderdetailform.get('order_qty').pristine"> order qty</mat-error>
          </mat-form-field>
           <br><br>
          <!--<button type="submit" class="btn btn-primary">Save</button>
          <button class="btn btn-primary" (click)="cancle()">cancle</button>-->
          <button mat-raised-button color="primary" type="submit" [disabled]="orderdetailform.invalid">submit</button>
-         <button mat-raised-button color="warn" (click)="cancle()">cancle</button>
+         <button mat-raised-button color="warn" (click)="cancle()">cancel</button>
       </form>
     </div>
    </mat-card>

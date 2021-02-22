@@ -4,12 +4,15 @@
     <form [formGroup]="deliveryform" (ngSubmit)="onSaveClick()">
       <mat-form-field appearance="fill">
          <input matInput  formControlName="del_id"  placeholder="Enter delivery ID">
+         <mat-error *ngIf="deliveryform.get('del_id').hasError('required')&&!deliveryform.get('del_id').pristine">delivery  id is require</mat-error>
         </mat-form-field>
          <mat-form-field appearance="fill">
           <input matInput  formControlName="order_id_fk"  placeholder="Enter deliveryrder_id_fk">
+          <mat-error *ngIf="deliveryform.get('order_id_fk').hasError('required')&&!deliveryform.get('order_id_fk').pristine">order id is require</mat-error>
          </mat-form-field>
          <mat-form-field appearance="fill">
           <input matInput  formControlName="del_date"  placeholder="Enter delivery del_date">
+          <mat-error *ngIf="deliveryform.get('del_date').hasError('required')&&!deliveryform.get('del_date').pristine">delivery date is require</mat-error>
          </mat-form-field>
          <!--<mat-form-field>
           <input matInput  formControlName="del_status"  placeholder="Enter delivery status">
@@ -33,7 +36,7 @@
         </mat-form-field>
          <br><br>
          <button type="submit" class="btn btn-primary">Save</button>
-         <button  class="btn btn-primary" (click)="cancle()">cancle</button>
+         <button  class="btn btn-primary" (click)="cancle()">cancel</button>
       </form>
     </div>
 </mat-card>

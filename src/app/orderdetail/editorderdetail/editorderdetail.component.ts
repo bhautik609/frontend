@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { OrderdetailService } from 'src/app/orderdetail.service';
 import { ProductService } from 'src/app/product.service';
@@ -18,10 +18,10 @@ obj:product[]=[];
 
   ngOnInit(): void {
     this.orderdetailform= new FormGroup({
-      order_detail_id:new FormControl(null),
-      order_id_fk:new FormControl(null),
-      product_id_fk:new FormControl(null),
-      order_qty:new FormControl(null)
+      order_detail_id:new FormControl(null,Validators.required),
+      order_id_fk:new FormControl(null,Validators.required),
+      product_id_fk:new FormControl(null,Validators.required),
+      order_qty:new FormControl(null,Validators.required)
     });
     this.order_detail_id=this._actRoute.snapshot.params['order_detail_id'];
     console.log(this.order_detail_id);
