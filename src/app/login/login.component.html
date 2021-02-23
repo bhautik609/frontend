@@ -1,6 +1,7 @@
-<mat-card class="c">     
+<html>
+  <body>     
      <h2>SIGN IN</h2>
-       <form (ngSubmit)="onLogin()" [formGroup]="loginform">
+       <form (ngSubmit)="onLogin()" [formGroup]="loginform" class="form-container">
 
             <mat-form-field  appearance="fill">
                 <mat-label>USER ID</mat-label>
@@ -22,5 +23,7 @@
                <button type="submit" (click)="onclick()"  mat-raised-button color="primary" class="b" [disabled]="loginform.invalid">SIGN IN</button> 
         </form>
         
-</mat-card>
+        
 
+</body>
+</html>

@@ -4,15 +4,19 @@
     <form [formGroup]="orderform" (ngSubmit)="onSaveClick()">
     <mat-form-field appearance="fill">
        <input matInput  formControlName="order_id"  placeholder="Enter order ID">
+       <mat-error *ngIf="orderform.get('order_id').hasError('required')&&!orderform.get('order_id').pristine"> order id is require</mat-error>
       </mat-form-field>
        <mat-form-field appearance="fill">
         <input matInput  formControlName="order_date"  placeholder="Enter order date">
+        <mat-error *ngIf="orderform.get('order_date').hasError('required')&&!orderform.get('order_date').pristine"> order date require</mat-error>
        </mat-form-field>
         <mat-form-field appearance="fill">
         <input matInput  formControlName="order_amount"  placeholder="Enter order amount">
+        <mat-error *ngIf="orderform.get('order_amount').hasError('required')&&!orderform.get('order_amount').pristine"> order amount is require</mat-error>
        </mat-form-field>
        <mat-form-field appearance="fill">
         <input matInput  formControlName="product_id_fk"  placeholder="Enter product_id_fk">
+        <mat-error *ngIf="orderform.get('product_id_fk').hasError('required')&&!orderform.get('product_id_fk').pristine"> order id is require</mat-error>
        </mat-form-field>
        <!--<mat-form-field>
         <input matInput  formControlName="user_id_fk"  placeholder="Enter user_id_fk">
@@ -24,6 +28,7 @@
                {{item.user_name}}
             </mat-option>
          </mat-select>
+        
       </mat-form-field>
        <!--<mat-form-field>
         <input matInput  formControlName="payment_type"  placeholder="Enter payment_type">
