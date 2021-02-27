@@ -13,12 +13,13 @@ import{MatSort}from "@angular/material/sort";
   styleUrls: ['./cat.component.css']
 })
 export class CatComponent implements OnInit,AfterViewInit {
-  displayedColumns: string[] = ['cat_id','cat_name','action','edit'];
+  displayedColumns: string[] = ['cat_name','action','edit'];
   dataSource: MatTableDataSource<cat>;
 
 
   catform:FormGroup;
   obj:cat[]=[];
+  value="";
   @ViewChild(MatPaginator) paginator:MatPaginator;
   @ViewChild(MatSort)sort:MatSort;
   constructor(private _catdata:CatService,private _router:Router) {

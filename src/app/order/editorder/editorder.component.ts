@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup,Validator, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { OrderService } from 'src/app/order.service';
 import { UserService } from 'src/app/user.service';
@@ -19,13 +19,13 @@ payment_type:string[]=["cash","credit card","debit card","other payment method"]
   obj1:user[]=[];
   ngOnInit(): void {
     this.orderform= new FormGroup({
-      order_id:new FormControl(null),
-      order_date:new FormControl(null),
-      order_amount:new FormControl(null),
-      product_id_fk:new FormControl(null),
-      user_id_fk:new FormControl(null),
-      payment_type:new FormControl(null),
-      payment_status:new FormControl(null)
+      order_id:new FormControl(null,Validators.required),
+      order_date:new FormControl(null,Validators.required),
+      order_amount:new FormControl(null,Validators.required),
+      product_id_fk:new FormControl(null,Validators.required),
+      user_id_fk:new FormControl(null,Validators.required),
+      payment_type:new FormControl(null,Validators.required),
+      payment_status:new FormControl(null,Validators.required)
     });
     this._user.getAlluser().subscribe((data:user[])=>{
       this.obj1=data;

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CatService } from 'src/app/cat.service';
 import { cat } from 'src/app/cat/cat';
@@ -18,18 +18,18 @@ obj:cat[]=[];
 
   ngOnInit(): void {
     this.productform= new FormGroup({
-      product_id:new FormControl(null),
-      product_name:new FormControl(null),
-      product_color:new FormControl(null),
-      product_mfd:new FormControl(null),
-      product_price:new FormControl(null),
-      product_warr:new FormControl(null),
-      product_garr:new FormControl(null),
-      product_desc:new FormControl(null),
-      product_img1:new FormControl(null),
-      product_img2:new FormControl(null),
-      product_img3:new FormControl(null),
-      cat_id_fk:new FormControl(null)
+      product_id:new FormControl(null,Validators.required),
+      product_name:new FormControl(null,Validators.required),
+      product_color:new FormControl(null,Validators.required),
+      product_mfd:new FormControl(null,Validators.required),
+      product_price:new FormControl(null,Validators.required),
+      product_warr:new FormControl(null,Validators.required),
+      product_garr:new FormControl(null,Validators.required),
+      product_desc:new FormControl(null,Validators.required),
+      product_img1:new FormControl(null,Validators.required),
+      product_img2:new FormControl(null,Validators.required),
+      product_img3:new FormControl(null,Validators.required),
+      cat_id_fk:new FormControl(null,Validators.required)
 
     });
     this._catdata.getAllCat().subscribe((data:cat[])=>{

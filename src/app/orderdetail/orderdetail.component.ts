@@ -16,6 +16,7 @@ export class OrderdetailComponent implements OnInit ,AfterViewInit{
   dataSource: MatTableDataSource<orderdetail>;
 orderdetailform:FormGroup;
 obj:orderdetail[]=[];
+value="";
 @ViewChild(MatPaginator) paginator:MatPaginator;
   @ViewChild(MatSort)sort:MatSort;
   constructor(private _orderdetaildata:OrderdetailService,private _router:Router) { 

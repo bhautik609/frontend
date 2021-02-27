@@ -16,7 +16,7 @@ export class AddempComponent implements OnInit {
 
   ngOnInit(): void {
     this.empform= new FormGroup({
-      emp_id:new FormControl(null,Validators.required),
+     // emp_id:new FormControl(null,Validators.required),
       emp_name:new FormControl(null,Validators.required),
       emp_email:new FormControl(null,[Validators.required,Validators.email]),
       emp_salary:new FormControl(null,Validators.required),

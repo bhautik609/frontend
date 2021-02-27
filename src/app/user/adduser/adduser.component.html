@@ -2,11 +2,11 @@
   <h2>ADD USER</h2>
 <div class="container">
     <form [formGroup]="userform" (ngSubmit)="onSaveClick()">
-    <mat-form-field  appearance="fill">
+    <!--<mat-form-field  appearance="fill">
       <mat-label>user id</mat-label>
        <input matInput  formControlName="user_id"  placeholder="Enter user_id">
        <mat-error *ngIf="userform.get('user_id').hasError('required')&&!userform.get('user_id').pristine">user_id is require</mat-error>
-      </mat-form-field>
+      </mat-form-field>-->
        <mat-form-field  appearance="fill">
         <input matInput  formControlName="user_password" type="password" placeholder="Enter user_password">
         <mat-error *ngIf="userform.get('user_password').hasError('required')&&!userform.get('user_password').pristine">user password is require</mat-error>

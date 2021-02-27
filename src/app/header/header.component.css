@@ -2,3 +2,5 @@
 {
     flex: 1 1 auto;
 }
+mat-sidenav{width: 280px;padding: 15px;}
+.sidebutton{margin-right: 10px!important;}

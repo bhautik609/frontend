@@ -12,16 +12,16 @@ import { Router } from "@angular/router";
   styleUrls: ['./delivery.component.css']
 })
 export class DeliveryComponent implements OnInit ,AfterViewInit{
-  displayedColumns: string[] = ['del_id','order_id_fk','emp_name','del_date','del_status','action','edit'];
+  displayedColumns: string[] = ['order_id_fk','emp_name','del_date','del_status','action','edit'];
   dataSource: MatTableDataSource<delivery>;
   deliveryform:FormGroup;
    obj:delivery[]=[];
    flag:boolean=false;
+   value="";
    @ViewChild(MatPaginator) paginator:MatPaginator;
   @ViewChild(MatSort)sort:MatSort;
   
-
-  constructor( private _deliverydata:DeliveryService,private _router:Router) { 
+constructor( private _deliverydata:DeliveryService,private _router:Router) { 
     this.dataSource=new MatTableDataSource();
   }
   ngAfterViewInit():void{

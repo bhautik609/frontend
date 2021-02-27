@@ -16,7 +16,7 @@ obj:cat[]=[];
 
   ngOnInit(): void {
     this.catform= new FormGroup({
-      cat_id:new FormControl(null,Validators.required),
+      //cat_id:new FormControl(null,Validators.required),
       cat_name:new FormControl(null,Validators.required)
      });
   }
@@ -28,12 +28,14 @@ obj:cat[]=[];
         alert('data inserted succesfully');
         this.obj.push(this.catform.value);
         this._router.navigate(['/home/cat']);
+        this.catform.clearValidators();
       }
       else{
         alert('something went wrong');
         console.log(data);
       }
       this.catform.reset({});
+
     });
  }
 cancle(){

@@ -2,13 +2,79 @@
     <span><mat-icon>eco</mat-icon>ADMIN</span>
  <div class="s"></div>
     <a mat-button  routerLink= "/home">Home</a>
-    <a mat-button routerLink="/home/cat">cat</a>
-    <a  mat-button routerLink="/home/delivery">delivery</a>
-    <a  mat-button routerLink="/home/emp">emp</a>
-    <a mat-button routerLink="/home/orderdetail">orderdetail</a>
-    <a mat-button routerLink="//home/order">order</a>
-    <a mat-button routerLink="/home/product">product</a>
-    <a mat-button routerLink="/home/user">user</a>
+    <a mat-button  [matMenuTriggerFor]="menu">cat</a>
+    <mat-menu #menu>
+      <button mat-menu-item routerLink="/home/addcat" color="blue">add category</button>
+      <button mat-menu-item routerLink="/home/cat">view category</button>
+    </mat-menu>
+    <a  mat-button [matMenuTriggerFor]="menu2">delivery</a>
+    <mat-menu #menu2>
+      <button mat-menu-item routerLink="/home/adddelivery">add delivery</button>
+      <button mat-menu-item routerLink="/home/delivery">view delivery</button>
+    </mat-menu>
+    <a  mat-button [matMenuTriggerFor]="menu3">emp</a>
+    <mat-menu #menu3>
+      <button mat-menu-item routerLink="/home/addemp">add employee</button>
+      <button mat-menu-item routerLink="/home/emp">view employee</button>
+    </mat-menu>
+
+    <a mat-button [matMenuTriggerFor]="menu4">orderdetail</a>
+    <mat-menu #menu4>
+      <button mat-menu-item routerLink="/home/addorderdetail">add orderdetail</button>
+      <button mat-menu-item routerLink="/home/orderdetail" >view orderdetail</button>
+    </mat-menu>
+
+    <a mat-button [matMenuTriggerFor]="menu5">order</a>
+    <mat-menu #menu5>
+      <button mat-menu-item routerLink="/home/addorder">add order</button>
+      <button mat-menu-item routerLink="/home/order" >view order</button>
+    </mat-menu>
+    
+
+    <a mat-button [matMenuTriggerFor]="menu6">product</a>
+    <mat-menu #menu6>
+      <button mat-menu-item routerLink="/home/addproduct">add product</button>
+      <button mat-menu-item routerLink="/home/product" >view product</button>
+    </mat-menu>
+    
+    <a mat-button [matMenuTriggerFor]="menu7">user</a>
+    <mat-menu #menu7>
+      <button mat-menu-item routerLink="/home/adduser">add user</button>
+      <button mat-menu-item routerLink="/home/user" >view user</button>
+    </mat-menu>
+    <a mat-button routerLink="/">logout</a>
 </mat-toolbar>
+
+<!--<mat-sidenav-container fullscreen >
+  <mat-sidenav #drawer class="mat-elevation-z8">
+    <mat-icon matPrefix>home&nbsp;</mat-icon><a mat-button  routerLink= "/home" (click)="drawer.toggle()" >Home</a><br>
+    <a mat-button routerLink="/home/cat" (click)="drawer.toggle()">cat</a><br>
+    <a  mat-button routerLink="/home/delivery" (click)="drawer.toggle()">delivery</a><br>
+    <a  mat-button routerLink="/home/emp" (click)="drawer.toggle()">emp</a><br>
+    <a mat-button routerLink="/home/orderdetail" (click)="drawer.toggle()">orderdetail</a><br>
+    <a mat-button routerLink="//home/order" (click)="drawer.toggle()">order</a><br>
+    <a mat-button routerLink="/home/product" (click)="drawer.toggle()">product</a><br>
+    <a mat-button routerLink="/home/user"(click)="drawer.toggle()">user</a><br>
+    <a mat-button routerLink="/"(click)="drawer.toggle()">logout</a><br>
+    </mat-sidenav> 
+    <mat-sidenav-content>
+    <mat-toolbar color="primary" class="mat-elevation-z8">
+        <button (click)="drawer.toggle()" mat-icon-button>
+          <mat-icon>menu</mat-icon>
+        </button>
+      <span><mat-icon>eco</mat-icon>ADMIN</span>
+      </mat-toolbar>
+    <router-outlet>
+
+      
+    </router-outlet> 
+    
+  </mat-sidenav-content>
+  
+</mat-sidenav-container>-->
+  
+  
+  
+  
  
  

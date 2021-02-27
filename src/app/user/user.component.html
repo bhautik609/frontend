@@ -1,22 +1,25 @@
-
- <button mat-mini-fab color="accent"(click)="addclik()">
+<!-- <button mat-mini-fab color="accent"(click)="addclik()">
   <mat-icon>add</mat-icon>
-</button> 
+</button>-->
+
  <div class="container">
-    <mat-form-field appearance="fill">
+    <mat-form-field appearance="fill" class="margin">
       <mat-icon matPrefix>search&nbsp;</mat-icon>
          <mat-label>Search</mat-label>
-         <input matInput (keyup)="applyFilter($event)" placeholder="search any user" #input class="i"> 
+         <input matInput (keyup)="applyFilter($event)" placeholder="search any user" #input class="i"[(ngModel)]="value"> 
+         <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+          <mat-icon>close</mat-icon>
+        </button>
        </mat-form-field>
        
        <div class="mat-elevation-z8">
          <table mat-table [dataSource]="dataSource" matSort>-->
        
            <!-- del id -->
-           <ng-container matColumnDef="user_id">
+           <!--<ng-container matColumnDef="user_id">
              <th mat-header-cell *matHeaderCellDef mat-sort-header>user_id</th>
              <td mat-cell *matCellDef="let row"> {{row.user_id}} </td>
-           </ng-container>
+           </ng-container>-->
    
            <!--order id _fk-->
            <ng-container matColumnDef="user_password">

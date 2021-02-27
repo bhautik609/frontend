@@ -1,22 +1,27 @@
   
-  <button mat-mini-fab color="accent" (click)="addcat()"class="c">
+  <!--<button mat-mini-fab color="accent" (click)="addcat()"class="c">
     <mat-icon>add</mat-icon>
-  </button> 
+  </button>-->
+
   <div class="container">
-  <mat-form-field appearance="fill" >
+  <mat-form-field appearance="fill" class="margin" >
     <mat-icon matPrefix>search&nbsp;</mat-icon>
-    <mat-label>search any Category </mat-label>
-    <input matInput (keyup)="applyFilter($event)" placeholder="serch Category" #input>
+    <mat-label>search</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="serch Category" #input [(ngModel)]="value">
+    <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+      <mat-icon>close</mat-icon>
+    </button>
+    
   </mat-form-field>
   
   <div class="mat-elevation-z8">
     <table mat-table [dataSource]="dataSource" matSort>
   
       <!-- cat id -->
-      <ng-container matColumnDef="cat_id">
+      <!--<ng-container matColumnDef="cat_id">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> cat ID </th>
         <td mat-cell *matCellDef="let row"> {{row.cat_id}} </td>
-      </ng-container>
+      </ng-container>-->
       <!--cat name-->
       <ng-container matColumnDef="cat_name">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> cat name </th>

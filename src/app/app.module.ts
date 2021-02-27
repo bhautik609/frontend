@@ -46,6 +46,9 @@ import { LoginComponent } from './login/login.component';
 import { ShellComponent } from './shell/shell.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import{MatSidenavModule}from '@angular/material/sidenav';
+import { MatNativeDateModule } from '@angular/material/core';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -97,7 +100,9 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
     MatCardModule,
     MatMenuModule,
     LayoutModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    MatSidenavModule,
+    MatNativeDateModule
     
   ],
   providers: [],

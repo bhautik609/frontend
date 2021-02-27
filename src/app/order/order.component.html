@@ -5,7 +5,10 @@
  <mat-form-field appearance="fill">
       <mat-label>Search</mat-label>
       <mat-icon matPrefix>search&nbsp;</mat-icon>
-      <input matInput (keyup)="applyFilter($event)" placeholder="search order" #input>
+      <input matInput (keyup)="applyFilter($event)" placeholder="search order" #input [(ngModel)]="value">
+      <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+        <mat-icon>close</mat-icon>
+      </button>
     </mat-form-field>
     
     <div class="mat-elevation-z8">

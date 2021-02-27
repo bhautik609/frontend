@@ -17,6 +17,7 @@ export class ProductComponent implements OnInit ,AfterViewInit {
   dataSource: MatTableDataSource<product>;
 productform:FormGroup;
 obj:product[]=[];
+value="";
 @ViewChild(MatPaginator) paginator:MatPaginator;
   @ViewChild(MatSort)sort:MatSort;
   constructor(private _productdata:ProductService,private _router:Router) {

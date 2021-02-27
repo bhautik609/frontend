@@ -13,9 +13,10 @@ import{user}from"./user";
 })
 export class UserComponent implements OnInit ,AfterViewInit{
 userform:FormGroup;
-displayedColumns: string[] = ['user_id','user_password','user_name','user_email','user_age','user_gender','user_mob','user_address','action','edit'];
+displayedColumns: string[] = ['user_password','user_name','user_email','user_age','user_gender','user_mob','user_address','action','edit'];
   dataSource: MatTableDataSource<user>;
   obj:user[]=[];
+  value="";
   @ViewChild(MatPaginator) paginator:MatPaginator;
   @ViewChild(MatSort)sort:MatSort;
 

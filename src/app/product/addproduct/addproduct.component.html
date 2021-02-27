@@ -4,40 +4,52 @@
     <form [formGroup]="productform" (ngSubmit)="onSaveClick()">
     <mat-form-field  appearance="fill">
        <input matInput  formControlName="product_id"  placeholder="Enter product_id">
+       
       </mat-form-field>
        <mat-form-field  appearance="fill">
         <input matInput  formControlName="product_name"  placeholder="Enter product_name">
+       
        </mat-form-field>
         <mat-form-field  appearance="fill">
         <input matInput  formControlName="product_color"  placeholder="Enter product_color">
+        
        </mat-form-field>
        <mat-form-field  appearance="fill">
         <input matInput  formControlName="product_mfd"  placeholder="Enter product_mfd">
+        
        </mat-form-field>
        <mat-form-field  appearance="fill">
         <input matInput  formControlName="product_price"  placeholder="Enter product_price">
+       
        </mat-form-field>
        <mat-form-field  appearance="fill">
         <input matInput  formControlName="product_warr"  placeholder="Enter product_warr">
+       
        </mat-form-field>
        <mat-form-field  appearance="fill">
-        <input matInput  formControlName="product_garr"  placeholder="Enter payment_garr">
+        <input matInput  formControlName="product_garr"  placeholder="Enter product_garr">
+        
+
        </mat-form-field>
 
        <mat-form-field  appearance="fill">
         <input matInput  formControlName="product_desc"  placeholder="Enter product_desc">
+        
        </mat-form-field>
 
        <mat-form-field  appearance="fill">
         <input matInput  formControlName="product_img1"  placeholder="Enter product_img1">
+        
        </mat-form-field>
 
        <mat-form-field  appearance="fill">
         <input matInput  formControlName="product_img2"  placeholder="Enter product_img2">
+        <mat-error *ngIf="productform.get('product_img2').hasError('required')&&!productform.get('product_img2').pristine"> product img is require</mat-error>
        </mat-form-field>
 
        <mat-form-field  appearance="fill">
         <input matInput  formControlName="product_img3"  placeholder="Enter product_img3">
+       
        </mat-form-field>
 
        <!--<mat-form-field>
