@@ -8,20 +8,23 @@
        <mat-error *ngIf="userform.get('user_id').hasError('required')&&!userform.get('user_id').pristine">user_id is require</mat-error>
       </mat-form-field>-->
        <mat-form-field  appearance="fill">
+         <mat-label>USER PASSWORD</mat-label>
         <input matInput  formControlName="user_password" type="password" placeholder="Enter user_password">
         <mat-error *ngIf="userform.get('user_password').hasError('required')&&!userform.get('user_password').pristine">user password is require</mat-error>
        </mat-form-field>
         <mat-form-field  appearance="fill">
+          <mat-label>USER NAME</mat-label>
         <input matInput  formControlName="user_name"  placeholder="Enter user_name">
         <mat-error *ngIf="userform.get('user_name').hasError('required')&&!userform.get('user_name').pristine">user name is require</mat-error>
        </mat-form-field>
        <mat-form-field  appearance="fill">
-          
+          <mat-label>USER EMAIL</mat-label>
         <input matInput  formControlName="user_email"  placeholder="xyz60@.com">
         <mat-error *ngIf="userform.get('user_email').hasError('required')&&!userform.get('user_email').pristine">user email is require</mat-error>
         <mat-error *ngIf="userform.get('user_email').hasError('email')&&!userform.get('user_email').pristine">user email is not valid formate</mat-error>
        </mat-form-field>
        <mat-form-field  appearance="fill">
+         <mat-label>USER AGE</mat-label>
         <input matInput  formControlName="user_age"  placeholder="Enter user_age">
        </mat-form-field><br>
        <!--<mat-form-field>
@@ -41,6 +44,7 @@
         <mat-icon matSuffix>mode_edit</mat-icon>
        </mat-form-field>
        <mat-form-field  appearance="fill">
+         <mat-label>USER ADDRESS</mat-label>
         <input matInput  formControlName="user_address"  placeholder="Enter user_address">
        </mat-form-field><br>
        <!--<button type="submit" class="btn btn-primary">Save</button>

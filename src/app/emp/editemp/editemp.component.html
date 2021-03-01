@@ -4,7 +4,7 @@
     <form [formGroup]="empform" (ngSubmit)="onSaveClick()">
       <mat-form-field appearance="fill">
         <mat-label>EMP ID</mat-label>
-         <input matInput  formControlName="emp_id"  placeholder="Enter emp ID">
+         <input matInput  formControlName="emp_id"  placeholder="Enter emp ID" readonly>
          <mat-error *ngIf="empform.get('emp_id').hasError('required')&&!empform.get('emp_id').pristine"> emp id is require</mat-error>
         </mat-form-field>
          <mat-form-field appearance="fill">
@@ -20,14 +20,21 @@
          </mat-form-field>
          <mat-form-field appearance="fill">
            <mat-label>EMP SALARY</mat-label>
+           <span matPrefix>₹ &nbsp;</span>
           <input matInput  formControlName="emp_salary"  placeholder="Enter emp salary">
           <mat-error *ngIf="empform.get('emp_salary').hasError('required')&&!empform.get('emp_salary').pristine"> emp salary is require</mat-error>
          </mat-form-field>
-         <mat-form-field appearance="fill">
+         <!--<mat-form-field appearance="fill">
            <mat-label>EMP JOIN DATE</mat-label>
           <input matInput  formControlName="emp_join_date"  placeholder="Enter emp join date">
           <mat-error *ngIf="empform.get('emp_join_date').hasError('required')&&!empform.get('emp_join_date').pristine"> emp join date is require</mat-error>
-         </mat-form-field>
+         </mat-form-field>-->
+         <mat-form-field appearance="fill">
+          <mat-label>choose employee join date</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="emp_join_date">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
          <br><br>
          <!--<button type="submit" class="btn btn-primary">Save</button>
          <button class="btn btn-primary" (click)="cancle()">cancle</button>-->

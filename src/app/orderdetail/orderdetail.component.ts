@@ -12,7 +12,7 @@ import { Router } from "@angular/router";
   styleUrls: ['./orderdetail.component.css']
 })
 export class OrderdetailComponent implements OnInit ,AfterViewInit{
-  displayedColumns: string[] = ['order_detail_id','order_id_fk','product_name','order_qty','action','edit'];
+  displayedColumns: string[] = ['product_name','order_qty','action','edit'];
   dataSource: MatTableDataSource<orderdetail>;
 orderdetailform:FormGroup;
 obj:orderdetail[]=[];

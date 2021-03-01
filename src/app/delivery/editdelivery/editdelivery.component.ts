@@ -5,6 +5,8 @@ import { ActionSequence } from 'protractor';
 import { DeliveryService } from 'src/app/delivery.service';
 import { EmpService } from 'src/app/emp.service';
 import { emp } from 'src/app/emp/emp';
+import { OrderService } from 'src/app/order.service';
+import { order } from 'src/app/order/order';
 import{delivery}from'../delivery';
 
 @Component({
@@ -15,13 +17,14 @@ import{delivery}from'../delivery';
 export class EditdeliveryComponent implements OnInit {
   deliveryform:FormGroup;
   del_id;
+  obj1:order[]=[]; 
   obj:emp[]=[];
   dels:string[]=['done','pending'];
-  constructor(private _actRoute:ActivatedRoute,private _diliverydata:DeliveryService,private _empdata:EmpService,private _router:Router) { }
+  constructor(private _actRoute:ActivatedRoute,private _diliverydata:DeliveryService,private _empdata:EmpService,private _router:Router,private _orderdata:OrderService) { }
 
   ngOnInit(): void {
     this.deliveryform= new FormGroup({
-      del_id:new FormControl(null,Validators.required),
+      del_id:new FormControl(null),
       order_id_fk:new FormControl(null,Validators.required),
      del_date:new FormControl(null,Validators.required),
       del_status:new FormControl(null,Validators.required),
@@ -40,6 +43,9 @@ export class EditdeliveryComponent implements OnInit {
       });
       this._empdata.getAllemp().subscribe((data:emp[])=>{
         this.obj=data;
+      });
+      this._orderdata.getAllorder().subscribe((data:order[])=>{
+        this.obj1=data;
       });
 
     });

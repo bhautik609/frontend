@@ -3,21 +3,39 @@
 <div class="container">
     <form [formGroup]="orderform" (ngSubmit)="onSaveClick()">
     <mat-form-field appearance="fill">
-       <input matInput  formControlName="order_id"  placeholder="Enter order ID">
+      <mat-label>order id</mat-label>
+       <input matInput  formControlName="order_id"  placeholder="Enter order ID" readonly>
        <mat-error *ngIf="orderform.get('order_id').hasError('required')&&!orderform.get('order_id').pristine"> order id is require</mat-error>
       </mat-form-field>
-       <mat-form-field appearance="fill">
+      <!-- <mat-form-field appearance="fill">
+         <mat-label>order date</mat-label>
         <input matInput  formControlName="order_date"  placeholder="Enter order date">
         <mat-error *ngIf="orderform.get('order_date').hasError('required')&&!orderform.get('order_date').pristine"> order date is require</mat-error>
-       </mat-form-field>
+       </mat-form-field>-->
+       <mat-form-field appearance="fill">
+        <mat-label>choose order date</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="order_date">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
         <mat-form-field appearance="fill">
+          <mat-label>order amount</mat-label>
+          <span matPrefix>₹ &nbsp;</span>
         <input matInput  formControlName="order_amount"  placeholder="Enter order amount">
         <mat-error *ngIf="orderform.get('order_amount').hasError('required')&&!orderform.get('order_amount').pristine"> order amount is require</mat-error>
        </mat-form-field>
-       <mat-form-field appearance="fill">
+       <!--<mat-form-field appearance="fill">
         <input matInput  formControlName="product_id_fk"  placeholder="Enter product_id_fk">
         <mat-error *ngIf="orderform.get('product_id_fk').hasError('required')&&!orderform.get('product_id_fk').pristine"> product id is require</mat-error>
-       </mat-form-field>
+       </mat-form-field>-->
+       <mat-form-field appearance="fill">
+        <mat-label>Select product name</mat-label>
+        <mat-select formControlName="product_id_fk">
+             <mat-option *ngFor="let item of obj2" [value]="item.product_id">
+              {{item.product_name}}
+           </mat-option>
+        </mat-select>
+     </mat-form-field>
        <!--<mat-form-field>
         <input matInput  formControlName="user_id_fk"  placeholder="Enter user_id_fk">
        </mat-form-field>-->

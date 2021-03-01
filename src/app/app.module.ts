@@ -23,7 +23,6 @@ import { AddcatComponent } from './cat/addcat/addcat.component';
 import { AdddeliveryComponent } from './delivery/adddelivery/adddelivery.component';
 import { AddempComponent } from './emp/addemp/addemp.component';
 import { OrderdetailComponent } from './orderdetail/orderdetail.component';
-
 import { AddorderdetailComponent } from './orderdetail/addorderdetail/addorderdetail.component';
 import { EditorderdetailComponent } from './orderdetail/editorderdetail/editorderdetail.component';
 import { OrderComponent } from './order/order.component';

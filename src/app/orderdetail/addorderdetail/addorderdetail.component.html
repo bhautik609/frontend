@@ -2,16 +2,24 @@
    <h2>ADD ORDER DETAIL</h2>
 <div class="container">
     <form [formGroup]="orderdetailform" (ngSubmit)="onSaveClick()">
-      <mat-form-field appearance="fill">
+      <!--<mat-form-field appearance="fill">
          <mat-label>ORDER DETAIL ID</mat-label>
          <input matInput  formControlName="order_detail_id"  placeholder="Enter order detail id">
          <mat-error *ngIf="orderdetailform.get('order_detail_id').hasError('required')&&!orderdetailform.get('order_detail_id').pristine"> order detail id require</mat-error>
-        </mat-form-field>
-         <mat-form-field appearance="fill">
+        </mat-form-field>-->
+         <!--<mat-form-field appearance="fill">
             <mat-label>ORDER ID FK</mat-label>
           <input matInput  formControlName="order_id_fk"  placeholder="Enter order_id_fk">
           <mat-error *ngIf="orderdetailform.get('order_id_fk').hasError('required')&&!orderdetailform.get('order_id_fk').pristine"> order id fk require</mat-error>
-         </mat-form-field>
+         </mat-form-field>-->
+         <mat-form-field appearance="fill">
+            <mat-label>Select order id </mat-label>
+             <mat-select formControlName="order_id_fk">
+                  <mat-option *ngFor="let item of obj1" [value]="item.order_id">
+                   {{item.order_id}}
+                </mat-option>
+             </mat-select>
+          </mat-form-field>
           <!--<mat-form-field>
           <input matInput  formControlName="product_id_fk"  placeholder="Enter product_id_fk">
          </mat-form-field>-->

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup,Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { OrderService } from 'src/app/order.service';
+import { ProductService } from 'src/app/product.service';
+import { product } from 'src/app/product/product';
 import { UserService } from 'src/app/user.service';
 import { user } from 'src/app/user/user';
 import{order}from '../order';
@@ -14,9 +16,10 @@ export class AddorderComponent implements OnInit {
 orderform:FormGroup;
 obj:order[]=[];
 obj1:user[]=[];
+obj2:product[]=[];
 payment:string[]=["done","pending"];
 payment_type:string[]=["cash","credit card","debit card","other payment method"];
-  constructor(private _orderdata:OrderService,private _user:UserService,private _router:Router) { }
+  constructor(private _orderdata:OrderService,private _user:UserService,private _router:Router,private _productdata:ProductService) { }
 
   ngOnInit(): void {
     this.orderform= new FormGroup({
@@ -30,6 +33,9 @@ payment_type:string[]=["cash","credit card","debit card","other payment method"]
     });
     this._user.getAlluser().subscribe((data:user[])=>{
       this.obj1=data;
+    });
+    this._productdata.getAllproduct().subscribe((data:product[])=>{
+      this.obj2=data;
     });
   }
   onSaveClick(){

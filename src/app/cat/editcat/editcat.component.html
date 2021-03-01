@@ -4,7 +4,7 @@
   
     <form [formGroup]="catform" (ngSubmit)="onSaveClick()">
        <mat-form-field appearance="fill">
-         <input matInput  formControlName="cat_id"  placeholder="Enter Category ID">
+         <input matInput  formControlName="cat_id"  placeholder="Enter Category ID" readonly>
          <mat-error *ngIf="catform.get('cat_id').hasError('required')&&!catform.get('cat_id').pristine">category  id is require</mat-error>
         </mat-form-field>
       <mat-form-field appearance="fill">

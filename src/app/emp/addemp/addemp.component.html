@@ -23,6 +23,7 @@
          
          <mat-form-field appearance="fill">
           <mat-label>EMPLOYEE SALARY</mat-label>
+          <span matPrefix>₹ &nbsp;</span>
           <input matInput  formControlName="emp_salary"  placeholder="Enter emp salary">
           <mat-error *ngIf="empform.get('emp_salary').hasError('required')&&!empform.get('emp_salary').pristine">employeei salary is require</mat-error>
          </mat-form-field>

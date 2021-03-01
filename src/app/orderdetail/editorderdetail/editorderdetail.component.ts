@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { OrderService } from 'src/app/order.service';
+import { order } from 'src/app/order/order';
 import { OrderdetailService } from 'src/app/orderdetail.service';
 import { ProductService } from 'src/app/product.service';
 import { product } from 'src/app/product/product';
@@ -14,7 +16,8 @@ export class EditorderdetailComponent implements OnInit {
 orderdetailform:FormGroup;
 order_detail_id;
 obj:product[]=[];
-  constructor(private _actRoute:ActivatedRoute,private _orderdetail:OrderdetailService,private _product:ProductService,private _router:Router) { }
+obj1:order[]=[];
+  constructor(private _actRoute:ActivatedRoute,private _orderdetail:OrderdetailService,private _product:ProductService,private _router:Router,private _orderdata:OrderService) { }
 
   ngOnInit(): void {
     this.orderdetailform= new FormGroup({
@@ -38,6 +41,10 @@ obj:product[]=[];
     this._product.getAllproduct().subscribe((data:product[])=>{
       this.obj=data;
     });
+    this._orderdata.getAllorder().subscribe((data:order[])=>{
+      this.obj1=data;
+    });
+
 
   }
   onSaveClick(){

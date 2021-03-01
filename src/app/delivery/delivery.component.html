@@ -3,7 +3,7 @@
 </button>--> 
 
 <div class="container">
-  <mat-form-field appearance="fill">
+  <mat-form-field appearance="fill" class="margin">
     <mat-icon matPrefix>search&nbsp;</mat-icon>
     <mat-label>Search</mat-label>
     <input matInput (keyup)="applyFilter($event)" placeholder="search any delivery status" #input [(ngModel)]="value">
@@ -21,25 +21,25 @@
         <td mat-cell *matCellDef="let row"> {{row.del_id}} </td>
       </ng-container>-->
       <!--order id _fk-->
-      <ng-container matColumnDef="order_id_fk">
+      <!--<ng-container matColumnDef="order_id_fk">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> order_id_fk </th>
         <td mat-cell *matCellDef="let row"> {{row.order_id_fk}} </td>
-      </ng-container>
+      </ng-container>-->
       <!--order id _fk-->
       <ng-container matColumnDef="emp_name">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> emp_name </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>EMPLOYEE NAME</th>
         <td mat-cell *matCellDef="let row"> {{row.emp_name}} </td>
       </ng-container>
 
       <!--order id _fk-->
       <ng-container matColumnDef="del_date">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> del_date </th>
-        <td mat-cell *matCellDef="let row"> {{row.del_date}} </td>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>DELIVERY DATE</th>
+        <td mat-cell *matCellDef="let row"> {{row.del_date|date:'dd-mm-yy'}} </td>
       </ng-container>
 
       <!--order id _fk-->
       <ng-container matColumnDef="del_status">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> del_status </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> DELIVERY STATUS </th>
         <td mat-cell *matCellDef="let row"> {{row.del_status}} </td>
       </ng-container>
       

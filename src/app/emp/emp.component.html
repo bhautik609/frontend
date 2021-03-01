@@ -22,24 +22,24 @@
             </ng-container>-->
             <!--emp_name-->
             <ng-container matColumnDef="emp_name">
-              <th mat-header-cell *matHeaderCellDef mat-sort-header> emp_name </th>
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>EMPLOYEE NAME</th>
               <td mat-cell *matCellDef="let row"> {{row.emp_name}} </td>
             </ng-container>
             <!--emp_email-->
             <ng-container matColumnDef="emp_email">
-              <th mat-header-cell *matHeaderCellDef mat-sort-header> emp_email </th>
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>EMPLOYEE EMAIL</th>
               <td mat-cell *matCellDef="let row"> {{row.emp_email}} </td>
             </ng-container>
       
             <!--emp_salary-->
             <ng-container matColumnDef="emp_salary">
-              <th mat-header-cell *matHeaderCellDef mat-sort-header>emp_salary </th>
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>EMPLOYEE SALARY</th>
               <td mat-cell *matCellDef="let row"> {{row.emp_salary |currency:'INR'}} </td>
             </ng-container>
       
             <!--emp_join_date-->
             <ng-container matColumnDef="emp_join_date">
-              <th mat-header-cell *matHeaderCellDef mat-sort-header> emp_join_date </th>
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>EMPLOYEE JOIN DATE</th>
               <td mat-cell *matCellDef="let row"> {{row.emp_join_date}} </td>
             </ng-container>
             <ng-container  matColumnDef="action">

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup,Validator, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { OrderService } from 'src/app/order.service';
+import { ProductService } from 'src/app/product.service';
+import { product } from 'src/app/product/product';
 import { UserService } from 'src/app/user.service';
 import { user } from 'src/app/user/user';
 import{order}from'../order';
@@ -13,8 +15,9 @@ import{order}from'../order';
 export class EditorderComponent implements OnInit {
 orderform:FormGroup;
 payment:string[]=["done","pending"];
+obj2:product[]=[];
 payment_type:string[]=["cash","credit card","debit card","other payment method"];
-  constructor(private _actRoute:ActivatedRoute,private _orderdata:OrderService,private _user:UserService,private _router:Router) { }
+  constructor(private _actRoute:ActivatedRoute,private _orderdata:OrderService,private _user:UserService,private _router:Router,private _productdata:ProductService) { }
   order_id;
   obj1:user[]=[];
   ngOnInit(): void {
@@ -29,6 +32,9 @@ payment_type:string[]=["cash","credit card","debit card","other payment method"]
     });
     this._user.getAlluser().subscribe((data:user[])=>{
       this.obj1=data;
+    });
+    this._productdata.getAllproduct().subscribe((data:product[])=>{
+      this.obj2=data;
     });
 
     this.order_id=this._actRoute.snapshot.params['order_id'];

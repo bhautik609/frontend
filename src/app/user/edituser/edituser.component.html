@@ -3,27 +3,35 @@
 <div class="container">
     <form [formGroup]="userform" (ngSubmit)="onSaveClick()">
     <mat-form-field  appearance="fill">
+      <mat-label>USER ID</mat-label>
        <input matInput  formControlName="user_id"  placeholder="Enter user_id">
       </mat-form-field>
        <mat-form-field  appearance="fill">
+         <mat-label>USER PASSWORD</mat-label>
         <input matInput  formControlName="user_password"  placeholder="Enter user_password">
        </mat-form-field>
         <mat-form-field  appearance="fill">
+          <mat-label>USER NAME</mat-label>
         <input matInput  formControlName="user_name"  placeholder="Enter user_name">
        </mat-form-field>
        <mat-form-field  appearance="fill">
+         <mat-label>USER EMAIL</mat-label>
         <input matInput  formControlName="user_email"  placeholder="Enter user_email">
        </mat-form-field>
        <mat-form-field  appearance="fill">
+         <mat-label>USER AGE</mat-label>
         <input matInput  formControlName="user_age"  placeholder="Enter user_age">
        </mat-form-field>
        <mat-form-field  appearance="fill">
+         <mat-label>USER GENDER</mat-label>
         <input matInput  formControlName="user_gender"  placeholder="Enter user_gender">
        </mat-form-field>
        <mat-form-field  appearance="fill">
+         <mat-label>USER MOBAIL</mat-label>
         <input matInput  formControlName="user_mob"  placeholder="Enter user_mobailno">
        </mat-form-field>
        <mat-form-field  appearance="fill">
+         <mat-label>USER ADDRESS</mat-label>
         <input matInput  formControlName="user_address"  placeholder="Enter user_address">
        </mat-form-field><br>
        <!--<button type="submit" class="btn btn-primary">Save</button>

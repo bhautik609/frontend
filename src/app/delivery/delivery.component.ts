@@ -12,7 +12,7 @@ import { Router } from "@angular/router";
   styleUrls: ['./delivery.component.css']
 })
 export class DeliveryComponent implements OnInit ,AfterViewInit{
-  displayedColumns: string[] = ['order_id_fk','emp_name','del_date','del_status','action','edit'];
+  displayedColumns: string[] = ['emp_name','del_date','del_status','action','edit'];
   dataSource: MatTableDataSource<delivery>;
   deliveryform:FormGroup;
    obj:delivery[]=[];
