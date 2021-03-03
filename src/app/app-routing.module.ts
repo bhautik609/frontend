@@ -21,6 +21,7 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { AddproductComponent } from './product/addproduct/addproduct.component';
 import { EditproductComponent } from './product/editproduct/editproduct.component';
 import { ProductComponent } from './product/product.component';
+import { ViewmoreComponent } from './product/viewmore/viewmore.component';
 import { ShellComponent } from './shell/shell.component';
 import { AdduserComponent } from './user/adduser/adduser.component';
 import { EdituserComponent } from './user/edituser/edituser.component';
@@ -51,6 +52,7 @@ const routes: Routes = [
   {path:'user',component:UserComponent},
   {path:'edituser/:user_id',component:EdituserComponent},
   {path:'adduser',component:AdduserComponent},
+  {path:'view',component:ViewmoreComponent}
   
   ]},
   {path:'**',component:PagenotfoundComponent}

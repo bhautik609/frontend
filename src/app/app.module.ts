@@ -47,6 +47,9 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import{MatSidenavModule}from '@angular/material/sidenav';
 import { DateAdapter, MatNativeDateModule, MAT_DATE_FORMATS,MAT_DATE_LOCALE } from '@angular/material/core';
+import{ChartsModule}from 'ng2-charts';
+import { ViewmoreComponent } from './product/viewmore/viewmore.component';
+import{MatDialogModule}from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -77,6 +80,8 @@ import { DateAdapter, MatNativeDateModule, MAT_DATE_FORMATS,MAT_DATE_LOCALE } fr
     LoginComponent,
     ShellComponent,
     PagenotfoundComponent,
+    ViewmoreComponent,
+
     
   ],
   imports: [
@@ -102,6 +107,8 @@ import { DateAdapter, MatNativeDateModule, MAT_DATE_FORMATS,MAT_DATE_LOCALE } fr
     MatDatepickerModule,
     MatSidenavModule,
     MatNativeDateModule,
+    ChartsModule,
+    MatDialogModule
   
 
 

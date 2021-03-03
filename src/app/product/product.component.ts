@@ -6,6 +6,8 @@ import{MatTableDataSource}from "@angular/material/table";
 import{MatSort}from "@angular/material/sort";
 import { ProductService } from '../product.service';
 import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { ViewmoreComponent } from './viewmore/viewmore.component';
 
 @Component({
   selector: 'app-product',
@@ -13,14 +15,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent implements OnInit ,AfterViewInit {
-  displayedColumns: string[] = ['product_id','product_name','product_color','product_mfd','product_price','product_warr','product_garr','product_desc','product_img1','product_img2','product_img3','cat_name','action','edit'];
+  displayedColumns: string[] = ['product_name','product_color','product_mfd','product_price','product_warr','product_garr','action','edit'];
   dataSource: MatTableDataSource<product>;
 productform:FormGroup;
 obj:product[]=[];
 value="";
 @ViewChild(MatPaginator) paginator:MatPaginator;
   @ViewChild(MatSort)sort:MatSort;
-  constructor(private _productdata:ProductService,private _router:Router) {
+  constructor(private _productdata:ProductService,private _router:Router,public dialog: MatDialog) {
     this.dataSource=new MatTableDataSource()
    }
    ngAfterViewInit():void{
@@ -70,6 +72,13 @@ value="";
   edit(item:product){
     this._router.navigate(['/home/editproduct',item.product_id]);
   }
+  openDialog() {
+    const dialogRef = this.dialog.open(ViewmoreComponent);
 
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
 
 }
+

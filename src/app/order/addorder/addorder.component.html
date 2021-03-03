@@ -10,6 +10,7 @@
         <input matInput  formControlName="order_date"  placeholder="Enter order date">
         <mat-error *ngIf="orderform.get('order_date').hasError('required')&&!orderform.get('order_date').pristine"> order date require</mat-error>
        </mat-form-field>-->
+
        <mat-form-field appearance="fill">
         <mat-label>choose order date</mat-label>
         <input matInput [matDatepicker]="picker" formControlName="order_date">

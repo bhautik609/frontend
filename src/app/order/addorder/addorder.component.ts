@@ -23,7 +23,7 @@ payment_type:string[]=["cash","credit card","debit card","other payment method"]
 
   ngOnInit(): void {
     this.orderform= new FormGroup({
-      order_id:new FormControl(null,Validators.required),
+      //order_id:new FormControl(null,Validators.required),
       order_date:new FormControl(null,Validators.required),
       order_amount:new FormControl(null,Validators.required),
       product_id_fk:new FormControl(null,Validators.required),

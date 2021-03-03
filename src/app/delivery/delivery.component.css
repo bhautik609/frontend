@@ -11,4 +11,5 @@ table {
     width: 20%;
   }
   .margin{margin-top: 40px;}
-  
+  .pending{color: red;}
+  .done{color: green;}

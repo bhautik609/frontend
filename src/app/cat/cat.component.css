@@ -11,4 +11,7 @@ table {
     width: 25%;
   }
   .margin{margin-top: 40px;}
+  body{
+    background-color:whitesmoke;
+  }
   

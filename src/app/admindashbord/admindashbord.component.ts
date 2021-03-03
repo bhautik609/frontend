@@ -1,7 +1,8 @@
 import { Component,OnInit} from '@angular/core';
 import { map } from 'rxjs/operators';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
-import{chart}from 'node_modules/chart.js';
+import { ChartDataSets, ChartOptions, ChartType } from 'chart.js';
+import { SingleDataSet, Label, monkeyPatchChartJsLegend, monkeyPatchChartJsTooltip } from 'ng2-charts';
 @Component({
   selector: 'app-admindashbord',
   templateUrl: './admindashbord.component.html',
@@ -30,30 +31,20 @@ chart=[];
       ];
     })
   );
-
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  public pieChartOptions: ChartOptions = {
+    responsive: true,
+  };
+  public pieChartLabels: Label[] = [['Download', 'Sales'], ['In', 'Store', 'Sales'], 'Mail Sales'];
+  public pieChartData: SingleDataSet = [300, 500, 100];
+  public pieChartType: ChartType = 'pie';
+  public pieChartLegend = true;
+  public pieChartPlugins = [];
+ 
+  constructor(private breakpointObserver: BreakpointObserver) {
+    monkeyPatchChartJsTooltip();
+    monkeyPatchChartJsLegend();
+  }
   ngOnInit(): void{
 
-  /**  this.chart=new chart('canvas',{
-      type:'line',
-      data:{
-        Labels:['a','b','c','d'],
-        datasets:[
-          {
-            Labels:'my first dataset',
-            data:[1,2,3,5,9,10,15,30,44],
-            borderColor:'red',
-            fill:false,
-          },
-          
-        ]
-
-        
-      }
-    });**/
-   
-
-
-
-  }
+}
 }

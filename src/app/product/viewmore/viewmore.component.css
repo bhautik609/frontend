@@ -1,3 +1,4 @@
+.a{align-items: flex-end;}
 table {
     width: 100%;
   }
@@ -9,10 +10,4 @@ table {
   
   td, th {
     width: 10%;
-  }
-  .i{
-    width: 120%;
-  }
-  .margin{
-    margin-top: 5%;
   }

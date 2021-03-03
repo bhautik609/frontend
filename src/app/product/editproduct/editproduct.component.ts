@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { CatService } from 'src/app/cat.service';
+import { cat } from 'src/app/cat/cat';
+import { CatComponent } from 'src/app/cat/cat.component';
 import { ProductService } from 'src/app/product.service';
 import{product}from'../product';
 @Component({
@@ -11,7 +14,8 @@ import{product}from'../product';
 export class EditproductComponent implements OnInit {
 productform:FormGroup;
 product_id;
-  constructor(private _actRoute:ActivatedRoute,private _productdata:ProductService,private _router:Router) { }
+obj:cat[]=[];
+  constructor(private _actRoute:ActivatedRoute,private _productdata:ProductService,private _router:Router,private _catdata:CatService) { }
 
   ngOnInit(): void {
     this.productform= new FormGroup({
@@ -36,7 +40,7 @@ product_id;
       this.productform.patchValue({
         product_id:data[0].product_id,
       product_name:data[0].product_name,
-        product_icolor:data[0].product_color,
+        product_color:data[0].product_color,
         product_mfd:data[0].product_mfd,
         product_price:data[0].product_price,
         product_warr:data[0].product_warr,
@@ -47,6 +51,9 @@ product_id;
         product_img3:data[0].product_img3,
         cat_id_fk:data[0].cat_id_fk
        });
+    });
+    this._catdata.getAllCat().subscribe((data:cat[])=>{
+      this.obj=data;
     });
   }
   onSaveClick(){
