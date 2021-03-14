@@ -15,7 +15,7 @@ userform:FormGroup;
 
   ngOnInit(): void {
     this.userform= new FormGroup({
-      user_id:new FormControl(null,[Validators.required]),
+      //user_id:new FormControl(null,[Validators.required]),
       user_password:new FormControl(null,[Validators.required]),
       user_name:new FormControl(null,Validators.required),
       user_email:new FormControl(null,[Validators.required,Validators.email]),

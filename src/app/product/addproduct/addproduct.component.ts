@@ -1,3 +1,4 @@
+import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -14,11 +15,13 @@ import{product}from'../product';
 export class AddproductComponent implements OnInit {
 productform:FormGroup;
 obj:cat[]=[];
+selectedfile:File=null;
+selectedfile2:File=null;
   constructor(private _productdata:ProductService,private _catdata:CatService,private _router:Router) { }
 
   ngOnInit(): void {
     this.productform= new FormGroup({
-      product_id:new FormControl(null,Validators.required),
+      product_id:new FormControl(null),
       product_name:new FormControl(null,Validators.required),
       product_color:new FormControl(null,Validators.required),
       product_mfd:new FormControl(null,Validators.required),
@@ -26,8 +29,8 @@ obj:cat[]=[];
       product_warr:new FormControl(null,Validators.required),
       product_garr:new FormControl(null,Validators.required),
       product_desc:new FormControl(null,Validators.required),
-      product_img1:new FormControl(null,Validators.required),
-      product_img2:new FormControl(null,Validators.required),
+      product_img1:new FormControl(null),
+      product_img2:new FormControl(null),
       product_img3:new FormControl(null,Validators.required),
       cat_id_fk:new FormControl(null,Validators.required)
 
@@ -37,9 +40,23 @@ obj:cat[]=[];
     });
   }
   onSaveClick(){
-    this._productdata.addproduct(this.productform.value).subscribe((data:any)=>{
+    const fd=new FormData();
+    fd.append('product_name',this.productform.get('product_name').value);
+    fd.append('product_color',this.productform.get('product_color').value);
+    fd.append('product_mfd',this.productform.get('product_mfd').value);
+    fd.append('product_price',this.productform.get('product_price').value);
+    fd.append('product_warr',this.productform.get('product_warr').value);
+    fd.append('product_garr',this.productform.get('product_garr').value);
+    fd.append('product_desc',this.productform.get('product_desc').value);
+    fd.append('product_img1',this.selectedfile,this.selectedfile.name);
+    fd.append('product_img2',this.selectedfile2,this.selectedfile2.name);
+    //fd.append('product_img2',this.productform.get('product_img2').value);
+    fd.append('product_img3',this.productform.get('product_img3').value);
+    fd.append('cat_id_fk',this.productform.get('cat_id_fk').value);
+    console.log(fd);
+
+    this._productdata.addproduct(fd).subscribe((data:any)=>{
       console.log(data);
-      
       if(data.affectedRows==1)
       {
         alert('data inserted succesfully');
@@ -54,6 +71,14 @@ obj:cat[]=[];
   }
   cancle(){
    this._router.navigate(['/home/product']);
-  }  
+  }
+  onFileAdd(value){
+    this.selectedfile=<File>value.target.files[0];
+   }
+   onFileAdd2(value){
+     this.selectedfile2=<File>value.target.files[0];
+    // this.selectedfile=<File>value.target.files[0];
+   }
+
 
 }

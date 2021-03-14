@@ -3,13 +3,23 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { EmpService } from 'src/app/emp.service';
 import{emp}from'../emp';
+import{NativeDateAdapter,MatDateFormats,DateAdapter,MAT_DATE_FORMATS}from '@angular/material/core';
+import { AppDateAdapter, APP_DATE_FORMATS } from './formatedate';
 
 @Component({
   selector: 'app-addemp',
   templateUrl: './addemp.component.html',
-  styleUrls: ['./addemp.component.css']
+  styleUrls: ['./addemp.component.css'],
+  providers: [
+    {provide: DateAdapter, useClass: AppDateAdapter},
+    {provide: MAT_DATE_FORMATS, useValue:APP_DATE_FORMATS}
+  ]
+  
 })
 export class AddempComponent implements OnInit {
+  
+
+  
   empform:FormGroup;
   obj:emp[]=[];
   constructor(private _empdata:EmpService,private _router:Router) { }
@@ -23,6 +33,7 @@ export class AddempComponent implements OnInit {
       emp_join_date:new FormControl(null,Validators.required)
     });
   }
+  
   onSaveClick(){
     this._empdata.addemp(this.empform.value).subscribe((data:any)=>{
       console.log(data);
@@ -35,6 +46,7 @@ export class AddempComponent implements OnInit {
         alert('something went wrong');
         console.log(data);
       }
+      this.empform.clearValidators();
       this.empform.reset({});
     });
 

@@ -15,8 +15,6 @@ import{MatSort}from "@angular/material/sort";
 export class CatComponent implements OnInit,AfterViewInit {
   displayedColumns: string[] = ['cat_name','action','edit'];
   dataSource: MatTableDataSource<cat>;
-
-
   catform:FormGroup;
   obj:cat[]=[];
   value="";
@@ -36,7 +34,7 @@ export class CatComponent implements OnInit,AfterViewInit {
       this._catdata.getAllCat().subscribe((data:cat[])=>{
       this.obj=data;
       this.dataSource.data=data;
-   console.log(data);
+      console.log(data);
     });
   }
   applyFilter(event:Event){
@@ -48,10 +46,6 @@ export class CatComponent implements OnInit,AfterViewInit {
     }
   }
    ondelete(item:cat){
-
-  if(confirm("Are you sure you want to delete?"))
-   {
-     console.log(item.cat_id);
     this._catdata.deletecat(item.cat_id).subscribe((data:any)=>{
       console.log(data);
       if(data.affectedRows==1)
@@ -67,7 +61,7 @@ export class CatComponent implements OnInit,AfterViewInit {
         
 
   });
-}
+
 }
 editcat(item:cat){
 this._router.navigate(['/home/editcat',item.cat_id]);

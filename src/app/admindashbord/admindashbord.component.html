@@ -1,114 +1,138 @@
 <div class="grid-container">
   <h1 class="mat-h1">Dashboard</h1>
-  <mat-grid-list cols="2" rowHeight="350px">
-    <mat-grid-tile  [colspan]="2" [rowspan]="1">
-      <mat-card class="dashboard-card">
-        <mat-card-header>
-          <mat-card-title>
-           CUSTOMER
-          </mat-card-title>
-        </mat-card-header>
-        <mat-card-content class="dashboard-card-content">
-          <div>Card Content Here
-            <div style="display: block;">
-              <!--<canvas baseChart 
-                [data]="pieChartData" 
-                [labels]="pieChartLabels" 
-                [chartType]="pieChartType"
-                [options]="pieChartOptions"
-                [plugins]="pieChartPlugins"
-                [legend]="pieChartLegend">
-              </canvas>-->
-            </div>   
-             </div>
-        </mat-card-content>
-      </mat-card>
-    </mat-grid-tile>
-    <mat-grid-tile  [colspan]="1" [rowspan]="1">1
-      <mat-card class="dashboard-card">
-        <mat-card-header>
-          <mat-card-title>
-           CUSTOMER
-          </mat-card-title>
-        </mat-card-header>
-        <mat-card-content class="dashboard-card-content">
-          <div>Card Content Here
-            <div style="display: block;">
-              <!--<canvas baseChart 
-                [data]="pieChartData" 
-                [labels]="pieChartLabels" 
-                [chartType]="pieChartType"
-                [options]="pieChartOptions"
-                [plugins]="pieChartPlugins"
-                [legend]="pieChartLegend">
-              </canvas>-->
-            </div>   
-             </div>
-        </mat-card-content>
-      </mat-card>
-    </mat-grid-tile>
-  </mat-grid-list>
-  <!--<mat-grid-list cols="2" rowHeight="350px">
+  <mat-grid-list cols="4" rowHeight="350px">
     <mat-grid-tile  [colspan]="1" [rowspan]="1">
       <mat-card class="dashboard-card">
         <mat-card-header>
           <mat-card-title>
-            <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
-              <mat-icon>more_vert</mat-icon>
-            </button>
-            <mat-menu #menu="matMenu" xPosition="before">
-              <button mat-menu-item>Expand</button>
-              <button mat-menu-item>Remove</button>
-            </mat-menu>
+          <mat-icon>people</mat-icon>
           </mat-card-title>
         </mat-card-header>
         <mat-card-content class="dashboard-card-content">
-          <div>Card Content Here
-            <div style="display: block;">
-              <canvas baseChart 
-                [data]="pieChartData" 
-                [labels]="pieChartLabels" 
-                [chartType]="pieChartType"
-                [options]="pieChartOptions"
-                [plugins]="pieChartPlugins"
-                [legend]="pieChartLegend">
-              </canvas>
-            </div>   
+          <div><p style="color: purple;">CUSTOMER</p>
+            <h1>50</h1>
+            <p style="color: grey;">INCREASE BY 20%</p>
              </div>
         </mat-card-content>
       </mat-card>
     </mat-grid-tile>
-  </mat-grid-list>
-  <mat-grid-list cols="2" rowHeight="350px">
-    <mat-grid-tile  [colspan]="1" [rowspan]="2">
+    <mat-grid-tile  [colspan]="1" [rowspan]="1">
       <mat-card class="dashboard-card">
         <mat-card-header>
           <mat-card-title>
-            <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
-              <mat-icon>more_vert</mat-icon>
-            </button>
-            <mat-menu #menu="matMenu" xPosition="before">
-              <button mat-menu-item>Expand</button>
-              <button mat-menu-item>Remove</button>
-            </mat-menu>
+           <mat-icon style="color: orangered;">thumb_up</mat-icon>
           </mat-card-title>
         </mat-card-header>
         <mat-card-content class="dashboard-card-content">
-          <div>Card Content Here
-            <div style="display: block;">
-              <canvas baseChart 
-                [data]="pieChartData" 
-                [labels]="pieChartLabels" 
-                [chartType]="pieChartType"
-                [options]="pieChartOptions"
-                [plugins]="pieChartPlugins"
-                [legend]="pieChartLegend">
-              </canvas>
-            </div>   
+          <div><p style="color: orangered">orders</p>
+            <h1>100</h1>
+            <p style="color: grey;">INCREASE BY 20%</p>  
              </div>
         </mat-card-content>
       </mat-card>
     </mat-grid-tile>
-  </mat-grid-list>
-</div>-->
-
+    <mat-grid-tile  [colspan]="1" [rowspan]="1">
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>
+           <mat-icon style="color:  rgb(6, 46, 179)">delivery_dining</mat-icon>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content">
+          <div><p style="color: rgb(6, 46, 179)">DELIVERY</p>
+            <h1>100</h1>
+            <p style="color: grey;">INCREASE BY 20%</p>
+             </div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile  [colspan]="1" [rowspan]="1">
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>
+           <mat-icon style="color: green;">account_box</mat-icon>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content">
+          <div><p style="color:green">USER</p>
+            <h1>100</h1>
+            <p style="color: grey;">INCREASE BY 20%</p>  
+             </div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+  <div class="grid-container">
+    <mat-grid-list cols="2" rowHeight="450px">
+      <mat-grid-tile  [colspan]="1" [rowspan]="1">
+        <mat-card class="dashboard-card">
+          <mat-card-header>
+            <mat-card-title>
+             CATEGORY
+            </mat-card-title>
+          </mat-card-header>
+          <mat-card-content class="dashboard-card-content">
+            <div>
+              <div style="display: block;">
+                <canvas baseChart 
+                  [data]="pieChartData" 
+                  [labels]="pieChartLabels" 
+                  [chartType]="pieChartType"
+                  [options]="pieChartOptions"
+                  [plugins]="pieChartPlugins"
+                  [legend]="pieChartLegend">
+                </canvas>
+              </div>   
+               </div>
+          </mat-card-content>
+        </mat-card>
+      </mat-grid-tile>
+      <mat-grid-tile  [colspan]="1" [rowspan]="1">
+        <mat-card class="dashboard-card">
+          <mat-card-header>
+            <mat-card-title>
+             PRODUCT SALE THIS MONTH
+            </mat-card-title>
+          </mat-card-header>
+          <mat-card-content class="dashboard-card-content">
+            <div>Card Content Here
+              <div style="display: block;">
+                <canvas baseChart 
+                [datasets]="barChartData"
+                [labels]="barChartLabels"
+                [options]="barChartOptions"
+                [plugins]="barChartPlugins"
+                [legend]="barChartLegend"
+                [chartType]="barChartType">
+              </canvas>
+              </div>   
+               </div>
+          </mat-card-content>
+        </mat-card>
+      </mat-grid-tile>
+      <!--</mat-grid-list>
+      <div class="grid-container">
+        <mat-grid-list cols="2" rowHeight="550px">
+          <mat-grid-tile  [colspan]="1" [rowspan]="1">
+            <mat-card class="dashboard-card">
+              <mat-card-header>
+                <mat-card-title>
+                 product sale
+                </mat-card-title>
+              </mat-card-header>
+              <mat-card-content class="dashboard-card-content">
+                <div style="display: block;">
+                  <canvas baseChart 
+                    [datasets]="barChartData"
+                    [labels]="barChartLabels"
+                    [options]="barChartOptions"
+                    [plugins]="barChartPlugins"
+                    [legend]="barChartLegend"
+                    [chartType]="barChartType">
+                  </canvas>
+                </div>            
+                </mat-card-content>
+            </mat-card>
+          </mat-grid-tile>
+        </mat-grid-list>-->  

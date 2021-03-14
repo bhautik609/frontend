@@ -1,8 +1,8 @@
 import { Component,OnInit} from '@angular/core';
 import { map } from 'rxjs/operators';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
-import { ChartDataSets, ChartOptions, ChartType } from 'chart.js';
-import { SingleDataSet, Label, monkeyPatchChartJsLegend, monkeyPatchChartJsTooltip } from 'ng2-charts';
+import { ChartDataSets, ChartOptions, ChartType} from 'chart.js';
+import { SingleDataSet, Label, monkeyPatchChartJsLegend, monkeyPatchChartJsTooltip, Color } from 'ng2-charts';
 @Component({
   selector: 'app-admindashbord',
   templateUrl: './admindashbord.component.html',
@@ -31,19 +31,35 @@ chart=[];
       ];
     })
   );
+
+  
   public pieChartOptions: ChartOptions = {
     responsive: true,
   };
-  public pieChartLabels: Label[] = [['Download', 'Sales'], ['In', 'Store', 'Sales'], 'Mail Sales'];
+  public pieChartLabels: Label[] = [['leptop', 'Sales'], ['mobail','Sales'], 'tv Sales'];
   public pieChartData: SingleDataSet = [300, 500, 100];
   public pieChartType: ChartType = 'pie';
   public pieChartLegend = true;
   public pieChartPlugins = [];
- 
+  
   constructor(private breakpointObserver: BreakpointObserver) {
     monkeyPatchChartJsTooltip();
     monkeyPatchChartJsLegend();
   }
+  public barChartOptions: ChartOptions = {
+    responsive: true,
+  };
+  public barChartLabels: Label[] = ['JAN', 'FEB', 'MARCH', 'APRIL', 'MAY', 'JUNE', 'JULY'];
+  public barChartType: ChartType = 'bar';
+  public barChartLegend = true;
+  public barChartPlugins = [];
+
+  public barChartData: ChartDataSets[] = [
+    { data: [65, 59, 80, 81, 56, 55, 40], label: 'leptop' },
+    { data: [28, 48, 40, 19, 86, 27, 90], label: 'mobail' },
+    { data: [30, 19, 20, 25, 80, 88, 40], label: 'tv' }
+  ];
+  
   ngOnInit(): void{
 
 }

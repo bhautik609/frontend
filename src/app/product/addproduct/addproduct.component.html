@@ -44,17 +44,23 @@
         
        </mat-form-field>
 
-       <mat-form-field  appearance="fill">
+       <!--<mat-form-field  appearance="fill">
           <mat-label>PRODUCT IMG1</mat-label>
         <input matInput  formControlName="product_img1"  placeholder="Enter product_img1">
         
-       </mat-form-field>
-
-       <mat-form-field  appearance="fill">
+       </mat-form-field>-->
+       <div class="form-group">
+         <input type="file" (change)="onFileAdd($event)">
+       </div>
+       <div class="form-group">
+         <input type="file" (change)="onFileAdd2($event)">
+       </div>
+       
+       <!--<mat-form-field  appearance="fill">
           <mat-label>PRODUCT IMG2</mat-label>
         <input matInput  formControlName="product_img2"  placeholder="Enter product_img2">
         <mat-error *ngIf="productform.get('product_img2').hasError('required')&&!productform.get('product_img2').pristine"> product img is require</mat-error>
-       </mat-form-field>
+       </mat-form-field>-->
 
        <mat-form-field  appearance="fill">
           <mat-label>PRODUCT IMG3</mat-label>

@@ -12,10 +12,8 @@ export class ProductService {
   getAllproduct(){
     return this._http.get(this.url);
   }
-  addproduct(obj:product){
-    let body=JSON.stringify(obj);
-    let head=new HttpHeaders().set(environment.headname,environment.headvalue);
-    return this._http.post(this.url,body,{headers:head});
+  addproduct(obj:FormData){
+     return this._http.post(this.url,obj);
 }
 delproduct( product_id:number){
   let head=new HttpHeaders().set(environment.headname,environment.headvalue);

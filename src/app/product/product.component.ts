@@ -72,8 +72,10 @@ value="";
   edit(item:product){
     this._router.navigate(['/home/editproduct',item.product_id]);
   }
-  openDialog() {
-    const dialogRef = this.dialog.open(ViewmoreComponent);
+  openDialog(item:product) {
+    const dialogRef = this.dialog.open(ViewmoreComponent,
+      {data:{name:item.product_id}});
+
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);

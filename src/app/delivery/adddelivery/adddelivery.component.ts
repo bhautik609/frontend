@@ -55,7 +55,7 @@ export class AdddeliveryComponent implements OnInit {
     this.deliveryform= new FormGroup({
      // del_id:new FormControl(null,Validators.required),
       order_id_fk:new FormControl(null,Validators.required),
-       del_date:new FormControl(Validators.required),
+       del_date:new FormControl(null,Validators.required),
       del_status:new FormControl(null,Validators.required),
       emp_id_fk:new FormControl(null,Validators.required),
       
