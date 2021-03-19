@@ -9,7 +9,7 @@ import { SingleDataSet, Label, monkeyPatchChartJsLegend, monkeyPatchChartJsToolt
   styleUrls: ['./admindashbord.component.css']
 })
 export class AdmindashbordComponent implements OnInit {
-
+  username:String;
 chart=[];
   /** Based on the screen size, switch from standard to one column per row */
   cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
@@ -61,6 +61,6 @@ chart=[];
   ];
   
   ngOnInit(): void{
-
+    this.username=localStorage.getItem("username");
 }
 }

@@ -31,8 +31,8 @@ export class ViewmoreComponent implements OnInit,AfterViewInit {
   }
 
   ngOnInit(): void {
-      this._productdata.getAllproduct().subscribe((data:product[])=>{
-    // this._productdata.getproductbyId(this.data.name).subscribe((data:product[])=>{
+      //this._productdata.getAllproduct().subscribe((data:product[])=>{
+    this._productdata.getproductbyId(this.data.name).subscribe((data:product[])=>{
       this.obj=data;
       console.log(data);
       this.dataSource.data=data;

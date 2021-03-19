@@ -4,11 +4,11 @@ table {
   
   .mat-form-field {
     font-size: 15px;
-    width: 100%;
+    width: 80%;
   }
   
   td, th {
-    width: 25%;
+    width: 20%;
   }
   .margin{margin-top: 40px;}
   body{

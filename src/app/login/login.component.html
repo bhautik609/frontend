@@ -1,11 +1,11 @@
 <html>
   <body>     
      <h2>SIGN IN</h2>
-       <form (ngSubmit)="onLogin()" [formGroup]="loginform" class="form-container">
+       <form (ngSubmit)="onsubmitClick()" [formGroup]="loginform" class="form-container">
 
             <mat-form-field  appearance="fill">
                 <mat-label>USER ID</mat-label>
-                <input matInput  formControlName="user_id"  placeholder="Enter user id" [(ngModel)]="value" >
+                <input matInput  formControlName="login_username"  placeholder="Enter user id" [(ngModel)]="value" >
                 <mat-icon matPrefix>account_circle&nbsp;</mat-icon>
                 <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
                     <mat-icon>close</mat-icon>
@@ -14,13 +14,13 @@
 
                <mat-form-field appearance="fill">
                 <mat-label>ENTER USER PASSWORD</mat-label>
-                <input matInput [type]="hide ? 'password' : 'text'"  formControlName="user_password"placeholder="ENTER PASSWORD" >
+                <input matInput [type]="hide ? 'password' : 'text'"  formControlName="login_password"placeholder="ENTER PASSWORD" >
                 <mat-icon matPrefix>lock_outline&nbsp;</mat-icon>
                 <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                 <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                 </button>
               </mat-form-field><br>
-               <button type="submit" (click)="onclick()"  mat-raised-button color="primary" class="b" [disabled]="loginform.invalid">SIGN IN</button> 
+               <button type="submit"   mat-raised-button color="primary" class="b" [disabled]="loginform.invalid">SIGN IN</button> 
         </form>
         
         
