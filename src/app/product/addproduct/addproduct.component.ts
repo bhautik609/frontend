@@ -16,7 +16,6 @@ export class AddproductComponent implements OnInit {
 productform:FormGroup;
 obj:cat[]=[];
 selectedfile:File=null;
-selectedfile2:File=null;
   constructor(private _productdata:ProductService,private _catdata:CatService,private _router:Router) { }
 
   ngOnInit(): void {
@@ -31,7 +30,7 @@ selectedfile2:File=null;
       product_desc:new FormControl(null,Validators.required),
       product_img1:new FormControl(null),
       product_img2:new FormControl(null),
-      product_img3:new FormControl(null,Validators.required),
+      product_img3:new FormControl(null),
       cat_id_fk:new FormControl(null,Validators.required)
 
     });
@@ -48,10 +47,12 @@ selectedfile2:File=null;
     fd.append('product_warr',this.productform.get('product_warr').value);
     fd.append('product_garr',this.productform.get('product_garr').value);
     fd.append('product_desc',this.productform.get('product_desc').value);
-    fd.append('product_img1',this.selectedfile,this.selectedfile.name);
-    fd.append('product_img2',this.selectedfile2,this.selectedfile2.name);
-    //fd.append('product_img2',this.productform.get('product_img2').value);
-    fd.append('product_img3',this.productform.get('product_img3').value);
+    //fd.append('product_img1',this.selectedfile,this.selectedfile.name);
+    fd.append('photos',this.selectedfile,this.selectedfile.name);
+    fd.append('photos',this.selectedfile,this.selectedfile.name);
+    fd.append('photos',this.selectedfile,this.selectedfile.name);
+   // fd.append('product_img2',this.productform.get('product_img2').value);
+    //fd.append('product_img3',this.productform.get('product_img3').value);
     fd.append('cat_id_fk',this.productform.get('cat_id_fk').value);
     console.log(fd);
 
@@ -75,10 +76,7 @@ selectedfile2:File=null;
   onFileAdd(value){
     this.selectedfile=<File>value.target.files[0];
    }
-   onFileAdd2(value){
-     this.selectedfile2=<File>value.target.files[0];
-    // this.selectedfile=<File>value.target.files[0];
-   }
+  
 
 
 }
