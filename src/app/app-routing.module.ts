@@ -11,6 +11,7 @@ import { EditdeliveryComponent } from './delivery/editdelivery/editdelivery.comp
 import { AddempComponent } from './emp/addemp/addemp.component';
 import { EditempComponent } from './emp/editemp/editemp.component';
 import { EmpComponent } from './emp/emp.component';
+import { FeedbackComponent } from './feedback/feedback.component';
 import { LoginComponent } from './login/login.component';
 import { AddorderComponent } from './order/addorder/addorder.component';
 import { EditorderComponent } from './order/editorder/editorder.component';
@@ -53,7 +54,8 @@ const routes: Routes = [
   {path:'user',component:UserComponent},
   {path:'edituser/:user_id',component:EdituserComponent},
   {path:'adduser',component:AdduserComponent},
-  {path:'view',component:ViewmoreComponent}
+  {path:'view',component:ViewmoreComponent},
+  {path:'feedback',component:FeedbackComponent}
   
   ]},
   {path:'**',component:PagenotfoundComponent}

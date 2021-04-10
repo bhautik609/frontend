@@ -50,6 +50,7 @@ import { DateAdapter, MatNativeDateModule, MAT_DATE_FORMATS,MAT_DATE_LOCALE } fr
 import{ChartsModule}from 'ng2-charts';
 import { ViewmoreComponent } from './product/viewmore/viewmore.component';
 import{MatDialogModule}from '@angular/material/dialog';
+import { FeedbackComponent } from './feedback/feedback.component';
 
 @NgModule({
   declarations: [
@@ -81,6 +82,7 @@ import{MatDialogModule}from '@angular/material/dialog';
     ShellComponent,
     PagenotfoundComponent,
     ViewmoreComponent,
+    FeedbackComponent,
 
     
   ],

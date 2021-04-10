@@ -41,13 +41,13 @@ export class AddempComponent implements OnInit {
       {
         alert('data inserted succesfully');
         this.obj.push(this.empform.value);
+        this._router.navigate(['/home/emp']);
       }
       else{
         alert('something went wrong');
         console.log(data);
       }
-      this.empform.clearValidators();
-      this.empform.reset({});
+      
     });
 
   }

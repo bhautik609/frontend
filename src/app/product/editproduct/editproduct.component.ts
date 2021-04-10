@@ -6,6 +6,7 @@ import { cat } from 'src/app/cat/cat';
 import { CatComponent } from 'src/app/cat/cat.component';
 import { ProductService } from 'src/app/product.service';
 import{product}from'../product';
+import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-editproduct',
   templateUrl: './editproduct.component.html',
@@ -14,7 +15,9 @@ import{product}from'../product';
 export class EditproductComponent implements OnInit {
 productform:FormGroup;
 product_id;
+photourl;
 obj:cat[]=[];
+obj1:product[]=[];
   constructor(private _actRoute:ActivatedRoute,private _productdata:ProductService,private _router:Router,private _catdata:CatService) { }
 
   ngOnInit(): void {
@@ -47,22 +50,26 @@ obj:cat[]=[];
         product_garr:data[0].product_garr,
         product_desc:data[0].product_desc,
         product_img1:data[0].product_img1,
-        product_img2:data[0].product_img2,
-        product_img3:data[0].product_img3,
         cat_id_fk:data[0].cat_id_fk
+        
        });
+       
     });
     this._catdata.getAllCat().subscribe((data:cat[])=>{
       this.obj=data;
     });
+    
   }
+  
+
+  
   onSaveClick(){
     this._productdata.editproduct(this.productform.value).subscribe((data:any)=>{
       console.log(data);
       if(data.affectedRows==1)
       {
         alert('data updated succesfully');
-    
+     
       }
       else{
         alert('something went wrong');

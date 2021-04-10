@@ -47,12 +47,9 @@ selectedfile:File=null;
     fd.append('product_warr',this.productform.get('product_warr').value);
     fd.append('product_garr',this.productform.get('product_garr').value);
     fd.append('product_desc',this.productform.get('product_desc').value);
-    //fd.append('product_img1',this.selectedfile,this.selectedfile.name);
-    fd.append('photos',this.selectedfile,this.selectedfile.name);
-    fd.append('photos',this.selectedfile,this.selectedfile.name);
-    fd.append('photos',this.selectedfile,this.selectedfile.name);
-   // fd.append('product_img2',this.productform.get('product_img2').value);
-    //fd.append('product_img3',this.productform.get('product_img3').value);
+    fd.append('product_img1',this.selectedfile,this.selectedfile.name);
+    fd.append('product_img2',this.productform.get('product_img2').value);
+    fd.append('product_img3',this.productform.get('product_img3').value);
     fd.append('cat_id_fk',this.productform.get('cat_id_fk').value);
     console.log(fd);
 

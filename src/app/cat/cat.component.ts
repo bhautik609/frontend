@@ -50,7 +50,7 @@ export class CatComponent implements OnInit,AfterViewInit {
       console.log(data);
       if(data.affectedRows==1)
        {
-         this.obj.splice(this.obj.indexOf((item),1));
+         this.obj.splice(this.obj.indexOf(item),1);
          this.dataSource.data=this.obj;
          alert('deleted Successfully');
        }

@@ -44,7 +44,7 @@ emp_id;
       if(data.affectedRows==1)
       {
         alert('data updated succesfully');
-    
+        this._router.navigate(['/home/emp']);    
       }
       else{
         alert('something went wrong');

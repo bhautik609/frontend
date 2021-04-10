@@ -60,6 +60,7 @@ payment_type:string[]=["cash","credit card","debit card","other payment method"]
       if(data.affectedRows==1)
       {
         alert('data updated succesfully');
+        this._router.navigate(['/home/order']);
     
       }
       else{

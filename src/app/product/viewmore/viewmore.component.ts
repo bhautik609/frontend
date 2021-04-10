@@ -15,7 +15,7 @@ import { CatService } from 'src/app/cat.service';
 })
 export class ViewmoreComponent implements OnInit,AfterViewInit {
   obj:product[]=[];
-  displayedColumns: string[] = ['product_desc','product_img1','product_img2','product_img3','cat_name'];
+  displayedColumns: string[] = ['product_desc','product_img1','cat_name'];
   dataSource: MatTableDataSource<product>;
   @ViewChild(MatPaginator) paginator:MatPaginator;
   @ViewChild(MatSort)sort:MatSort;

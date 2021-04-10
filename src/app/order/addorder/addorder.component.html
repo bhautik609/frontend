@@ -6,17 +6,17 @@
        <input matInput  formControlName="order_id"  placeholder="Enter order ID">
        <mat-error *ngIf="orderform.get('order_id').hasError('required')&&!orderform.get('order_id').pristine"> order id is require</mat-error>
       </mat-form-field>-->
-       <!--<mat-form-field appearance="fill">
+       <mat-form-field appearance="fill">
         <input matInput  formControlName="order_date"  placeholder="Enter order date">
         <mat-error *ngIf="orderform.get('order_date').hasError('required')&&!orderform.get('order_date').pristine"> order date require</mat-error>
-       </mat-form-field>-->
+       </mat-form-field>
 
-       <mat-form-field appearance="fill">
+       <!--<mat-form-field appearance="fill">
         <mat-label>choose order date</mat-label>
         <input matInput [matDatepicker]="picker" formControlName="order_date">
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
-      </mat-form-field>
+      </mat-form-field>-->
         <mat-form-field appearance="fill">
           <span matPrefix>₹ &nbsp;</span>
         <input matInput  formControlName="order_amount"  placeholder="Enter order amount">

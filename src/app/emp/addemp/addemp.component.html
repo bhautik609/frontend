@@ -11,29 +11,30 @@
          <mat-form-field appearance="fill">
           <mat-label>EMPLOYEE NAME</mat-label>
           <input matInput  formControlName="emp_name"  placeholder="Enter emp name">
-          <mat-error *ngIf="empform.get('emp_name').hasError('required')&&!empform.get('emp_name').pristine">employee name is require</mat-error>
+          <mat-error class="alert alert-danger"  *ngIf="empform.get('emp_name').hasError('required')&&!empform.get('emp_name').pristine">employee name is require</mat-error>
          </mat-form-field>
          
           <mat-form-field appearance="fill">
           <mat-label>EMPLOYEE EMAIL</mat-label>
           <input matInput  formControlName="emp_email"  placeholder="Enter emp email">
-          <mat-error *ngIf="empform.get('emp_email').hasError('required')&&!empform.get('emp_email').pristine">employee email is require</mat-error>
-          <mat-error *ngIf="empform.get('emp_email').hasError('email')&&!empform.get('emp_email').pristine">employee email not valid formate</mat-error>
+          <mat-error class="alert alert-danger"  *ngIf="empform.get('emp_email').hasError('required')&&!empform.get('emp_email').pristine">employee email is require</mat-error>
+          <mat-error  class="alert alert-danger" *ngIf="empform.get('emp_email').hasError('email')&&!empform.get('emp_email').pristine">employee email not valid formate</mat-error>
          </mat-form-field>
          
          <mat-form-field appearance="fill">
           <mat-label>EMPLOYEE SALARY</mat-label>
           <span matPrefix>₹ &nbsp;</span>
           <input matInput  formControlName="emp_salary"  placeholder="Enter emp salary">
-          <mat-error *ngIf="empform.get('emp_salary').hasError('required')&&!empform.get('emp_salary').pristine">employeei salary is require</mat-error>
+          <mat-error  class="alert alert-danger" *ngIf="empform.get('emp_salary').hasError('required')&&!empform.get('emp_salary').pristine">employeei salary is require</mat-error>
          </mat-form-field>
          
-         <!--<mat-form-field appearance="fill">
+         <mat-form-field appearance="fill">
           <mat-label>EMPLOYEE JOIN DATE</mat-label>
           <input matInput  formControlName="emp_join_date"  placeholder="dd/mm/yy">
           <mat-error *ngIf="empform.get('emp_join_date').hasError('required')&&!empform.get('emp_join_date').pristine">employee join date is require</mat-error>
-         </mat-form-field>-->
-         <div class="form-group">
+          <mat-datepicker-toggle matSuffix ></mat-datepicker-toggle>
+         </mat-form-field>
+         <!--<div class="form-group">
          <mat-form-field appearance="fill">
           <mat-label>Choose a date</mat-label>
           
@@ -42,7 +43,7 @@
           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
-        </div>
+        </div>-->
         
         
          <br><br>

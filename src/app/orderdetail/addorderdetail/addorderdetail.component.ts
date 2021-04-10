@@ -39,6 +39,7 @@ export class AddorderdetailComponent implements OnInit {
     if(data.affectedRows==1)
     {
       alert('data inserted succesfully');
+      this._router.navigate(['/home/orderdetail']);
     }
     else{
       alert('something went wrong');
