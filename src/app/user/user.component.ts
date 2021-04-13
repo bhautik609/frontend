@@ -6,6 +6,8 @@ import{MatSort}from "@angular/material/sort";
 import { UserService } from '../user.service';
 import { Router } from '@angular/router';
 import{user}from"./user";
+import { MatDialog } from '@angular/material/dialog';
+import { ViewmoruserComponent } from './viewmoruser/viewmoruser.component';
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
@@ -13,14 +15,14 @@ import{user}from"./user";
 })
 export class UserComponent implements OnInit ,AfterViewInit{
 userform:FormGroup;
-displayedColumns: string[] = ['user_password','user_name','user_email','user_age','user_gender','user_mob','user_address','action','edit'];
+displayedColumns: string[] = ['user_password','user_name','user_email','action','edit'];
   dataSource: MatTableDataSource<user>;
   obj:user[]=[];
   value="";
   @ViewChild(MatPaginator) paginator:MatPaginator;
   @ViewChild(MatSort)sort:MatSort;
 
-  constructor(private _userdata:UserService,private _router:Router) {
+  constructor(private _userdata:UserService,private _router:Router,public dialog:MatDialog) {
     this.dataSource=new MatTableDataSource()
    }
    ngAfterViewInit():void{
@@ -70,6 +72,15 @@ displayedColumns: string[] = ['user_password','user_name','user_email','user_age
   }
   addclik(){
     this._router.navigate(['/home/adduser']);
+  }
+  openDialog(item:user){
+    const dialogRef = this.dialog.open(ViewmoruserComponent,
+      {data:{name:item.user_id}});
+
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
   }
 
 }

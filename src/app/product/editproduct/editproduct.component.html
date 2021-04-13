@@ -35,14 +35,15 @@
          <mat-label>PRODUCT DESC</mat-label>
         <input matInput  formControlName="product_desc"  placeholder="Enter product_desc">
        </mat-form-field>
-       
-       <img mat-card-image style="width:125px;height:125px" class="form-control" src="http://localhost:3000/images/product/{{photourl}}">
-    
-       <mat-form-field  appearance="fill">
+         <div class="form-group">
+       <img mat-card-image style="width:125px;height:125px" class="form-control" src="{{photourl}}">
+       <input type="file" (change)="onChange($event)">
+       </div>
+       <!--<mat-form-field  appearance="fill">
          <mat-label>PRODUCT IMG1</mat-label>
         
         <input matInput  formControlName="product_img1"  placeholder="Enter product_img1">
-       </mat-form-field>
+       </mat-form-field>-->
 
        <!--<mat-form-field  appearance="fill">
          <mat-label>PRODUCT IMG2</mat-label>

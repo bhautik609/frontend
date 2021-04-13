@@ -51,6 +51,8 @@ import{ChartsModule}from 'ng2-charts';
 import { ViewmoreComponent } from './product/viewmore/viewmore.component';
 import{MatDialogModule}from '@angular/material/dialog';
 import { FeedbackComponent } from './feedback/feedback.component';
+import { ProfileComponent } from './profile/profile.component';
+import { ViewmoruserComponent } from './user/viewmoruser/viewmoruser.component';
 
 @NgModule({
   declarations: [
@@ -83,6 +85,8 @@ import { FeedbackComponent } from './feedback/feedback.component';
     PagenotfoundComponent,
     ViewmoreComponent,
     FeedbackComponent,
+    ProfileComponent,
+    ViewmoruserComponent,
 
     
   ],

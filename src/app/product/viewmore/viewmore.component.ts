@@ -21,7 +21,7 @@ export class ViewmoreComponent implements OnInit,AfterViewInit {
   @ViewChild(MatSort)sort:MatSort;
   product_id;
   obj2:cat[]=[];
-  constructor(private _catdata:CatService,private _router:Router,private _productdata:ProductService,@Inject(MAT_DIALOG_DATA)  public data:{name:any}){ 
+  constructor(private _catdata:CatService,private _router:Router,private _productdata:ProductService, @Inject(MAT_DIALOG_DATA)  public data:{name:any}){ 
     this.dataSource=new MatTableDataSource()
   }
   ngAfterViewInit():void{
@@ -31,10 +31,13 @@ export class ViewmoreComponent implements OnInit,AfterViewInit {
   }
 
   ngOnInit(): void {
+    console.log(this.data.name);
+    this.product_id=this.data.name;
       //this._productdata.getAllproduct().subscribe((data:product[])=>{
-    this._productdata.getproductbyId(this.data.name).subscribe((data:product[])=>{
-      this.obj=data;
+    this._productdata.getproductbyId(this.product_id).subscribe((data:product[])=>{
       console.log(data);
+      this.obj=data;
+      
       this.dataSource.data=data;
       console.log(this.data.name);
 

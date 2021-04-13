@@ -6,14 +6,15 @@
       <mat-label>USER ID</mat-label>
        <input matInput  formControlName="user_id"  placeholder="Enter user_id">
       </mat-form-field>
-       <mat-form-field  appearance="fill">
-         <mat-label>USER PASSWORD</mat-label>
-        <input matInput  formControlName="user_password"  placeholder="Enter user_password">
-       </mat-form-field>
+       
         <mat-form-field  appearance="fill">
           <mat-label>USER NAME</mat-label>
         <input matInput  formControlName="user_name"  placeholder="Enter user_name">
        </mat-form-field>
+       <mat-form-field  appearance="fill">
+        <mat-label>USER PASSWORD</mat-label>
+       <input matInput  formControlName="user_password"  placeholder="Enter user_password">
+      </mat-form-field>
        <mat-form-field  appearance="fill">
          <mat-label>USER EMAIL</mat-label>
         <input matInput  formControlName="user_email"  placeholder="Enter user_email">
@@ -34,6 +35,14 @@
          <mat-label>USER ADDRESS</mat-label>
         <input matInput  formControlName="user_address"  placeholder="Enter user_address">
        </mat-form-field><br>
+       <mat-form-field  appearance="fill">
+        <mat-label>user_type</mat-label>
+       <input matInput  formControlName="user_type"  placeholder="Enter user_type">
+      </mat-form-field>
+       <div class="form-group">
+        <img mat-card-image style="width:125px;height:125px" class="form-control" src="{{photourl}}">
+        <input type="file" (change)="onChange($event)">
+        </div>
        <!--<button type="submit" class="btn btn-primary">Save</button>
        <button class="btn btn-primary" (click)="cancle()">cancle</button>-->
        <button mat-raised-button color="primary" type="submit" [disabled]="userform.invalid">submit</button>

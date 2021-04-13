@@ -75,5 +75,5 @@ payment_type:string[]=["cash","credit card","debit card","other payment method"]
   cancle(){
    this._router.navigate(['/home/order']);
   }
-
+  
 }

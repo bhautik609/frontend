@@ -46,7 +46,14 @@
        <mat-form-field  appearance="fill">
          <mat-label>USER ADDRESS</mat-label>
         <input matInput  formControlName="user_address"  placeholder="Enter user_address">
-       </mat-form-field><br>
+       </mat-form-field>
+       <mat-form-field  appearance="fill">
+        <mat-label>user_type</mat-label>
+       <input matInput  formControlName="user_type"  placeholder="Enter user_type">
+      </mat-form-field><br>
+      <div class="form-group">
+        <input type="file" (change)="onFileAdd($event)">
+      </div>
        <!--<button type="submit" class="btn btn-primary">Save</button>
        <button class="btn btn-primary" (click)="cancle()">cancle</button>-->
        <button mat-raised-button color="primary" type="submit" [disabled]="userform.invalid">submit</button>

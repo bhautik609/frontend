@@ -22,9 +22,15 @@ delproduct( product_id:number){
 getproductbyId(product_id:number){
   return this._http.get(this.url+product_id);
 }
-editproduct(obj:product){
-  let body=JSON.stringify(obj);
-  let head=new HttpHeaders().set(environment.headname,environment.headvalue);
-  return this._http.put(this.url,body,{headers:head});
+// editproduct(obj:product){
+//   let body=JSON.stringify(obj);
+//   let head=new HttpHeaders().set(environment.headname,environment.headvalue);
+//   return this._http.put(this.url,body,{headers:head});
+// }
+//editproduct(obj:FormData){
+  //return this._http.put(this.url,obj);
+//}
+editproduct(product_id, item) {
+  return this._http.put(this.url + product_id, item);
 }
 }

@@ -22,17 +22,18 @@
            </mat-select>
         </mat-form-field>
 
-         <!--<mat-form-field appearance="fill">
+         <mat-form-field appearance="fill">
           <input matInput  formControlName="del_date"  placeholder="Enter delivery del_date">
           <mat-error *ngIf="deliveryform.get('del_date').hasError('required')&&!deliveryform.get('del_date').pristine">delivery date is require</mat-error>
-         </mat-form-field>-->
+          <mat-datepicker-toggle matSuffix></mat-datepicker-toggle>
+         </mat-form-field>
 
-         <mat-form-field appearance="fill">
+         <!--<mat-form-field appearance="fill">
           <mat-label>Choose a  delivery date</mat-label>
           <input matInput [matDatepicker]="picker" formControlName="del_date">
           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
-        </mat-form-field>
+        </mat-form-field>-->
         
          <!--<mat-form-field>
           <input matInput  formControlName="del_status"  placeholder="Enter delivery status">

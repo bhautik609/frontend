@@ -39,6 +39,7 @@ console.log(this.loginform.value)
       if(data.length==1){
         if(this.obj[0].user_type==0){
           localStorage.setItem("username",this.obj[0].user_email);
+          localStorage.setItem('id',this.obj[0].user_id+'');
           this._router.navigate(['/home']);
         }
         else{

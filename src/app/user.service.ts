@@ -12,11 +12,15 @@ export class UserService {
   getAlluser(){
     return this._http.get(this.url);
   }
-  adduser(obj:user){
-    let body=JSON.stringify(obj);
-    let head=new HttpHeaders().set(environment.headname,environment.headvalue);
-    return this._http.post(this.url,body,{headers:head});
-}
+  adduser(obj:FormData){
+       
+        return this._http.post(this.url,obj);
+   }
+//   adduser(obj:user){
+//     let body=JSON.stringify(obj);
+//     let head=new HttpHeaders().set(environment.headname,environment.headvalue);
+//     return this._http.post(this.url,body,{headers:head});
+// }
 deluser( user_id:number){
   let head=new HttpHeaders().set(environment.headname,environment.headvalue);
   return this._http.delete(this.url+user_id,{headers:head});
@@ -24,10 +28,13 @@ deluser( user_id:number){
 getuserbyId(user_id:number){
   return this._http.get(this.url+user_id);
 }
-edituser(obj:user){
-  let body=JSON.stringify(obj);
-  let head=new HttpHeaders().set(environment.headname,environment.headvalue);
-  return this._http.put(this.url,body,{headers:head});
+// edituser(obj:user){
+//   let body=JSON.stringify(obj);
+//   let head=new HttpHeaders().set(environment.headname,environment.headvalue);
+//   return this._http.put(this.url,body,{headers:head});
+// }
+edituser(user_id, item) {
+  return this._http.put(this.url + user_id, item);
 }
 
 }
