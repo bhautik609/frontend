@@ -1,4 +1,4 @@
-<mat-toolbar color="primary" class="mat-elevation-z8">
+<!--<mat-toolbar color="primary" class="mat-elevation-z8">
     <span><mat-icon>eco</mat-icon>ADMIN</span>
  <div class="s"></div>
     <a mat-button  routerLink= "/home">Home</a>
@@ -42,11 +42,109 @@
       <button mat-menu-item routerLink="/home/adduser">add user</button>
       <button mat-menu-item routerLink="/home/user" >view user</button>
     </mat-menu>
-    <a mat-button  routerLink= "/home/feedback">feedback</a>
+    <a mat-button  routerLink= "/home/feedback">feedback</a>-->
     <!--<a mat-button routerLink="/">logout</a>-->
-    <a mat-button  routerLink= "/home/profile">profile</a>
+    <!--<a mat-button  routerLink= "/home/profile">profile</a>
     <a mat-button (click)="logout()" routerLink="/" >logout</a>
-</mat-toolbar>
+</mat-toolbar>-->
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav">
+    <mat-toolbar><img src="../../assets/logo1.jpg" widht="150px" height="120px" style="margin-top:50px;">
+    </mat-toolbar>
+    <mat-nav-list style="margin-top: 50px;">
+      <a mat-list-item routerLink="//home">
+        <mat-icon>people</mat-icon>Dashboard
+      </a>
+      <!--<a mat-list-item routerLink="/nav/birthday">
+        <mat-icon>mail</mat-icon>Birthday
+      </a>-->
+      <!--<a mat-list-item routerLink="/nav/user">
+        <mat-icon>people</mat-icon>UserDisplay
+      </a>-->
+      <a  mat-list-item [matMenuTriggerFor]="menu7"><mat-icon>people</mat-icon>User</a>
+      <mat-menu #menu7>
+        <button mat-menu-item routerLink="/home/adduser">add user</button>
+        <button mat-menu-item routerLink="/home/user" >view user</button>
+      </mat-menu>
+     
+      <a mat-list-item  [matMenuTriggerFor]="menu3"><mat-icon>people</mat-icon>Employee</a>
+      <mat-menu #menu3>
+        <button mat-menu-item routerLink="/home/addemp">add employee</button>
+        <button mat-menu-item routerLink="/home/emp">view employee</button>
+      </mat-menu>
+      <!--<a mat-list-item routerLink="/nav/product">
+        <mat-icon>card_giftcard</mat-icon>product
+      </a>-->
+      <a mat-list-item [matMenuTriggerFor]="menu6"><mat-icon>card_giftcard</mat-icon>product</a>
+    <mat-menu #menu6>
+      <button mat-menu-item routerLink="/home/addproduct">add product</button>
+      <button mat-menu-item routerLink="/home/product" >view product</button>
+    </mat-menu>
+      <!--<a mat-list-item routerLink="/nav/category">
+        <mat-icon>category</mat-icon>category
+      </a>-->
+      <a mat-list-item  [matMenuTriggerFor]="menu"><mat-icon>category</mat-icon>category</a>
+    <mat-menu #menu>
+      <button mat-menu-item routerLink="/home/addcat" color="blue">add category</button>
+      <button mat-menu-item routerLink="/home/cat">view category</button>
+    </mat-menu>
+
+      <!--<a mat-list-item routerLink="/nav/order">
+        <mat-icon>menu_book</mat-icon>Order
+      </a>-->
+      <a mat-list-item [matMenuTriggerFor]="menu5"><mat-icon>menu_book</mat-icon>Order</a>
+    <mat-menu #menu5>
+      <button mat-menu-item routerLink="/home/addorder">add order</button>
+      <button mat-menu-item routerLink="/home/order" >view order</button>
+    </mat-menu>
+    <a mat-list-item [matMenuTriggerFor]="menu4"><mat-icon>menu_book</mat-icon>orderdetail</a>
+    <mat-menu #menu4>
+      <button mat-menu-item routerLink="/home/addorderdetail">add orderdetail</button>
+      <button mat-menu-item routerLink="/home/orderdetail" >view orderdetail</button>
+    </mat-menu>
+
+      <!--<a mat-list-item routerLink="/nav/track">
+        <mat-icon>local_shipping</mat-icon>Track
+      </a>-->
+
+      <!--<a mat-list-item routerLink="/nav/deliverdetails">
+        <mat-icon>directions_bike</mat-icon>Delivery Details
+      </a>-->
+      <a  mat-list-item [matMenuTriggerFor]="menu2"><mat-icon>directions_bike</mat-icon>Delivery Details</a>
+    <mat-menu #menu2>
+      <button mat-menu-item routerLink="/home/adddelivery">add delivery</button>
+      <button mat-menu-item routerLink="/home/delivery">view delivery</button>
+    </mat-menu>
+      
+      <a mat-list-item routerLink="/home/feedback">
+        <mat-icon>Feedback</mat-icon>Feedback
+      </a>
+      <!--<a mat-list-item routerLink="/nav/WishDetails">
+        <mat-icon>Wishes</mat-icon>Wishes
+      </a>-->
+
+      <a mat-list-item routerLink="/home/profile">
+        <mat-icon>people</mat-icon>My Profile
+      </a>
+      <!--<a mat-list-item (click)="onlogoutclick()">
+        <mat-icon>logout</mat-icon>Logout
+      </a>-->
+      <a  mat-list-item (click)="logout()" routerLink="/" > <mat-icon>logout</mat-icon>Logout</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
+        <mat-icon aria-label="Side nav toggle icon">list</mat-icon>
+      </button>
+      
+      
+      <span> Estore WELCOME :- {{username}} </span>
+     
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
 
 <!--<mat-sidenav-container fullscreen >
   <mat-sidenav #drawer class="mat-elevation-z8">

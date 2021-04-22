@@ -8,9 +8,11 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
   showFiller=false;
+  username;
   constructor( private _router:Router) { }
 
   ngOnInit(): void {
+    this.username=localStorage.getItem('username');
   }
   logout(){
   //this._router.navigate['/'];
