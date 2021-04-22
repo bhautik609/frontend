@@ -48,7 +48,8 @@
     <a mat-button (click)="logout()" routerLink="/" >logout</a>
 </mat-toolbar>-->
 <mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #drawer class="sidenav">
+  <mat-sidenav #drawer class="sidenav"  fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+  [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
     <mat-toolbar><img src="../../assets/logo1.jpg" widht="150px" height="120px" style="margin-top:50px;">
     </mat-toolbar>
     <mat-nav-list style="margin-top: 50px;">
