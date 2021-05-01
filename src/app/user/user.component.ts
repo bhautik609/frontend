@@ -15,7 +15,7 @@ import { ViewmoruserComponent } from './viewmoruser/viewmoruser.component';
 })
 export class UserComponent implements OnInit ,AfterViewInit{
 userform:FormGroup;
-displayedColumns: string[] = ['user_password','user_name','user_email','action','edit'];
+displayedColumns: string[] = ['u_EmailId','user_name','user_type','user_img','action'];
   dataSource: MatTableDataSource<user>;
   obj:user[]=[];
   value="";
@@ -51,6 +51,7 @@ displayedColumns: string[] = ['user_password','user_name','user_email','action',
  
   
   ondelete(item:user){
+    if (confirm("are you want to delete ?")){
     this._userdata.deluser(item.user_id).subscribe((data:any)=>{
       console.log(data);
       if(data.affectedRows==1)
@@ -65,6 +66,7 @@ displayedColumns: string[] = ['user_password','user_name','user_email','action',
      }
 
     });
+  }
 
   }
   edit(item:user){
@@ -75,12 +77,34 @@ displayedColumns: string[] = ['user_password','user_name','user_email','action',
   }
   openDialog(item:user){
     const dialogRef = this.dialog.open(ViewmoruserComponent,
-      {data:{name:item.user_id}});
+      {data:item});
 
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });
   }
-
+  onDeleteAllClick(){
+    this._userdata.deleteAll(this.del_arr).subscribe(
+      (data) => {
+        console.log(data); 
+        for (let i = 0; i < this.del_arr.length; i++) {
+          let x = this.obj.find(x => x.user_id == this.del_arr[i]);
+          this.obj.splice(this.obj.indexOf(x), 1);
+          this.dataSource.data = this.obj;
+          this.dataSource.paginator = this.paginator;
+          this.dataSource.sort = this.sort;
+        }
+      }
+    );
+  }
+  del_arr:number[]=[];
+  onCheckBoxChange(row){
+    if (this.del_arr.find(x => x == row.user_id)) {
+      this.del_arr.splice(this.del_arr.indexOf(row.user_id), 1);
+    }
+    else {
+      this.del_arr.push(row.user_id);
+    }
+  }
 }

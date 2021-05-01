@@ -1,4 +1,4 @@
-table {
+/*table {
     width: 100%;
   }
   
@@ -10,6 +10,44 @@ table {
   td, th {
     width: 10%;
   }
-  .margin{margin-top: 40px;}
+  .margin{margin-top: 40px;}*/
   .pending{color: red;}
   .done{color: green;}
+  table {
+    width: 100%;
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+  
+  td {
+    width: 17%;
+  }
+  
+  tr:hover {
+    background-color: gray;
+    transition: 1s;
+  }
+  
+  #search {
+    width: 100%;
+    margin-left: 10px;
+  }
+  
+  #tableChange {
+    margin-top: 20px;
+  }
+  th {
+    width: 17%;
+    background-color:
+     /* #D2B48C; */darkkhaki;
+     font: bold;
+    color:black;
+  }
+  
+  #addbtnstyle {
+    margin-left: 1450px;
+  }
+  

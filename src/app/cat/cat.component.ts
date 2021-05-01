@@ -13,13 +13,15 @@ import{MatSort}from "@angular/material/sort";
   styleUrls: ['./cat.component.css']
 })
 export class CatComponent implements OnInit,AfterViewInit {
-  displayedColumns: string[] = ['cat_name','action','edit'];
+  displayedColumns: string[] = ['cat_id','cat_name','Action'];
   dataSource: MatTableDataSource<cat>;
   catform:FormGroup;
   obj:cat[]=[];
   value="";
-  @ViewChild(MatPaginator) paginator:MatPaginator;
-  @ViewChild(MatSort)sort:MatSort;
+  /**@ViewChild(MatPaginator) paginator:MatPaginator;
+  @ViewChild(MatSort)sort:MatSort;**/
+  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
+  @ViewChild(MatSort, { static: true }) sort: MatSort;
   constructor(private _catdata:CatService,private _router:Router) {
     console.log(this.obj); 
   this.dataSource=new MatTableDataSource();
@@ -35,6 +37,8 @@ export class CatComponent implements OnInit,AfterViewInit {
       this.obj=data;
       this.dataSource.data=data;
       console.log(data);
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
     });
   }
   applyFilter(event:Event){
@@ -45,7 +49,14 @@ export class CatComponent implements OnInit,AfterViewInit {
       this.dataSource.paginator.firstPage();
     }
   }
+  /*applyFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
+  }**/
    ondelete(item:cat){
+    if (confirm("Are you sure you want to Delete?")){
     this._catdata.deletecat(item.cat_id).subscribe((data:any)=>{
       console.log(data);
       if(data.affectedRows==1)
@@ -61,7 +72,7 @@ export class CatComponent implements OnInit,AfterViewInit {
         
 
   });
-
+    }
 }
 editcat(item:cat){
 this._router.navigate(['/home/editcat',item.cat_id]);
@@ -69,6 +80,30 @@ this._router.navigate(['/home/editcat',item.cat_id]);
 }
 addcat(){
   this._router.navigate(["/home/addcat"]);
+}
+onDeleteAllClick(){
+  this._catdata.deleteAll(this.del_arr).subscribe(
+    (data) => {
+      console.log(data);
+      for (let i = 0; i < this.del_arr.length; i++) {
+        let x = this.obj.find(x => x.cat_id == this.del_arr[i]);
+        this.obj.splice(this.obj.indexOf(x), 1);
+        this.dataSource.data = this.obj;
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
+      }
+    }
+  );
+}
+
+del_arr:number[]=[];
+onCheckBoxChange(row){
+  if (this.del_arr.find(x => x == row.u_EmailId)) {
+    this.del_arr.splice(this.del_arr.indexOf(row.cat_id), 1);
+  }
+  else {
+    this.del_arr.push(row.cat_id);
+  }
 }
 
 

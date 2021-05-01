@@ -8,6 +8,7 @@ import { environment } from "../environments/environment";
 })
 export class CatService {
   url:string='http://localhost:3000/cat/';
+  public deleteUrl:string=environment.url+"catdelete/";
   constructor(private _http:HttpClient) { }
   getAllCat(){
     return this._http.get(this.url);
@@ -24,6 +25,11 @@ deletecat(id:number){
 getcatById(id:number){
   return this._http.get(this.url+id);
 
+}
+deleteAll(item:number[]){
+  let body=JSON.stringify(item);
+  let head=new HttpHeaders().set(environment.headname, environment.headvalue);
+  return this._http.post(this.deleteUrl,body,{headers:head});
 }
 editcat(obj:cat){
   let body=JSON.stringify(obj);

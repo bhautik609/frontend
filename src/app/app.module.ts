@@ -54,7 +54,7 @@ import{MatDialogModule}from '@angular/material/dialog';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ViewmoruserComponent } from './user/viewmoruser/viewmoruser.component';
-
+import{DialogModule}from 'primeng/dialog';
 @NgModule({
   declarations: [
     AppComponent,
@@ -87,8 +87,8 @@ import { ViewmoruserComponent } from './user/viewmoruser/viewmoruser.component';
     ViewmoreComponent,
     FeedbackComponent,
     ProfileComponent,
-    ViewmoruserComponent,
-
+    ViewmoruserComponent
+    
     
   ],
   imports: [
@@ -116,7 +116,8 @@ import { ViewmoruserComponent } from './user/viewmoruser/viewmoruser.component';
     MatNativeDateModule,
     ChartsModule,
     MatDialogModule,
-    MatListModule
+    MatListModule,
+    DialogModule
   
 
 

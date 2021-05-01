@@ -14,7 +14,16 @@
        
        <div class="mat-elevation-z8">
          <table mat-table [dataSource]="dataSource" matSort>-->
-       
+               
+          <ng-container matColumnDef="u_EmailId">
+
+            <th mat-header-cell *matHeaderCellDef>
+              <button mat-raised-button color="warn" (click)="onDeleteAllClick()">Delete Selected</button>
+            </th>
+            <td mat-cell *matCellDef="let row">
+              <input type="checkbox" (change)="onCheckBoxChange(row)">
+            </td>
+          </ng-container>
            <!-- del id -->
            <!--<ng-container matColumnDef="user_id">
              <th mat-header-cell *matHeaderCellDef mat-sort-header>user_id</th>
@@ -22,10 +31,10 @@
            </ng-container>-->
    
            <!--order id _fk-->
-           <ng-container matColumnDef="user_password">
+           <!--<ng-container matColumnDef="user_password">
              <th mat-header-cell *matHeaderCellDef mat-sort-header>USER PASSWORD</th>
              <td mat-cell *matCellDef="let row"> {{row.user_password}} </td>
-           </ng-container>
+           </ng-container>-->
    
            <!--order id _fk-->
            <ng-container matColumnDef="user_name">
@@ -34,10 +43,10 @@
            </ng-container>
      
            <!--order id _fk-->
-           <ng-container matColumnDef="user_email">
+           <!--<ng-container matColumnDef="user_email">
              <th mat-header-cell *matHeaderCellDef mat-sort-header>USER EMAIL</th>
              <td mat-cell *matCellDef="let row"> {{row.user_email}} </td>
-           </ng-container>
+           </ng-container>-->
      
            <!--order id _fk-->
            <!--<ng-container matColumnDef="user_age">
@@ -50,11 +59,18 @@
                <td mat-cell *matCellDef="let row"> {{row.user_gender}} </td>
              </ng-container>-->
    
-             <!--<ng-container matColumnDef="user_mob">
-               <th mat-header-cell *matHeaderCellDef mat-sort-header>USER MOBAIL</th>
-               <td mat-cell *matCellDef="let row"> {{row.user_mob}} </td>
-             </ng-container>-->
+             <ng-container matColumnDef="user_type">
+               <th mat-header-cell *matHeaderCellDef mat-sort-header>USER TYPE</th>
+               <td mat-cell *matCellDef="let row"> {{row.user_type}} </td>
+             </ng-container>
 
+
+             <ng-container matColumnDef="user_img">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>user IMG</th>
+              <td mat-cell *matCellDef="let row">
+              <img src="http://localhost:3000/images/user/{{row.user_img}}" alt="" height="50" width="50">
+            </td>
+            </ng-container>    
              <!--<ng-container matColumnDef="user_address">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header>USER ADDRESS</th>
                 <td mat-cell *matCellDef="let row"> {{row.user_address}} </td>
@@ -63,7 +79,7 @@
              
 
 
-            <ng-container  matColumnDef="action">
+            <!--<ng-container  matColumnDef="action">
              <th mat-header-cell *matHeaderCellDef>DELETE RECORD</th>
              <td mat-cell *matCellDef="let row;let i=index">
               <button mat-icon-button color="accent" (click)="ondelete(row,i)">
@@ -81,6 +97,26 @@
                </button> 
                <button mat-button (click)="openDialog(row,i)">VIEW MORE DETAIL</button>       
                 </td> 
+            </ng-container>-->
+            <ng-container matColumnDef="action">
+              <th mat-header-cell *matHeaderCellDef> Action </th>
+              <td mat-cell *matCellDef="let row">
+                <button color="warn" (click)="ondelete(row,i)" mat-mini-fab aria-label="Example icon-button with a heart icon">
+                  <mat-icon>delete</mat-icon>
+                </button>
+                <button color="primary" (click)="edit(row,i)" mat-mini-fab
+                  aria-label="Example icon-button with a heart icon">
+                  <mat-icon>edit</mat-icon>
+                </button>
+                <button (click)="openDialog(row,i)" mat-mini-fab color="primary"
+                  aria-label="Example icon-button with a heart icon">
+                  <mat-icon>more</mat-icon>
+                </button>
+                <!--<button (click)="onImageEdit(row)" mat-mini-fab color="primary"
+                  aria-label="Example icon-button with a heart icon">
+                  <mat-icon>image</mat-icon>
+                </button>-->
+              </td>
             </ng-container>   
      
             <!--<ng-container  matColumnDef="add">

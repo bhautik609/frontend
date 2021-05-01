@@ -4,8 +4,14 @@
        <form (ngSubmit)="onsubmitClick()" [formGroup]="loginform" class="form-container">
 
             <mat-form-field  appearance="fill">
-                <mat-label>USER ID</mat-label>
-                <input matInput  formControlName="login_username"  placeholder="Enter user id" [(ngModel)]="value" >
+                <mat-label>ENTER EMAIL ID</mat-label>
+                <input matInput  formControlName="login_username"  placeholder="Enter Email id" [(ngModel)]="value" >
+                <mat-error *ngIf="loginform.get('login_username').hasError('required') && !loginform.get('login_username').pristine ">
+                  Email
+                  should not be empty</mat-error>
+                <mat-error *ngIf="loginform.get('login_username').hasError('email') && !loginform.get('login_username').pristine ">
+                  Invalid
+                  Email</mat-error>
                 <mat-icon matPrefix>account_circle&nbsp;</mat-icon>
                 <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
                     <mat-icon>close</mat-icon>
@@ -15,15 +21,88 @@
                <mat-form-field appearance="fill">
                 <mat-label>ENTER USER PASSWORD</mat-label>
                 <input matInput [type]="hide ? 'password' : 'text'"  formControlName="login_password"placeholder="ENTER PASSWORD" >
+                <mat-error
+              *ngIf="loginform.get('login_password').hasError('required') && !loginform.get('login_password').pristine ">
+              password should not be empty</mat-error>
                 <mat-icon matPrefix>lock_outline&nbsp;</mat-icon>
                 <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                 <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                 </button>
               </mat-form-field><br>
-               <button type="submit"   mat-raised-button color="primary" class="b" [disabled]="loginform.invalid">SIGN IN</button> 
+               <button type="submit"   mat-raised-button color="primary" class="b">SIGN IN</button> 
         </form>
+        <p-dialog [(visible)]="notValid">
+          <p-header>
+            Login
+          </p-header>
+          OOPS ! Wrong Details Are Enterd ,Please Check it again and log in.
+          <p-footer>
+          </p-footer>
+        </p-dialog>
         
+        <p-dialog [(visible)]="valid">
+          <p-header>
+            Login
+          </p-header>
+          You Have Successfully Login to the Site.
+          <p-footer>
+            <button type="button" pButton icon="pi pi-times" routerLink="/nav/dashboard" label="OK"
+              class="ui-button-secondary">OK</button>
+          </p-footer>
+        </p-dialog>
+        
+
+        <p-dialog [(visible)]="noDetails">
+          <p-header>
+            Login Details are required
+          </p-header>
+          Email Id and Password Should not be empty
+          <p-footer>
+          </p-footer>
+        </p-dialog>
         
 
 </body>
 </html>
+<!--<div class="bgr_img">
+  <mat-card id="back">
+    <mat-card-title id="log_name">Login</mat-card-title><br><br>
+    <mat-card-content>
+      <form [formGroup]="loginform" (ngSubmit)="onsubmitClick()">
+        <p>
+          <mat-card-title>
+            <img src="../../assets/giftvilla_logo.jpg" height="100px" width="100px" class="img1">
+          </mat-card-title><br><br>
+        </p>
+
+        <p>
+          <mat-form-field appearance="fill">
+            <input matInput formControlName="login_username" placeholder="ENTER EMAIL ID" id="wid_email">
+            <mat-label *ngIf="loginform.get('login_username').hasError('required') && !loginform.get('login_username').pristine ">
+              Email
+              should not be empty</mat-label>
+            <mat-label *ngIf="loginform.get('login_username').hasError('email') && !loginform.get('login_username').pristine ">
+              Invalid
+              Email</mat-label>
+          </mat-form-field><br><br>
+        </p>
+
+        <p>
+          <mat-form-field appearance="fill">
+            <input [type]="hide ? 'password' : 'text'" matInput formControlName="u_password"
+              placeholder="ENTER PASSWORD" id="wid_pass">
+            <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            <mat-label
+              *ngIf="loginform.get('login_password').hasError('required') && !loginform.get('login_password').pristine ">
+              password should not be empty</mat-label>
+          </mat-form-field><br><br>
+        </p>
+
+        <div class="button">
+          <button type="submit" id="btn-style" mat-button color="primary">Log in</button>
+        </div>
+
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>-->

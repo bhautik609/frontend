@@ -8,6 +8,7 @@ import{user}from "./user/user";
 })
 export class UserService {
   url:string='http://localhost:3000/_user/';
+  public deleteUrl: string = environment.url + "userdel/";
   constructor(private _http:HttpClient) { }
   getAlluser(){
     return this._http.get(this.url);
@@ -16,6 +17,11 @@ export class UserService {
        
         return this._http.post(this.url,obj);
    }
+   deleteAll(item: number[]) {
+    let body = JSON.stringify(item);
+    let head = new HttpHeaders().set(environment.headname, environment.headvalue);
+    return this._http.post(this.deleteUrl, body, { headers: head });
+  }
 //   adduser(obj:user){
 //     let body=JSON.stringify(obj);
 //     let head=new HttpHeaders().set(environment.headname,environment.headvalue);

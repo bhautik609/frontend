@@ -8,6 +8,7 @@ import{product}from "./product/product";
 })
 export class ProductService {
   url:string='http://localhost:3000/product/';
+  public deleteUrl: string = environment.url + "productdel/";
   constructor(private _http:HttpClient) { }
   getAllproduct(){
     return this._http.get(this.url);
@@ -32,5 +33,10 @@ getproductbyId(product_id:number){
 //}
 editproduct(product_id, item) {
   return this._http.put(this.url + product_id, item);
+}
+deleteAll(item: number[]) {
+  let body = JSON.stringify(item);
+  let head = new HttpHeaders().set(environment.headname, environment.headvalue);
+  return this._http.post(this.deleteUrl, body, { headers: head });
 }
 }

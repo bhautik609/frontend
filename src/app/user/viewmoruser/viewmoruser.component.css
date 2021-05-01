@@ -1,4 +1,4 @@
-table {
+/*table {
     width: 100%;
   }
   
@@ -15,4 +15,19 @@ table {
   }
   .margin{
     margin-top: 5%;
+  }*/
+  table {
+    width: 100%;
+  }
+  #imgcss
+  {
+    border-radius: 50%;
+  }
+  #detailsdiv
+  {
+    float: left;
+  }
+  #imgdiv
+  {
+    float: right;
   }

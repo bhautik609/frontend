@@ -15,7 +15,7 @@ import { ViewmoreComponent } from './viewmore/viewmore.component';
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent implements OnInit ,AfterViewInit {
-  displayedColumns: string[] = ['product_name','product_color','product_mfd','product_price','product_warr','product_garr','action','edit'];
+  displayedColumns: string[] = ['pro_id','product_name','product_price','product_img1','cat_name','action'];
   dataSource: MatTableDataSource<product>;
 productform:FormGroup;
 obj:product[]=[];
@@ -54,6 +54,7 @@ value="";
 
   }
   ondelete(item:product){
+    if (confirm("are you want to delete ?")){
     this._productdata.delproduct(item.product_id).subscribe((data:any)=>{
       console.log(data);
       if(data.affectedRows==1)
@@ -69,17 +70,40 @@ value="";
 
     });
   }
+  }
   edit(item:product){
     this._router.navigate(['/home/editproduct',item.product_id]);
   }
   openDialog(item:product) {
     const dialogRef = this.dialog.open(ViewmoreComponent,
-      {data:{name:item.product_id}});
+      {data:item});
 
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });
+  }
+  del_arr:number[]=[];
+  onCheckBoxChange(row){
+    if (this.del_arr.find(x => x == row.user_email)) {
+      this.del_arr.splice(this.del_arr.indexOf(row.product_id), 1);
+    }
+    else {
+      this.del_arr.push(row.product_id);
+    }
+  }
+  onDeleteAllClick(){
+    this._productdata.deleteAll(this.del_arr).subscribe(
+      (data) => {
+        for (let i = 0; i < this.del_arr.length; i++) {
+          let x = this.obj.find(x => x.product_id == this.del_arr[i]);
+          this.obj.splice(this.obj.indexOf(x), 1);
+          this.dataSource.data = this.obj;
+          this.dataSource.paginator = this.paginator;
+          this.dataSource.sort = this.sort;
+        }
+      }
+    );
   }
 
 }

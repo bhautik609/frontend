@@ -1,4 +1,4 @@
-table {
+/**table {
     width: 100%;
   }
   
@@ -10,4 +10,49 @@ table {
   td, th {
     width: 10%;
   }
-  .margin{margin-top: 40px;}
+  .margin{margin-top: 40px;}**/
+  table
+  {
+    width:100%;
+  }
+  
+  .mat-form-field {
+    font-size : 14px;
+    width:100%;
+  }
+  
+  td {
+    width:25%;
+  }
+  tr:hover
+  {
+    background-color:gray ;
+  }
+  
+  th{
+    width: 17%;
+    background-color:darkkhaki;
+    color:black;
+  }
+  
+  #search
+  {
+    width: 100%;
+    margin-left: 10px;
+  }
+  
+  #tableChange
+  {
+    margin-top: -20px;
+  }
+  #manage
+  {
+    margin-top: 10px;
+  
+  }
+  
+  /* #addbtnstyle
+  {
+    bottom: 50px;
+    margin-left: 1650px;
+  } */
