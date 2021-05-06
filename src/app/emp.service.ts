@@ -7,6 +7,7 @@ import { environment } from "../environments/environment";
 })
 export class EmpService {
   url:string='http://localhost:3000/emp/';
+  public deleteUrl: string = environment.url + "empdel/";
   constructor(private _http:HttpClient) { }
   getAllemp(){
     return this._http.get(this.url);
@@ -28,6 +29,11 @@ editemp(obj:emp){
   let body=JSON.stringify(obj);
   let head=new HttpHeaders().set(environment.headname,environment.headvalue);
   return this._http.put(this.url,body,{headers:head});
+}
+deleteAll(item: number[]) {
+  let body = JSON.stringify(item);
+  let head = new HttpHeaders().set(environment.headname, environment.headvalue);
+  return this._http.post(this.deleteUrl, body, { headers: head });
 }
 
 

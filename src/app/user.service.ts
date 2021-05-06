@@ -9,6 +9,7 @@ import{user}from "./user/user";
 export class UserService {
   url:string='http://localhost:3000/_user/';
   public deleteUrl: string = environment.url + "userdel/";
+  public urlType: string = environment.url + 'usertype/';
   constructor(private _http:HttpClient) { }
   getAlluser(){
     return this._http.get(this.url);
@@ -41,6 +42,9 @@ getuserbyId(user_id:number){
 // }
 edituser(user_id, item) {
   return this._http.put(this.url + user_id, item);
+}
+getUserAccoringToType(type: string) {
+  return this._http.get(this.urlType + type);
 }
 
 }

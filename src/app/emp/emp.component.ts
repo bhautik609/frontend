@@ -12,7 +12,7 @@ import { Router } from "@angular/router";
   styleUrls: ['./emp.component.css']
 })
 export class EmpComponent implements OnInit ,AfterViewInit{
-  displayedColumns: string[] = ['emp_name','emp_email','emp_salary','emp_join_date','action','edit'];
+  displayedColumns: string[] = ['check','emp_name','emp_email','emp_salary','emp_join_date','action'];
   dataSource: MatTableDataSource<emp>;
 empform:FormGroup;
 obj:emp[]=[];
@@ -52,6 +52,7 @@ flage:boolean=false;
     this.flage=false;
   }
   ondelete(item:emp){
+    if (confirm("are you want to delete ?")){
     this._empdata.delemp(item.emp_id).subscribe((data:any)=>{
       console.log(data);
       if(data.affectedRows==1)
@@ -65,11 +66,36 @@ flage:boolean=false;
         console.log(data);
      }
     });
+    }
   }
   edit(item:emp){
      this._router.navigate(['/home/editemp',item.emp_id]);
     
   }
+  del_arr: number[] = [];
+
+  onchecheckboxchange(row) {
+    if (this.del_arr.find(x => x == row.emp_id)) {
+      this.del_arr.splice(this.del_arr.indexOf(row.emp_id), 1);
+    }
+    else {
+      this.del_arr.push(row.emp_id);
+    }
+  }
+  onDeleteAll() {
+    this._empdata.deleteAll(this.del_arr).subscribe(
+        (data1) => {
+          console.log(data1);
+          for (let i = 0; i < this.del_arr.length; i++) {
+        let x = this.obj.find(x => x.emp_id == this.del_arr[i]);
+            this.obj.splice(this.obj.indexOf(x), 1);
+            this.dataSource.data = this.obj;
+            this.dataSource.paginator = this.paginator;
+            this.dataSource.sort = this.sort;
+          }
+        }
+      );
+   }
   
 
 }

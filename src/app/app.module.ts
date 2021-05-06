@@ -55,6 +55,13 @@ import { FeedbackComponent } from './feedback/feedback.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ViewmoruserComponent } from './user/viewmoruser/viewmoruser.component';
 import{DialogModule}from 'primeng/dialog';
+import{MatCheckboxModule}from '@angular/material/checkbox';
+import { AdddeliveryboyComponent } from './adddeliveryboy/adddeliveryboy.component';
+import { TrackComponent } from './track/track.component';
+import { TrcakdisplayComponent } from './track/trcakdisplay/trcakdisplay.component';
+import { UpdatetrackComponent } from './track/updatetrack/updatetrack.component';
+import { AddassignorderComponent } from './delivery/addassignorder/addassignorder.component';
+import { ViewmororderComponent } from './order/viewmororder/viewmororder.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -87,7 +94,13 @@ import{DialogModule}from 'primeng/dialog';
     ViewmoreComponent,
     FeedbackComponent,
     ProfileComponent,
-    ViewmoruserComponent
+    ViewmoruserComponent,
+    AdddeliveryboyComponent,
+    TrackComponent,
+    TrcakdisplayComponent,
+    UpdatetrackComponent,
+    AddassignorderComponent,
+    ViewmororderComponent
     
     
   ],
@@ -117,7 +130,8 @@ import{DialogModule}from 'primeng/dialog';
     ChartsModule,
     MatDialogModule,
     MatListModule,
-    DialogModule
+    DialogModule,
+    MatCheckboxModule
   
 
 

@@ -9,6 +9,8 @@ import{order}from"./order/order";
 export class OrderService {
 
   url:string='http://localhost:3000/order/';
+  public deleteUrl: string = environment.url + "orderdel/";
+  public urlOrderStatus = environment.url + 'UserOrderCheck/';
   constructor(private _http:HttpClient) { }
   getAllorder(){
     return this._http.get(this.url);
@@ -30,4 +32,13 @@ editorder(obj:order){
   let head=new HttpHeaders().set(environment.headname,environment.headvalue);
   return this._http.put(this.url,body,{headers:head});
 }
+deleteAll(item: number[]) {
+  let body = JSON.stringify(item);
+  let head = new HttpHeaders().set(environment.headname, environment.headvalue);
+  return this._http.post(this.deleteUrl, body, { headers: head });
+}
+getOrderStatus(order_id: number) {
+  return this._http.get(this.urlOrderStatus + order_id);
+}
+
 }

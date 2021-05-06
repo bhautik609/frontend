@@ -1,0 +1,22 @@
+<mat-card class="example-card" id="track">
+    <div class="container">
+      <form [formGroup]="trackAddForm" (ngSubmit)="ontrackAdd()">
+        <div class="form-group" id="t1">
+          <label>Status :- </label>
+          <input type="text" id="t2" class="form-control" placeholder="Enter your status" formControlName="status">
+        </div>
+        <div class="form-group">
+          <label>Detail Id :- </label>
+          <select class="form-control" formControlName="fk_detail_id">
+            <option [selected]="true">--Select Details Id-- </option>
+            <option>1</option>
+            <option>2</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <button [disabled]="!trackAddForm.valid" type="submit" class="btn btn-primary">Add</button>
+          <button class="btn btn-primary" (click)="ontrackCancel()">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </mat-card>

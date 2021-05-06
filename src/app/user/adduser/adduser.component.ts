@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { EmpService } from 'src/app/emp.service';
+import { emp } from 'src/app/emp/emp';
 import { UserService } from 'src/app/user.service';
 import{user}from"../user";
 
@@ -12,20 +14,25 @@ import{user}from"../user";
 export class AdduserComponent implements OnInit {
 userform:FormGroup;
 selectedfile:File=null;
-  constructor(private _userdata:UserService,private _router:Router) { }
+obj:emp[]=[];
+  constructor(private _userdata:UserService,private _router:Router,private _empdata:EmpService) { }
 
   ngOnInit(): void {
     this.userform= new FormGroup({
       //user_id:new FormControl(null,[Validators.required]),
       user_password:new FormControl(null,[Validators.required]),
-      user_name:new FormControl(null,Validators.required),
+      user_name:new FormControl(null,[Validators.required, Validators.minLength(5), Validators.pattern('[a-zA-Z]*')]),
       user_email:new FormControl(null,[Validators.required,Validators.email]),
       user_age:new FormControl(null),
       user_gender:new FormControl(null),
-      user_mob:new FormControl(null),
+      user_mob:new FormControl(null,[Validators.required, Validators.maxLength(10), Validators.pattern('[0-9]*')]),
       user_address:new FormControl(null),
-      user_type:new FormControl(null)
+      user_type:new FormControl('employee')
 
+    });
+    this._empdata.getAllemp().subscribe((data:emp[])=>{
+      this.obj=data;
+      console.log(data);
     });
   }
   onSaveClick(){

@@ -1,0 +1,20 @@
+<mat-card class="example-card" id="track">
+    <div clas="container">
+      <form [formGroup]="track_update" (ngSubmit)="onTrackSubmit()" class="container">
+        <div class="form-group" >
+          <label>Status :- </label>
+          <select formControlName="status" style="margin-left: 2%; width: 90%;" class="from-control" >
+            <option [selected]="track_id">Packing</option>
+            <option [selected]="track_id">On the Way</option>
+            <option [selected]="track_id">Delivered</option>
+          </select>
+        </div>
+        <br>
+        <div class="form-group" >
+          <button type="submit" mat-raised-button color="primary" >UPDATE</button>
+          <button mat-raised-button color="primary" style="margin-left: 2%;" (click)="onTrackCancel()" >Cancel</button>
+        </div>
+      </form>
+    </div>
+    <!-- </div> -->
+  </mat-card>

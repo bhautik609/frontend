@@ -37,9 +37,9 @@ export class EditdeliveryComponent implements OnInit {
       this.deliveryform.patchValue({
        del_id:data[0].del_id,
        order_id_fk:data[0].order_id_fk,
-       emp_id_fk:data[0].emp_id_fk,
+      
        del_date:data[0].del_date,
-       del_status:data[0].del_status,
+      
       });
       this._empdata.getAllemp().subscribe((data:emp[])=>{
         this.obj=data;

@@ -2,6 +2,10 @@
   <mat-icon>add</mat-icon>
 </button>-->
 <h1 style="color: maroon;margin-left: 44%;text-decoration: underline;">USER</h1>
+<label>Choose User Type</label><br>
+<input  style="margin-left: 40%;" type="button" value="All" (click)="AllClick()" style="width: 100px;" class="btn btn-primary">|
+<input type="button" value="Customer" style="width: 100px;" (click)="CustomerClick()" class="btn btn-primary"> |
+<input type="button" value="Employee" style="width: 120px;" (click)="DeliveryBoyClick()" class="btn btn-primary">
  <div class="container">
     <mat-form-field appearance="fill" class="margin">
       <mat-icon matPrefix>search&nbsp;</mat-icon>
@@ -143,4 +147,7 @@
        </div>
       </div> 
        
-     
+      <button mat-raised-button color="primary" routerLink="/home/adddeliveryboy">
+        <mat-icon>add</mat-icon>Add Delivery Boy
+      </button>
+           

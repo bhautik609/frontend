@@ -27,6 +27,11 @@
         <td mat-cell *matCellDef="let row"> {{row.order_id_fk}} </td>
       </ng-container>-->
       <!--order id _fk-->
+
+      <!--<ng-container matColumnDef="user_name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Orderer Name </th>
+        <td mat-cell *matCellDef="let row"> {{row.user_name}} </td>
+      </ng-container>-->
       <ng-container matColumnDef="product_name">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>PRODUCT NAME</th>
         <td mat-cell *matCellDef="let row"> {{row.product_name}} </td>

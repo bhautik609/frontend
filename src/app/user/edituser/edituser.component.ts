@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from 'src/app/user.service';
 import { environment } from 'src/environments/environment';
@@ -14,6 +14,7 @@ userform:FormGroup;
 user_id;
 photourl;
 selectedfile:File=null;
+notValid: boolean = false;
   constructor(private _actRoute:ActivatedRoute,private _userdata:UserService,private _router:Router) { }
 
   ngOnInit(): void {
@@ -40,13 +41,13 @@ selectedfile:File=null;
     this.userform= new FormGroup({
       user_id:new FormControl(null),
       
-      user_name:new FormControl(null),
-      user_password:new FormControl(null),
-      user_email:new FormControl(null),
-      user_age:new FormControl(null),
+      user_name:new FormControl(null,[Validators.required, Validators.minLength(5), Validators.pattern('[a-zA-Z]*')]),
+      user_password:new FormControl(null,[Validators.required,Validators.pattern("/^(?=.*[A-Z](?=.*\d)(?=.*[$@$!%*#?&][A-za-z\d$@$!%*#?&]{8,20}$/")]),
+      user_email:new FormControl(null,[Validators.required,Validators.email]),
+      user_age:new FormControl(null,Validators.required),
       user_gender:new FormControl(null),
-      user_mob:new FormControl(null),
-      user_address:new FormControl(null),
+      user_mob:new FormControl(null,[Validators.required, Validators.maxLength(10), Validators.pattern('[0-9]*')]),
+      user_address:new FormControl(null,Validators.required),
       user_type:new FormControl(null)
     });
   }
@@ -72,6 +73,7 @@ selectedfile:File=null;
       console.log(data);
       if(data.affectedRows==1)
       {
+        //this.notValid = true;
         alert('data updated succesfully');
         this._router.navigate(['home/user']);
       }
@@ -85,6 +87,7 @@ selectedfile:File=null;
 
   }
   cancle(){
+    this.notValid = true;
     this._router.navigate(['home/user']);
   }
   onbind(item:user){

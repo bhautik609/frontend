@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./order.component.css']
 })
 export class OrderComponent implements OnInit ,AfterViewInit{
-  displayedColumns: string[] = ['order_date','order_amount','product_name','user_name','payment_type','payment_status','action','edit'];
+  displayedColumns: string[] = ['check','order_date','order_amount','user_name','payment_type','payment_status','action'];
   dataSource: MatTableDataSource<order>;
 orderform:FormGroup;
 obj:order[]=[];
@@ -36,6 +36,9 @@ value="";
   });
    
   }
+  onViewMore(order_id) {
+    this._router.navigate(['/home/ordermore', order_id]);
+  }
   applyFilter(event:Event){
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
@@ -46,8 +49,9 @@ value="";
   }
  
   ondelete(item:order)
-
+ 
   {
+    if (confirm("are you want to delete ?")){
     this._orderdata.delorder(item.order_id).subscribe((data:any)=>{
       console.log(data);
       if(data.affectedRows==1)
@@ -62,11 +66,37 @@ value="";
      }
     });
   }
+  }
   edit(item:order){
     this._router.navigate(['/home/editorder',item.order_id]);
   }
   addclik(){
     this._router.navigate(["/home/addorder"]);
   }
+  del_arr: number[] = [];
+
+  onchecheckboxchange(row) {
+    if (this.del_arr.find(x => x == row.order_id)) {
+      this.del_arr.splice(this.del_arr.indexOf(row.order_id), 1);
+    }
+    else {
+      this.del_arr.push(row.order_id);
+    }
+  }
+  onDeleteAll() {
+    this._orderdata.deleteAll(this.del_arr).subscribe(
+        (data1) => {
+          console.log(data1);
+          for (let i = 0; i < this.del_arr.length; i++) {
+        let x = this.obj.find(x => x.order_id == this.del_arr[i]);
+            this.obj.splice(this.obj.indexOf(x), 1);
+            this.dataSource.data = this.obj;
+            this.dataSource.paginator = this.paginator;
+            this.dataSource.sort = this.sort;
+          }
+        }
+      );
+   }
+  
  
 }

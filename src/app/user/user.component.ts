@@ -18,6 +18,8 @@ userform:FormGroup;
 displayedColumns: string[] = ['u_EmailId','user_name','user_type','user_img','action'];
   dataSource: MatTableDataSource<user>;
   obj:user[]=[];
+  user_tbl: user[] = [];
+  userType: string;
   value="";
   @ViewChild(MatPaginator) paginator:MatPaginator;
   @ViewChild(MatSort)sort:MatSort;
@@ -105,6 +107,44 @@ displayedColumns: string[] = ['u_EmailId','user_name','user_type','user_img','ac
     }
     else {
       this.del_arr.push(row.user_id);
+    }
+  }
+  AllClick(){
+    this.userType = 'all';
+    this.DropDown();
+  }
+  CustomerClick(){
+    this.userType = '1';
+    this.DropDown();
+  }
+  DeliveryBoyClick(){
+    this.userType = 'employee';
+    this.DropDown();
+  }
+
+  DropDown() {
+    if (this.userType == 'all') {
+      this._userdata.getAlluser().subscribe(
+        (datatype: user[]) => {
+          this.user_tbl = datatype;
+          console.log(datatype);
+          this.dataSource.data = this.user_tbl;
+          this.dataSource.paginator = this.paginator;
+          this.dataSource.sort = this.sort;
+        }
+      );
+    }
+    else {
+      this._userdata.getUserAccoringToType(this.userType).subscribe(
+        (dataSpecific: user[]) => {
+          console.log(dataSpecific);
+          this.user_tbl = dataSpecific;
+        
+          this.dataSource.data = this.user_tbl;
+          this.dataSource.paginator = this.paginator;
+          this.dataSource.sort = this.sort;
+        }
+      );
     }
   }
 }
