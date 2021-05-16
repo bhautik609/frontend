@@ -42,7 +42,7 @@ notValid: boolean = false;
       user_id:new FormControl(null),
       
       user_name:new FormControl(null,[Validators.required, Validators.minLength(5), Validators.pattern('[a-zA-Z]*')]),
-      user_password:new FormControl(null,[Validators.required,Validators.pattern("/^(?=.*[A-Z](?=.*\d)(?=.*[$@$!%*#?&][A-za-z\d$@$!%*#?&]{8,20}$/")]),
+      user_password:new FormControl(null,[Validators.required]),
       user_email:new FormControl(null,[Validators.required,Validators.email]),
       user_age:new FormControl(null,Validators.required),
       user_gender:new FormControl(null),

@@ -7,6 +7,11 @@
          <input matInput  formControlName="emp_id"  placeholder="Enter emp ID" readonly>
          <mat-error *ngIf="empform.get('emp_id').hasError('required')&&!empform.get('emp_id').pristine"> emp id is require</mat-error>
         </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>EMPLOYEE DEGINATION</mat-label>
+          <input matInput  formControlName="emp_deg"  placeholder="Enter emp Degination">
+          <mat-error class="alert alert-danger"  *ngIf="empform.get('emp_deg').hasError('required')&&!empform.get('emp_deg').pristine">employee name is require</mat-error>
+         </mat-form-field>
          <mat-form-field appearance="fill">
            <mat-label>EMP NAME</mat-label>
           <input matInput  formControlName="emp_name"  placeholder="Enter emp name">

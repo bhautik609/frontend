@@ -16,6 +16,29 @@ export class ViewmororderComponent implements OnInit {
 
   ngOnInit(): void {
     this.order_id = this._activated_routes.snapshot.params['order_id'];
+    this.order_id = this._activated_routes.snapshot.params['order_id'];
+    this.orderService.getOrderStatus(this.order_id).subscribe(
+      (dataOrderStauts: any[]) => {
+        console.log(dataOrderStauts);
+        if (dataOrderStauts.length > 0) {
+          this.orderService.getPtroductById(this.order_id).subscribe(
+            (data: order[]) => {
+
+              console.log(data);
+              this.ordermultiple = data;
+
+            });
+        }
+        else {
+          this.orderService.getMyOrderByIdNotAssign(this.order_id).subscribe(
+            (data2: order[]) => {
+              console.log(data2);
+              this.ordermultiple = data2;
+            });
+        }
+      });
+
+  }
   }
 
-}
+

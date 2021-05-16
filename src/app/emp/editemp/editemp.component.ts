@@ -26,6 +26,7 @@ emp_id;
         emp_email:data[0].emp_email,
         emp_salary:data[0].emp_salary,
         emp_join_date:data[0].emp_join_date,
+        emp_deg:data[0].emp_deg
        });
     });
 
@@ -35,7 +36,8 @@ emp_id;
       emp_name:new FormControl(null,Validators.required),
       emp_email:new FormControl(null,[Validators.required,Validators.email]),
       emp_salary:new FormControl(null,Validators.required),
-      emp_join_date:new FormControl(null,Validators.required)
+      emp_join_date:new FormControl(null,Validators.required),
+      emp_deg:new FormControl(null,Validators.required),
     });
   }
   onSaveClick(){

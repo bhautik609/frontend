@@ -1,0 +1,259 @@
+<div class="grid-container">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 col-xl-3">
+          <div class="card bg-c-blue order-card">
+            <div class="card-block">
+              <h6 class="m-b-20">Today's Orders</h6>
+              <h2 class="text-right"><i class="fa fa-cart-plus f-left"></i><span>{{TodaysOrder}}</span></h2>
+            </div>
+          </div>
+        </div>
+        <!--<div class="col-md-4 col-xl-3">
+          <div class="card bg-c-green order-card">
+            <div class="card-block">
+              <h6 class="m-b-20">Today's Cash On Hand</h6>
+              <h2 class="text-right"><i class="fa fa-inr f-left"></i><span>{{TodaysCOH}}</span></h2>
+            </div>
+          </div>
+        </div>-->
+        <div class="col-md-4 col-xl-3">
+          <div class="card bg-c-yellow order-card">
+            <div class="card-block">
+              <h6 class="m-b-20">Total Users</h6>
+              <h2 class="text-right"><i class="fa fa-users f-left"></i><span>{{customerCount}}</span></h2>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-xl-3">
+          <div class="card bg-c-pink order-card">
+            <div class="card-block">
+              <h6 class="m-b-20">Feedbacks</h6>
+              <h2 class="text-right"><i class="fa fa-comments-o f-left"></i><span>{{feedbackCount}}</span></h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+
+
+    <!--<mat-grid-list cols="2" rowHeight="500px">
+      <mat-grid-tile colspan="2" rowspan="1" class="mail">
+        <mat-card class="dashboard-card">
+          <mat-card-header>
+            <mat-card-title>
+              Order Data of 2020 Till Aug-->
+              <!-- Select Year
+              <select (change)="onYearChange()" [(ngModel)]="selectedYear">
+  
+                <option [ngValue]="item" *ngFor="let item of yaerArray">{{item}}</option>
+              </select> -->
+            <!--</mat-card-title>
+          </mat-card-header>
+          <mat-card-content class="dashboard-card-content">
+            <div>
+              <kendo-chart>
+                <kendo-chart-title text="Order data"></kendo-chart-title>
+                <kendo-chart-category-axis>
+                  <kendo-chart-category-axis-item [categories]="['May','Jun','Jul','Aug']" [title]="{ text: 'Months' }">
+                  </kendo-chart-category-axis-item>
+                </kendo-chart-category-axis>
+                <kendo-chart-series>
+                  <kendo-chart-series-item type="line" [data]="orderData">
+                  </kendo-chart-series-item>
+  
+                </kendo-chart-series>
+              </kendo-chart>
+  
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </mat-grid-tile>
+    </mat-grid-list>-->
+    <hr />
+    <mat-grid-list cols="2" rowHeight="500px">
+      <mat-grid-tile colspan="1" rowspan="1" class="mail">
+        <mat-card class="dashboard-card">
+          <mat-card-header>
+            <mat-card-title>
+              Order Status
+            </mat-card-title>
+          </mat-card-header>
+          <mat-card-content class="dashboard-card-content">
+            <div>
+              <!--<kendo-chart title="Status">
+                <kendo-chart-legend position="bottom"></kendo-chart-legend>
+                <kendo-chart-series>
+                  <kendo-chart-series-item type="pie" [data]="pieData" field="value" categoryField="category"
+                    [labels]="{ visible: true, content: labelContent1 }">
+                  </kendo-chart-series-item>
+                </kendo-chart-series>
+              </kendo-chart>-->
+              <canvas baseChart 
+              [data]="pieChartData" field="value" categoryField="category" 
+              [labels]="pieChartLabels" 
+              [chartType]="pieChartType"
+              [options]="pieChartOptions"
+              [plugins]="pieChartPlugins"
+              [legend]="pieChartLegend">
+            </canvas>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </mat-grid-tile>
+      <!--<mat-grid-tile colspan="1" rowspan="1" class="mail">
+        <mat-card class="dashboard-card">
+          <mat-card-header>
+            <mat-card-title>
+              Member and Customer Ratio
+            </mat-card-title>
+          </mat-card-header>
+          <mat-card-content class="dashboard-card-content">
+            <div>
+              <kendo-chart>
+                <kendo-chart-title text="Customer Ratio"></kendo-chart-title>
+                <kendo-chart-category-axis>
+                  <kendo-chart-category-axis-item [categories]="type">
+                  </kendo-chart-category-axis-item>
+                </kendo-chart-category-axis>
+                <kendo-chart-series>
+                  <kendo-chart-series-item type="bar" [data]="c">
+                  </kendo-chart-series-item>
+                </kendo-chart-series>
+              </kendo-chart>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </mat-grid-tile>-->
+      <mat-grid-tile colspan="1" rowspan="1" class="mail">
+        <mat-card class="dashboard-card">
+          <mat-card-header>
+            <mat-card-title>
+              Top 10 Selling Products
+            </mat-card-title>
+          </mat-card-header>
+          <mat-card-content class="dashboard-card-content">
+            <div>
+              <mat-form-field id="search">
+                <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search Record Here">
+              </mat-form-field>
+              <mat-icon>search</mat-icon>
+              <div class="mat-elevation-z8">
+                <table style="width: 100%;" mat-table [dataSource]="dataSource" matSort>
+                  <ng-container matColumnDef="product_id_fk">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Product Id</th>
+                    <td mat-cell *matCellDef="let row"> {{row.product_id_fk}} </td>
+                  </ng-container>
+                  <ng-container matColumnDef="product_name">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Product Name</th>
+                    <td mat-cell *matCellDef="let row"> {{row.product_name}} </td>
+                  </ng-container>
+                  <ng-container matColumnDef="total">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Total Orders</th>
+                    <td mat-cell *matCellDef="let row"> {{row.total}} </td>
+                  </ng-container>
+                  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                  <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+                  </tr>
+                </table>
+                <mat-paginator [pageSizeOptions]="[5, 10]"></mat-paginator>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </mat-grid-tile>
+
+    </mat-grid-list>
+    <hr />
+    <!--<mat-grid-list cols="1" rowHeight="500px">
+      <mat-grid-tile colspan="1" rowspan="1" class="mail">
+        <mat-card class="dashboard-card">
+          <mat-card-header>
+            <mat-card-title>
+              Top 10 Selling Products
+            </mat-card-title>
+          </mat-card-header>
+          <mat-card-content class="dashboard-card-content">
+            <div>
+              <mat-form-field id="search">
+                <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search Record Here">
+              </mat-form-field>
+              <mat-icon>search</mat-icon>
+              <div class="mat-elevation-z8">
+                <table style="width: 100%;" mat-table [dataSource]="dataSource" matSort>
+                  <ng-container matColumnDef="fk_pro_id">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Product Id</th>
+                    <td mat-cell *matCellDef="let row"> {{row.fk_pro_id}} </td>
+                  </ng-container>
+                  <ng-container matColumnDef="pro_name">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Product Name</th>
+                    <td mat-cell *matCellDef="let row"> {{row.pro_name}} </td>
+                  </ng-container>
+                  <ng-container matColumnDef="total">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Total Orders</th>
+                    <td mat-cell *matCellDef="let row"> {{row.total}} </td>
+                  </ng-container>
+                  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                  <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+                  </tr>
+                </table>
+                <mat-paginator [pageSizeOptions]="[5, 10]"></mat-paginator>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </mat-grid-tile>-->
+      <!--<mat-grid-tile colspan="1" rowspan="1" class="mail">
+        <mat-card class="dashboard-card">
+          <mat-card-header>
+            <mat-card-title>
+              Mail Options
+            </mat-card-title>
+          </mat-card-header>
+          <mat-card-content class="dashboard-card-content">
+            <div style="margin-top: 150px;">
+              <button type="button" class="btn btn-outline-danger" style="width:450px;height: 75px;border-radius: 20px;"
+                routerLink="/nav/birthday">Birthday Mail To Users</button>
+            </div>
+  
+          </mat-card-content>
+        </mat-card>
+      </mat-grid-tile>
+    </mat-grid-list>-->
+    <hr />
+  </div>
+  <!--<mat-grid-list cols="2" rowHeight="500px">
+    <mat-grid-tile colspan="2" rowspan="1" class="mail">
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>
+            Order Data of 2020 Till Aug-->
+            <!-- Select Year
+            <select (change)="onYearChange()" [(ngModel)]="selectedYear">
+
+              <option [ngValue]="item" *ngFor="let item of yaerArray">{{item}}</option>
+            </select> -->
+        <!--</mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content">
+          <div>
+            <kendo-chart>
+              <kendo-chart-title text="Order data"></kendo-chart-title>
+              <kendo-chart-category-axis>
+                <kendo-chart-category-axis-item [categories]="['May','Jun','Jul','Aug']" [title]="{ text: 'Months' }">
+                </kendo-chart-category-axis-item>
+              </kendo-chart-category-axis>
+              <kendo-chart-series>
+                <kendo-chart-series-item type="line" [data]="orderData">
+                </kendo-chart-series-item>
+
+              </kendo-chart-series>
+            </kendo-chart>
+
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>-->

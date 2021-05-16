@@ -48,6 +48,7 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import{MatSidenavModule}from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { DateAdapter, MatNativeDateModule, MAT_DATE_FORMATS,MAT_DATE_LOCALE } from '@angular/material/core';
+
 import{ChartsModule}from 'ng2-charts';
 import { ViewmoreComponent } from './product/viewmore/viewmore.component';
 import{MatDialogModule}from '@angular/material/dialog';
@@ -62,6 +63,7 @@ import { TrcakdisplayComponent } from './track/trcakdisplay/trcakdisplay.compone
 import { UpdatetrackComponent } from './track/updatetrack/updatetrack.component';
 import { AddassignorderComponent } from './delivery/addassignorder/addassignorder.component';
 import { ViewmororderComponent } from './order/viewmororder/viewmororder.component';
+import { DashbordComponent } from './dashbord/dashbord.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -100,7 +102,8 @@ import { ViewmororderComponent } from './order/viewmororder/viewmororder.compone
     TrcakdisplayComponent,
     UpdatetrackComponent,
     AddassignorderComponent,
-    ViewmororderComponent
+    ViewmororderComponent,
+    DashbordComponent
     
     
   ],

@@ -1,30 +1,30 @@
-<!--<h1 style="text-align: center;">Order Details</h1>
+<h1 style="text-align: center;">Order Details</h1>
 <div style="width:33%;border-style:double ;float: left;margin-left: 10px;height:auto;"
   *ngFor="let item of ordermultiple">
   <mat-list>
     Email ID:
-    <mat-list-item>{{item.fk_u_EmailId}}</mat-list-item>
+    <mat-list-item>{{item.user_id_fk}}</mat-list-item>
     <mat-divider></mat-divider>
     Bill Date
-    <mat-list-item>{{item.bill_date}}</mat-list-item>
+    <mat-list-item>{{item.order_date}}</mat-list-item>
     <mat-divider></mat-divider>
     Payment Method
-    <mat-list-item>{{item.order_payment}}</mat-list-item>
+    <mat-list-item>{{item.payment_type}}</mat-list-item>
     <mat-divider></mat-divider>
     Special Instruction
     <mat-list-item>{{item.order_spc_instruction}}</mat-list-item>
     <mat-divider></mat-divider>
     Product Name
-    <mat-list-item>{{item.pro_name}}</mat-list-item>
+    <mat-list-item>{{item.product_name}}</mat-list-item>
     <mat-divider></mat-divider>
 
-    <img src="http://localhost:3000/images/product_images/{{item.pro_img}}" height="100px" width="100px">
+    <img src="http://localhost:3000/images/product/{{item.product_img1}}" height="100px" width="100px">
     <mat-divider></mat-divider>
     Price
-    <mat-list-item>{{item.price}}</mat-list-item>
+    <mat-list-item>{{item.product_price}}</mat-list-item>
     <mat-divider></mat-divider>
     Qty
-    <mat-list-item>{{item.qty}}</mat-list-item>
+    <mat-list-item>{{item.order_qty}}</mat-list-item>
     <mat-divider></mat-divider>
     Delivery Boy
     <mat-list-item>{{item.DelID}}</mat-list-item>
@@ -32,7 +32,7 @@
     Delivery Status
     <mat-list-item>{{item.status}}</mat-list-item>
     Total amount
-    <mat-list-item><b>{{item.order_amt}}</b></mat-list-item>
+    <mat-list-item><b>{{item.order_amount}}</b></mat-list-item>
   </mat-list>
 
-</div>-->
+</div>

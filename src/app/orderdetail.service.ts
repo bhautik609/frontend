@@ -8,6 +8,7 @@ import{orderdetail}from "./orderdetail/orderdetail";
 })
 export class OrderdetailService {
   url:string='http://localhost:3000/orderdetail/';
+  public urlMyOrderNotAssign = environment.url + 'MyOrderNotAssign/';
 
   constructor(private _http:HttpClient) { }
   getAllorderdetail(){

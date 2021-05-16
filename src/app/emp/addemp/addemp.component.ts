@@ -30,11 +30,13 @@ export class AddempComponent implements OnInit {
       emp_name:new FormControl(null,Validators.required),
       emp_email:new FormControl(null,[Validators.required,Validators.email]),
       emp_salary:new FormControl(null,Validators.required),
-      emp_join_date:new FormControl(null,Validators.required)
+      emp_join_date:new FormControl(null,Validators.required),
+      emp_deg:new FormControl(null,Validators.required)
     });
   }
   
   onSaveClick(){
+    console.log(this.empform);
     this._empdata.addemp(this.empform.value).subscribe((data:any)=>{
       console.log(data);
       if(data.affectedRows==1)

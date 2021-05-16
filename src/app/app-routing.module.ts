@@ -6,6 +6,7 @@ import { AuthgardService } from './authgard.service';
 import { AddcatComponent } from './cat/addcat/addcat.component';
 import { CatComponent } from './cat/cat.component';
 import { EditcatComponent } from './cat/editcat/editcat.component';
+import { DashbordComponent } from './dashbord/dashbord.component';
 import { AddassignorderComponent } from './delivery/addassignorder/addassignorder.component';
 import { AdddeliveryComponent } from './delivery/adddelivery/adddelivery.component';
 import { DeliveryComponent } from './delivery/delivery.component';
@@ -39,7 +40,8 @@ import { UserComponent } from './user/user.component';
 const routes: Routes = [
   {path:'',component:LoginComponent},
   {path:'home',component:ShellComponent,canActivate:[AuthgardService],children:[
-  {path:'',component:AdmindashbordComponent},
+    {path:'',component:DashbordComponent},
+  {path:'dgdggd',component:AdmindashbordComponent},
   {path:'cat',component:CatComponent,canActivate:[AuthgardService]},
   {path:'delivery',component:DeliveryComponent},
   {path:'editcat/:cat_id',component:EditcatComponent},
